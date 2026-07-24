@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import { triggerRipple } from "../lib/ripple";
+import { Select } from "./Select";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const USER_RANGES = ["1-10", "11-20", "21-50", "51-100", "101-250", "251-500", "500+"];
+const USER_RANGE_OPTIONS = ["1-10", "11-20", "21-50", "50+"].map((range) => ({
+  value: range,
+  label: `${range} users`,
+}));
 
 export function ContactForm({
   title,
@@ -23,6 +27,13 @@ export function ContactForm({
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    if (!users) {
+      setStatus("error");
+      setError("Please select the number of users.");
+      return;
+    }
+
     setStatus("loading");
     setError("");
 
@@ -70,21 +81,13 @@ export function ContactForm({
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
-        <select
-          aria-label="Number of users"
-          required
+        <Select
+          ariaLabel="Number of users"
+          placeholder="Number of users"
           value={users}
-          onChange={(e) => setUsers(e.target.value)}
-        >
-          <option value="" disabled>
-            Number of users
-          </option>
-          {USER_RANGES.map((range) => (
-            <option value={range} key={range}>
-              {range} users
-            </option>
-          ))}
-        </select>
+          onChange={setUsers}
+          options={USER_RANGE_OPTIONS}
+        />
       </div>
       <textarea
         placeholder="Tell us a bit about what you need..."

@@ -35,9 +35,9 @@ export function Pricing() {
         <Reveal
           as="p"
           className="reveal"
-          style={{ color: "var(--text-2)", fontSize: 16, maxWidth: 520, margin: "0 auto 36px" }}
+          style={{ color: "var(--text-2)", fontSize: 18, maxWidth: 520, margin: "0 auto 36px" }}
         >
-          No tiers, no hidden fees — just one straightforward price for your whole team.
+          No tiers, no hidden fees, just one straightforward price for your whole team.
         </Reveal>
 
         <Reveal className="price-card-solo reveal">

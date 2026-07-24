@@ -32,7 +32,7 @@ export function Stats() {
         <Reveal
           as="p"
           className="reveal"
-          style={{ color: "var(--text-2)", fontSize: 16, maxWidth: 560, margin: "12px 0 48px" }}
+          style={{ color: "var(--text-2)", fontSize: 18, maxWidth: 560, margin: "12px 0 48px" }}
         >
           Meagle 360 helps you automate HR processes, reduce manual work, and
           improve employee experience.

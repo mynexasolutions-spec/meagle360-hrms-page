@@ -4,7 +4,7 @@ const FEATURES = [
   {
     tint: "tint-indigo",
     title: "Employee Directory",
-    desc: "Centralize employee data, profiles, and contact information in one place.",
+    desc: "Centralize employee data and contact info in one place.",
     icon: (
       <>
         <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
@@ -16,7 +16,7 @@ const FEATURES = [
   {
     tint: "tint-violet",
     title: "Organization",
-    desc: "Manage departments, designations, and reporting hierarchy with ease.",
+    desc: "Manage departments, designations, and reporting hierarchy.",
     icon: (
       <>
         <rect x="3" y="3" width="7" height="7" />
@@ -47,7 +47,7 @@ const FEATURES = [
   {
     tint: "tint-rose",
     title: "Expenses",
-    desc: "Submit, approve, and reimburse employee expenses without the paperwork.",
+    desc: "Submit, approve, and reimburse expenses without the paperwork.",
     icon: (
       <>
         <rect x="2" y="6" width="20" height="13" rx="2" />

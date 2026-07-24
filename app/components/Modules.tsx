@@ -27,28 +27,6 @@ const MODULES = [
     ),
   },
   {
-    tint: "tint-emerald",
-    title: "Training & Development",
-    desc: "Plan, track and evaluate employee training.",
-    icon: (
-      <>
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-        <path d="M6 12v5c3 2 9 2 12 0v-5" />
-      </>
-    ),
-  },
-  {
-    tint: "tint-amber",
-    title: "Asset Management",
-    desc: "Track and manage company assets & inventory.",
-    icon: (
-      <>
-        <rect x="2" y="7" width="20" height="14" rx="2" />
-        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
-      </>
-    ),
-  },
-  {
     tint: "tint-rose",
     title: "Exit Management",
     desc: "Streamline exit process and final settlements.",
@@ -64,24 +42,24 @@ const MODULES = [
 export function Modules() {
   return (
     <section className="section section-alt" id="modules">
-      <div className="container">
-        <Reveal as="span" className="eyebrow reveal">
-          Complete HR Modules
-        </Reveal>
-        <Reveal
-          as="h2"
-          className="reveal"
-          style={{
-            fontSize: "clamp(28px, 3.4vw, 38px)",
-            letterSpacing: "-0.02em",
-            maxWidth: 600,
-            margin: "0 0 12px",
-          }}
-        >
-          A Complete Suite of HR Management Modules
-        </Reveal>
+      <div className="container modules-grid">
+        <div>
+          <Reveal as="span" className="eyebrow reveal">
+            Complete HR Modules
+          </Reveal>
+          <Reveal
+            as="h2"
+            className="reveal"
+            style={{
+              fontSize: "clamp(28px, 3.4vw, 38px)",
+              letterSpacing: "-0.02em",
+              maxWidth: 600,
+              margin: "0 0 48px",
+            }}
+          >
+            A Complete Suite of HR Management Modules
+          </Reveal>
 
-        <div className="modules-grid">
           <Reveal as="ul" className="module-list reveal-stagger">
             {MODULES.map((m) => (
               <li key={m.title}>
@@ -97,21 +75,21 @@ export function Modules() {
               </li>
             ))}
           </Reveal>
-
-          <Reveal
-            className="dashboard-frame reveal"
-            style={{ maxWidth: 460, margin: "0 auto", width: "100%" }}
-          >
-            <img
-              src="/complete-hr-modules.png"
-              alt="Meagle 360 modules overview"
-              onError={imageFallback}
-            />
-            <div className="frame-fallback" style={{ display: "none" }}>
-              Meagle 360
-            </div>
-          </Reveal>
         </div>
+
+        <Reveal
+          className="dashboard-frame reveal"
+          style={{ maxWidth: 460, margin: "0 auto", width: "100%" }}
+        >
+          <img
+            src="/complete-hr-modules.png"
+            alt="Meagle 360 modules overview"
+            onError={imageFallback}
+          />
+          <div className="frame-fallback" style={{ display: "none" }}>
+            Meagle 360
+          </div>
+        </Reveal>
       </div>
     </section>
   );
