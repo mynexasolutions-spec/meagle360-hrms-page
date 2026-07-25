@@ -2,9 +2,9 @@ const FOOTER_COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Modules", href: "#modules" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "Features", href: "/#features" },
+      { label: "Modules", href: "/#modules" },
+      { label: "Pricing", href: "/#pricing" },
       { label: "Updates", href: "#" },
     ],
   },
@@ -21,9 +21,9 @@ const FOOTER_COLUMNS = [
   {
     title: "Resources",
     links: [
-      { label: "Blog", href: "#" },
+      { label: "Blog", href: "/blog" },
       { label: "Help Center", href: "#" },
-      { label: "FAQ", href: "#faq" },
+      { label: "FAQ", href: "/#faq" },
       { label: "Webinars", href: "#" },
       { label: "Case Studies", href: "#" },
     ],
@@ -46,7 +46,7 @@ export function SiteFooter() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#" className="brand">
+            <a href="/" className="brand">
               <img src="/logo.png" alt="Meagle 360 logo" className="brand-mark" />
               Meagle<span>360</span>
             </a>

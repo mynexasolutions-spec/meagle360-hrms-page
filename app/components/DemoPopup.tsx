@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { ContactForm } from "./ContactForm";
+import { useToast } from "./ToastProvider";
 
 const OPEN_DELAY_MS = 15000;
 
-export function DemoPopup({ onSuccess }: { onSuccess: () => void }) {
+export function DemoPopup() {
   const [open, setOpen] = useState(false);
+  const showToast = useToast();
 
   useEffect(() => {
     const timer = setTimeout(() => setOpen(true), OPEN_DELAY_MS);
@@ -39,7 +41,7 @@ export function DemoPopup({ onSuccess }: { onSuccess: () => void }) {
         <ContactForm
           title="Get a Free Demo"
           onSuccess={() => {
-            onSuccess();
+            showToast("Thanks! Our team will reach out shortly.");
             setOpen(false);
           }}
         />

@@ -2,8 +2,11 @@
 
 import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
+import { useToast } from "./ToastProvider";
 
-export function CtaBanner({ onDemoSubmitted }: { onDemoSubmitted: () => void }) {
+export function CtaBanner() {
+  const showToast = useToast();
+
   return (
     <section id="demo" style={{ padding: "0 0 10px" }}>
       <div className="container" style={{ marginTop: 70 }}>
@@ -38,7 +41,10 @@ export function CtaBanner({ onDemoSubmitted }: { onDemoSubmitted: () => void }) 
               </li>
             </ul>
           </div>
-          <ContactForm title="Request a Free Demo" onSuccess={onDemoSubmitted} />
+          <ContactForm
+            title="Request a Free Demo"
+            onSuccess={() => showToast("Thanks! Our team will reach out shortly.")}
+          />
         </Reveal>
       </div>
     </section>

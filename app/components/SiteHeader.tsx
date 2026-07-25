@@ -1,14 +1,16 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { triggerRipple } from "../lib/ripple";
 
 const NAV_LINKS = [
-  { href: "#", label: "Home", id: "home" },
-  { href: "#features", label: "Features", id: "features" },
-  { href: "#modules", label: "Modules", id: "modules" },
-  { href: "#pricing", label: "Pricing", id: "pricing" },
-  { href: "#faq", label: "FAQ", id: "faq" },
-  { href: "#demo", label: "Contact", id: "demo" },
+  { href: "/", label: "Home", id: "home" },
+  { href: "/#features", label: "Features", id: "features" },
+  { href: "/#modules", label: "Modules", id: "modules" },
+  { href: "/#pricing", label: "Pricing", id: "pricing" },
+  { href: "/#faq", label: "FAQ", id: "faq" },
+  { href: "/blog", label: "Blog", id: "blog" },
+  { href: "/#demo", label: "Contact", id: "demo" },
 ];
 
 export function SiteHeader({
@@ -24,17 +26,25 @@ export function SiteHeader({
   onNavLinkClick: () => void;
   activeNav: string | null;
 }) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isBlog = pathname?.startsWith("/blog");
+
   return (
     <header id="siteHeader" className={scrolled ? "scrolled" : ""}>
       <nav className={`nav${navOpen ? " open" : ""}`} id="mainNav">
-        <a href="#" className="brand">
+        <a href="/" className="brand">
           <img src="/logo.png" alt="Meagle 360 logo" className="brand-mark" />
           Meagle<span>360</span>
         </a>
 
         <div className="nav-links" id="navLinks">
           {NAV_LINKS.map((link) => {
-            const isActive = link.id === "home" ? !activeNav : activeNav === link.id;
+            let isActive = false;
+            if (link.id === "blog") isActive = !!isBlog;
+            else if (link.id === "home") isActive = isHome && !activeNav;
+            else isActive = isHome && activeNav === link.id;
+
             return (
               <a
                 key={link.id}
@@ -51,7 +61,7 @@ export function SiteHeader({
 
         <div className="nav-actions">
           <a
-            href="#demo"
+            href="/#demo"
             className="btn btn-primary"
             style={{ borderRadius: 999, padding: "10px 22px" }}
             onClick={triggerRipple}

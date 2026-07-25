@@ -1,3 +1,5 @@
+"use client";
+
 import { Reveal } from "./Reveal";
 import { imageFallback } from "../lib/ripple";
 
