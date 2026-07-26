@@ -5,10 +5,7 @@ import { triggerRipple } from "../lib/ripple";
 
 const NAV_LINKS = [
   { href: "/", label: "Home", id: "home" },
-  { href: "/#features", label: "Features", id: "features" },
-  { href: "/#modules", label: "Modules", id: "modules" },
   { href: "/#pricing", label: "Pricing", id: "pricing" },
-  { href: "/#faq", label: "FAQ", id: "faq" },
   { href: "/blog", label: "Blog", id: "blog" },
   { href: "/#demo", label: "Contact", id: "demo" },
 ];

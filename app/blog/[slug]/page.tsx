@@ -16,6 +16,12 @@ function formatDate(dateStr: string | null) {
   });
 }
 
+function calculateReadingTime(content: string): number {
+  if (!content) return 1;
+  const words = content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -62,6 +68,8 @@ export default async function BlogPostPage({
 
   const cleanContent = sanitizePostContent(post.content);
   const relatedPosts = await getRelatedPosts(post.category, post.id);
+  const readingTime = calculateReadingTime(post.content);
+  const formattedDate = formatDate(post.published_at || post.created_at);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -76,32 +84,75 @@ export default async function BlogPostPage({
 
   return (
     <SiteChrome>
-      <section className="blog-post-banner" style={{ background: "linear-gradient(135deg, #1e1b4b 0%, var(--primary-dark) 100%)", color: "#fff", padding: "60px 0 40px", minHeight: "260px", display: "flex", alignItems: "center" }}>
-        <div className="container blog-post-banner-inner" style={{ width: "100%" }}>
+      {/* Blog Detail Hero Banner */}
+      <section className="blog-post-banner">
+        <div className="blog-post-banner-bg" />
+        <div className="blog-post-banner-overlay" />
+        <div className="container blog-post-banner-inner">
           <header className="blog-post-header">
-            <h1 className="blog-post-title" style={{ color: "#fff", margin: "0", fontSize: "clamp(28px, 3.4vw, 38px)", letterSpacing: "-0.02em", fontWeight: 800, lineHeight: "1.2" }}>{post.title}</h1>
+            <div className="blog-post-badges">
+              {post.category && (
+                <span className="blog-category-badge">{post.category}</span>
+              )}
+              {formattedDate && (
+                <span className="blog-meta-badge">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  {formattedDate}
+                </span>
+              )}
+              <span className="blog-meta-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                {readingTime} min read
+              </span>
+            </div>
+
+            <h1 className="blog-post-title">{post.title}</h1>
+
+            {post.seo_description && (
+              <p className="blog-post-subtitle">{post.seo_description}</p>
+            )}
           </header>
         </div>
       </section>
 
+      {/* Main Article Body */}
       <section className="section blog-post-body-section">
-        <div className="container">
-          {post.cover_image_url && (
-            <div className="blog-post-cover" style={{ marginBottom: "40px" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={post.cover_image_url} alt={post.cover_image_alt || post.title} style={{ width: "100%", borderRadius: "14px" }} />
-            </div>
-          )}
-          <div className="blog-content" dangerouslySetInnerHTML={{ __html: cleanContent }} />
+        <div className="container blog-post-container">
+          <div className="blog-article-wrapper">
+            {post.cover_image_url && (
+              <div className="blog-post-cover-wrapper">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={post.cover_image_url}
+                  alt={post.cover_image_alt || post.title}
+                  className="blog-post-cover-img"
+                />
+              </div>
+            )}
+
+            <div
+              className="blog-content"
+              dangerouslySetInnerHTML={{ __html: cleanContent }}
+            />
+          </div>
         </div>
       </section>
 
+      {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="section blog-grid-section section-alt">
+        <section className="section blog-related-section">
           <div className="container">
-            <div className="section-head" style={{ marginBottom: "40px", margin: "0 auto 40px", textAlign: "center" }}>
+            <div className="blog-related-head">
               <h2>You might also like</h2>
-              <p>More articles in {post.category}</p>
+              <p>Explore more articles in {post.category || "HR Insights"}</p>
             </div>
             <div className="blog-grid">
               {relatedPosts.map((related) => (

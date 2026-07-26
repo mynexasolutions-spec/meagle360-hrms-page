@@ -2,40 +2,19 @@ const FOOTER_COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "/#features" },
-      { label: "Modules", href: "/#modules" },
       { label: "Pricing", href: "/#pricing" },
-      { label: "Updates", href: "#" },
-    ],
-  },
-  {
-    title: "Solutions",
-    links: [
-      { label: "Small Business", href: "#" },
-      { label: "Mid Size Business", href: "#" },
-      { label: "Enterprises", href: "#" },
-      { label: "Remote Teams", href: "#" },
-      { label: "HR Consultants", href: "#" },
     ],
   },
   {
     title: "Resources",
     links: [
       { label: "Blog", href: "/blog" },
-      { label: "Help Center", href: "#" },
-      { label: "FAQ", href: "/#faq" },
-      { label: "Webinars", href: "#" },
-      { label: "Case Studies", href: "#" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Contact Us", href: "#" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
+      { label: "Contact Us", href: "/#demo" },
     ],
   },
 ];
