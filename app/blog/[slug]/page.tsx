@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import DOMPurify from "isomorphic-dompurify";
 import { SiteChrome } from "../../components/SiteChrome";
 import { getPublishedPostBySlug, getRelatedPosts } from "../../../lib/posts";
 import { BlogCard } from "../../components/BlogCard";
+import { sanitizePostContent } from "../../../lib/sanitize";
 
 export const revalidate = 60;
 
@@ -60,7 +60,7 @@ export default async function BlogPostPage({
   const post = await getPublishedPostBySlug(slug);
   if (!post) notFound();
 
-  const cleanContent = DOMPurify.sanitize(post.content);
+  const cleanContent = sanitizePostContent(post.content);
   const relatedPosts = await getRelatedPosts(post.category, post.id);
 
   const jsonLd = {
