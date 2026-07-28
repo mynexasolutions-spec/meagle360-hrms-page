@@ -33,6 +33,12 @@ export function SiteFooter() {
               Meagle 360 is an all-in-one HR management solution designed to
               simplify and empower your workforce.
             </p>
+            <p className="footer-tagline">
+              A product by{" "}
+              <a href="https://nexa-solutions.in" target="_blank" rel="noopener noreferrer">
+                Nexa Solutions
+              </a>
+            </p>
           </div>
           {FOOTER_COLUMNS.map((col) => (
             <div className="footer-col" key={col.title}>
@@ -48,7 +54,12 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="footer-bottom">&copy; 2026 Meagle 360. All rights reserved.</div>
+        <div className="footer-bottom">
+          &copy; 2026 Meagle 360. All rights reserved. A product by{" "}
+          <a href="https://nexa-solutions.in" target="_blank" rel="noopener noreferrer">
+            Nexa Solutions
+          </a>
+        </div>
       </div>
     </footer>
   );

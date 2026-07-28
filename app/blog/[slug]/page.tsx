@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { SiteChrome } from "../../components/SiteChrome";
 import { getPublishedPostBySlug, getRelatedPosts } from "../../../lib/posts";
 import { BlogCard } from "../../components/BlogCard";
+import { BlogCtaSection } from "../../components/BlogCtaSection";
 import { sanitizePostContent } from "../../../lib/sanitize";
 
 export const revalidate = 60;
@@ -86,14 +87,9 @@ export default async function BlogPostPage({
     <SiteChrome>
       {/* Blog Detail Hero Banner */}
       <section className="blog-post-banner">
-        <div className="blog-post-banner-bg" />
-        <div className="blog-post-banner-overlay" />
         <div className="container blog-post-banner-inner">
           <header className="blog-post-header">
             <div className="blog-post-badges">
-              {post.category && (
-                <span className="blog-category-badge">{post.category}</span>
-              )}
               {formattedDate && (
                 <span className="blog-meta-badge">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -115,10 +111,6 @@ export default async function BlogPostPage({
             </div>
 
             <h1 className="blog-post-title">{post.title}</h1>
-
-            {post.seo_description && (
-              <p className="blog-post-subtitle">{post.seo_description}</p>
-            )}
           </header>
         </div>
       </section>
@@ -162,6 +154,8 @@ export default async function BlogPostPage({
           </div>
         </section>
       )}
+
+      <BlogCtaSection />
 
       <script
         type="application/ld+json"

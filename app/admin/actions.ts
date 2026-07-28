@@ -25,6 +25,19 @@ function friendlyError(message: string) {
   return message;
 }
 
+// Quill sometimes writes non-breaking spaces (as the literal "&nbsp;" entity,
+// or as raw U+00A0 / U+FEFF characters) between ordinary words, most often
+// when pasting from Word/Google Docs/PDF exports. Since a non-breaking
+// space can never be a line-break point, a paragraph full of them becomes
+// one giant unbreakable string, forcing the browser to chop words at
+// arbitrary character positions instead of wrapping at word boundaries.
+// Normalize them to regular spaces before storing.
+const NBSP_PATTERN = new RegExp("&nbsp;|&#160;|&#xa0;|\\u00a0|\\ufeff", "gi");
+
+function normalizeContent(html: string): string {
+  return html.replace(NBSP_PATTERN, " ");
+}
+
 export async function logout() {
   const supabase = await createClient();
   await supabase.auth.signOut();
@@ -44,7 +57,7 @@ export async function createPost(input: PostInput): Promise<{ error?: string; id
       title: input.title.trim(),
       slug: input.slug.trim(),
       category: input.category.trim() || null,
-      content: input.content,
+      content: normalizeContent(input.content),
       cover_image_url: input.cover_image_url.trim() || null,
       cover_image_alt: input.cover_image_alt.trim() || null,
       seo_title: input.seo_title.trim() || null,
@@ -91,7 +104,7 @@ export async function updatePost(
       title: input.title.trim(),
       slug: input.slug.trim(),
       category: input.category.trim() || null,
-      content: input.content,
+      content: normalizeContent(input.content),
       cover_image_url: input.cover_image_url.trim() || null,
       cover_image_alt: input.cover_image_alt.trim() || null,
       seo_title: input.seo_title.trim() || null,

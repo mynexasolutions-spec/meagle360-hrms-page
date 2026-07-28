@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "../components/SiteChrome";
 import { BlogCard } from "../components/BlogCard";
+import { BlogCtaSection } from "../components/BlogCtaSection";
 import { getPublishedPosts } from "../../lib/posts";
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default async function BlogIndexPage() {
           )}
         </div>
       </section>
+      <BlogCtaSection />
     </SiteChrome>
   );
 }
