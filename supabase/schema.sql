@@ -47,3 +47,67 @@ create trigger posts_set_updated_at
   before update on posts
   for each row
   execute function set_updated_at();
+
+-- Jobs Table
+create table if not exists jobs (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  slug text not null unique,
+  department text,
+  location text,
+  job_type text,
+  description text not null default '',
+  expected_salary text,
+  published boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists jobs_published_idx on jobs (published);
+
+alter table jobs enable row level security;
+
+-- Public can read published jobs
+create policy "Public can read published jobs"
+  on jobs for select
+  using (published = true);
+
+-- Admin can manage all jobs
+create policy "Admin can manage all jobs"
+  on jobs for all
+  using (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL')
+  with check (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL');
+
+drop trigger if exists jobs_set_updated_at on jobs;
+create trigger jobs_set_updated_at
+  before update on jobs
+  for each row
+  execute function set_updated_at();
+
+-- Job Applications Table
+create table if not exists job_applications (
+  id uuid primary key default gen_random_uuid(),
+  job_id uuid references jobs(id) on delete cascade,
+  name text not null,
+  email text not null,
+  phone text,
+  expected_salary text,
+  cv_url text not null,
+  created_at timestamptz not null default now()
+);
+
+alter table job_applications enable row level security;
+
+-- Anyone can insert an application
+create policy "Public can insert applications"
+  on job_applications for insert
+  with check (true);
+
+-- Only Admin can read/manage applications
+create policy "Admin can manage all applications"
+  on job_applications for all
+  using (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL')
+  with check (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL');
+
+-- You'll also need to create a storage bucket in Supabase called "cv_uploads"
+-- Ensure it has public insert policies but admin-only read policies.

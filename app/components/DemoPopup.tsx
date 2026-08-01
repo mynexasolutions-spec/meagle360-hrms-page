@@ -5,15 +5,22 @@ import { ContactForm } from "./ContactForm";
 import { useToast } from "./ToastProvider";
 
 const OPEN_DELAY_MS = 15000;
+const DISMISSED_KEY = "demoPopupDismissed";
 
 export function DemoPopup() {
   const [open, setOpen] = useState(false);
   const showToast = useToast();
 
   useEffect(() => {
+    if (localStorage.getItem(DISMISSED_KEY)) return;
     const timer = setTimeout(() => setOpen(true), OPEN_DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
+
+  function close() {
+    localStorage.setItem(DISMISSED_KEY, "1");
+    setOpen(false);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -32,7 +39,7 @@ export function DemoPopup() {
         <button
           className="popup-close"
           aria-label="Close"
-          onClick={() => setOpen(false)}
+          onClick={close}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
             <path d="M18 6L6 18M6 6l12 12" />
@@ -42,7 +49,7 @@ export function DemoPopup() {
           title="Get a Free Demo"
           onSuccess={() => {
             showToast("Thanks! Our team will reach out shortly.");
-            setOpen(false);
+            close();
           }}
         />
       </div>

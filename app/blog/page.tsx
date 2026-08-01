@@ -5,9 +5,26 @@ import { BlogCtaSection } from "../components/BlogCtaSection";
 import { getPublishedPosts } from "../../lib/posts";
 
 export const metadata: Metadata = {
-  title: "Blog | Meagle 360",
+  title: "HR Blog: HRMS Tips, Payroll & HR Best Practices",
   description:
-    "Insights, product updates, and HR best practices from the Meagle 360 team.",
+    "Insights on HRMS software, payroll compliance, attendance management, and HR best practices from the Meagle 360 team.",
+  keywords: [
+    "HRMS blog",
+    "HR best practices",
+    "payroll compliance",
+    "attendance management",
+    "HR software insights",
+  ],
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "HR Blog: HRMS Tips, Payroll & HR Best Practices",
+    description:
+      "Insights on HRMS software, payroll compliance, attendance management, and HR best practices from the Meagle 360 team.",
+    url: "/blog",
+    type: "website",
+  },
 };
 
 export const revalidate = 60;

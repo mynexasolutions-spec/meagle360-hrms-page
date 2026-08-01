@@ -16,6 +16,12 @@ export type Post = {
   updated_at: string;
 };
 
+export function calculateReadingTime(content: string): number {
+  if (!content) return 1;
+  const words = content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
 export function slugify(input: string): string {
   return input
     .toLowerCase()

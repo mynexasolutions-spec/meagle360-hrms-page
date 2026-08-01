@@ -9,26 +9,34 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <div className="admin-main">
-      <header className="admin-topbar">
+      <aside className="admin-sidebar">
         <a href="/" className="brand">
           <img src="/logo.png" alt="Meagle 360 logo" className="brand-mark" />
           Meagle<span>360</span>
         </a>
         {user && (
-          <div className="admin-topbar-actions">
-            <span>{user.email}</span>
-            <a href="/blog" style={{ color: "var(--primary)", fontWeight: 600 }}>
-              View blog
+          <div className="admin-sidebar-nav">
+            <span className="admin-user-email">{user.email}</span>
+            <a href="/admin" style={{ color: "var(--primary)", fontWeight: 600 }}>
+              Blog Posts
             </a>
-            <form action={logout}>
-              <button type="submit" className="btn btn-outline" style={{ padding: "8px 16px" }}>
+            <a href="/admin/jobs" style={{ color: "var(--primary)", fontWeight: 600 }}>
+              Jobs
+            </a>
+            <a href="/admin/applications" style={{ color: "var(--primary)", fontWeight: 600 }}>
+              Applications
+            </a>
+            <form action={logout} style={{ marginTop: "auto" }}>
+              <button type="submit" className="btn btn-outline" style={{ padding: "8px 16px", width: "100%" }}>
                 Log out
               </button>
             </form>
           </div>
         )}
-      </header>
-      {children}
+      </aside>
+      <div className="admin-content">
+        {children}
+      </div>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { getPublishedPostBySlug, getRelatedPosts } from "../../../lib/posts";
 import { BlogCard } from "../../components/BlogCard";
 import { BlogCtaSection } from "../../components/BlogCtaSection";
 import { sanitizePostContent } from "../../../lib/sanitize";
+import { calculateReadingTime } from "../../../lib/blog-types";
 
 export const revalidate = 60;
 
@@ -15,12 +16,6 @@ function formatDate(dateStr: string | null) {
     day: "numeric",
     year: "numeric",
   });
-}
-
-function calculateReadingTime(content: string): number {
-  if (!content) return 1;
-  const words = content.replace(/<[^>]*>/g, " ").trim().split(/\s+/).length;
-  return Math.max(1, Math.ceil(words / 200));
 }
 
 export async function generateMetadata({
