@@ -43,7 +43,7 @@ export function JobApplicationForm({ jobId }: { jobId: string }) {
         </div>
       )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+      <div className="job-apply-form-grid">
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           <label htmlFor="name" style={{ fontSize: 14, fontWeight: 600 }}>Full Name *</label>
           <input 
@@ -68,7 +68,7 @@ export function JobApplicationForm({ jobId }: { jobId: string }) {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+      <div className="job-apply-form-grid">
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           <label htmlFor="phone" style={{ fontSize: 14, fontWeight: 600 }}>Phone Number</label>
           <input 

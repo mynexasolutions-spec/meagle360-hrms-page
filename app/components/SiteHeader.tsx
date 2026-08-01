@@ -59,6 +59,13 @@ export function SiteHeader({
               </a>
             );
           })}
+          <a
+            href="/#demo"
+            className="btn btn-primary nav-mobile-cta"
+            onClick={(e) => { triggerRipple(e); onNavLinkClick(); }}
+          >
+            Request Demo
+          </a>
         </div>
 
         <div className="nav-actions">

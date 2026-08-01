@@ -23,8 +23,8 @@ export default async function JobDetailsPage({ params }: { params: { slug: strin
 
   return (
     <SiteChrome>
-      <main style={{ padding: "120px 0 80px", background: "var(--bg-gray)", minHeight: "100vh" }}>
-        <div className="container" style={{ maxWidth: 900 }}>
+      <main className="job-details-page">
+        <div className="job-details-container">
           <div style={{ marginBottom: 32 }}>
             <a href="/careers" style={{ color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 600, fontSize: 14, textDecoration: "none" }}>
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -35,8 +35,8 @@ export default async function JobDetailsPage({ params }: { params: { slug: strin
           </div>
 
           <div style={{ display: "grid", gap: 32 }}>
-            <div style={{ background: "#fff", padding: "40px", borderRadius: 24, border: "1px solid var(--border)", boxShadow: "var(--shadow-sm)" }}>
-              <h1 style={{ fontSize: "clamp(28px, 4vw, 36px)", margin: "0 0 16px", lineHeight: 1.2 }}>{job.title}</h1>
+            <div className="job-details-card">
+              <h1 style={{ fontSize: "clamp(24px, 4vw, 36px)", margin: "0 0 16px", lineHeight: 1.2 }}>{job.title}</h1>
               
               <div style={{ display: "flex", gap: 24, flexWrap: "wrap", color: "var(--text-2)", fontSize: 15, fontWeight: 500, paddingBottom: 24, borderBottom: "1px solid var(--border)", marginBottom: 24 }}>
                 {job.location && (
@@ -65,7 +65,7 @@ export default async function JobDetailsPage({ params }: { params: { slug: strin
               />
             </div>
 
-            <div id="apply" style={{ background: "#fff", padding: "40px", borderRadius: 24, border: "1px solid var(--border)", boxShadow: "var(--shadow-sm)" }}>
+            <div id="apply" className="job-details-card">
               <h2 style={{ fontSize: 24, margin: "0 0 24px" }}>Apply for this role</h2>
               <JobApplicationForm jobId={job.id} />
             </div>
