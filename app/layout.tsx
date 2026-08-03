@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 const SITE_URL = "https://www.meagle360.com";
-const SITE_TITLE = "Meagle 360: HRMS Software | All-in-One HR Management System";
+const SITE_TITLE = "HRMS Software for Growing Businesses | Meagle 360";
 const SITE_DESCRIPTION =
-  "Meagle 360 is an all-in-one HRMS software that automates attendance, leave, payroll, and every core HR process, empowering employees and driving organizational success.";
+  "All-in-one HRMS for attendance, leave, payroll and employee self-service. Flat ₹149/user/month, no setup fee, live in 5 days. Book a free demo.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
