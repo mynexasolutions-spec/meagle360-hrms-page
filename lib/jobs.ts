@@ -44,7 +44,7 @@ export async function getAllJobs() {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("jobs")
-    .select("id, title, slug, location, job_type, created_at")
+    .select("id, title, slug, location, job_type, created_at, updated_at")
     .eq("published", true)
     .order("created_at", { ascending: false });
 

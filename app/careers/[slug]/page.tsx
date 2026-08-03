@@ -4,6 +4,17 @@ import { JobApplicationForm } from "../../components/careers/JobApplicationForm"
 import type { Metadata } from "next";
 import { SiteChrome } from "../../components/SiteChrome";
 
+const SITE_URL = "https://www.meagle360.com";
+
+function employmentType(jobType: string | null): string {
+  const t = (jobType || "").toLowerCase();
+  if (t.includes("part")) return "PART_TIME";
+  if (t.includes("contract") || t.includes("freelance")) return "CONTRACTOR";
+  if (t.includes("intern")) return "INTERN";
+  if (t.includes("temp")) return "TEMPORARY";
+  return "FULL_TIME";
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const job = await getJobBySlug(params.slug);
   if (!job) return { title: "Job Not Found" };
@@ -11,6 +22,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: `${job.title} | Careers`,
     description: `Apply for the ${job.title} position.`,
+    alternates: {
+      canonical: `/careers/${job.slug}`,
+    },
   };
 }
 
@@ -20,6 +34,48 @@ export default async function JobDetailsPage({ params }: { params: { slug: strin
   if (!job) {
     notFound();
   }
+
+  const jobUrl = `${SITE_URL}/careers/${job.slug}`;
+  const isRemote = (job.location || "").toLowerCase().includes("remote");
+
+  // validThrough is real business data we don't have (no expiry field on the
+  // job record yet) — replace with the actual application deadline.
+  const jobPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.title,
+    description: job.description,
+    datePosted: job.created_at,
+    validThrough: "REPLACE_WITH_VALID_THROUGH_DATE",
+    employmentType: employmentType(job.job_type),
+    hiringOrganization: { "@id": `${SITE_URL}/#organization` },
+    ...(isRemote
+      ? {
+          jobLocationType: "TELECOMMUTE",
+          applicantLocationRequirements: { "@type": "Country", name: "India" },
+        }
+      : {
+          jobLocation: {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: job.location || "REPLACE_WITH_CITY",
+              addressCountry: "IN",
+            },
+          },
+        }),
+    directApply: true,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Careers", item: `${SITE_URL}/careers` },
+      { "@type": "ListItem", position: 3, name: job.title, item: jobUrl },
+    ],
+  };
 
   return (
     <SiteChrome>
@@ -72,6 +128,14 @@ export default async function JobDetailsPage({ params }: { params: { slug: strin
           </div>
         </div>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
     </SiteChrome>
   );
 }

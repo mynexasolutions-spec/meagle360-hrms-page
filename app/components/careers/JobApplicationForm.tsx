@@ -111,9 +111,18 @@ export function JobApplicationForm({ jobId }: { jobId: string }) {
         />
       </div>
 
-      <button 
-        type="submit" 
-        className="btn btn-primary" 
+      <p className="form-consent-line">
+        By submitting, you agree to our{" "}
+        <a href="/privacy" target="_blank" rel="noopener noreferrer">
+          Privacy Policy
+        </a>{" "}
+        and consent to us processing your CV and application details to
+        evaluate your application.
+      </p>
+
+      <button
+        type="submit"
+        className="btn btn-primary"
         disabled={status === "submitting"}
         style={{ marginTop: 8, justifyContent: "center", padding: "14px 24px", fontSize: 16 }}
       >

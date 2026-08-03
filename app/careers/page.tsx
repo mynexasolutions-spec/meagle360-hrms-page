@@ -4,9 +4,31 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteChrome } from "../components/SiteChrome";
 
+const TITLE = "Careers";
+const DESCRIPTION = "Join our team at Meagle 360. Explore our open positions and help us build the future of HR.";
+const SITE_URL = "https://www.meagle360.com";
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Careers", item: `${SITE_URL}/careers` },
+  ],
+};
+
 export const metadata: Metadata = {
-  title: "Careers",
-  description: "Join our team at Meagle 360. Explore our open positions and help us build the future of HR.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: "/careers",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/careers",
+    type: "website",
+  },
 };
 
 export default async function CareersPage() {
@@ -95,6 +117,10 @@ export default async function CareersPage() {
           </div>
         </section>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
     </SiteChrome>
   );
 }

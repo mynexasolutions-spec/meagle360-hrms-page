@@ -8,13 +8,6 @@ export const metadata: Metadata = {
   title: "HR Blog: HRMS Tips, Payroll & HR Best Practices",
   description:
     "Insights on HRMS software, payroll compliance, attendance management, and HR best practices from the Meagle 360 team.",
-  keywords: [
-    "HRMS blog",
-    "HR best practices",
-    "payroll compliance",
-    "attendance management",
-    "HR software insights",
-  ],
   alternates: {
     canonical: "/blog",
   },
@@ -25,9 +18,26 @@ export const metadata: Metadata = {
     url: "/blog",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "HR Blog: HRMS Tips, Payroll & HR Best Practices",
+    description:
+      "Insights on HRMS software, payroll compliance, attendance management, and HR best practices from the Meagle 360 team.",
+  },
 };
 
 export const revalidate = 60;
+
+const SITE_URL = "https://www.meagle360.com";
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+  ],
+};
 
 export default async function BlogIndexPage() {
   const posts = await getPublishedPosts();
@@ -72,6 +82,10 @@ export default async function BlogIndexPage() {
         </div>
       </section>
       <BlogCtaSection />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
     </SiteChrome>
   );
 }

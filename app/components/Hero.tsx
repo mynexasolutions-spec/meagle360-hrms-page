@@ -90,20 +90,7 @@ export function Hero() {
               </div>
             </div>
             <div className="dashboard-frame">
-              <img
-                src="/hrms-image.png"
-                alt="Meagle 360 dashboard preview"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
-                  if (fallback) fallback.style.display = "flex";
-                }}
-              />
-              <div className="frame-fallback" style={{ display: "none" }}>
-                Drop your dashboard screenshot here
-                <br />
-                (hrms-image.png)
-              </div>
+              <img src="/hrms-image.png" alt="Meagle 360 dashboard preview" />
             </div>
             <div className="hero-float-badge hb-2">
               <div

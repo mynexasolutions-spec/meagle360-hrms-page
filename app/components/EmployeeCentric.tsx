@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "./Reveal";
-import { imageFallback } from "../lib/ripple";
 
 const CHECKLIST = [
   "Self-service portal for personal information",
@@ -36,7 +35,7 @@ export function EmployeeCentric() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -72,17 +71,7 @@ export function EmployeeCentric() {
           onMouseLeave={handleMouseLeave}
         >
           <div className="phone-shell" ref={shellRef}>
-            <img
-              src="/left.png"
-              alt="Meagle 360 employee self-service app"
-              onError={imageFallback}
-            />
-            <div
-              className="frame-fallback"
-              style={{ display: "none", alignItems: "center", justifyContent: "center" }}
-            >
-              Employee app preview (left.png)
-            </div>
+            <img src="/left.png" alt="Meagle 360 employee self-service app" />
           </div>
           <div className="float-card float-1">
             <div className="dot tint-emerald">

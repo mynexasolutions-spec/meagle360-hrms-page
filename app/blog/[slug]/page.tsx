@@ -9,6 +9,13 @@ import { calculateReadingTime } from "../../../lib/blog-types";
 
 export const revalidate = 60;
 
+const SITE_URL = "https://www.meagle360.com";
+
+function wordCount(html: string): number {
+  const text = html.replace(/<[^>]*>/g, " ").trim();
+  return text ? text.split(/\s+/).length : 0;
+}
+
 function formatDate(dateStr: string | null) {
   if (!dateStr) return "";
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -31,9 +38,8 @@ export async function generateMetadata({
   const description = post.seo_description || undefined;
 
   return {
-    title: `${title} | Meagle 360 Blog`,
+    title,
     description,
-    keywords: post.seo_keywords || undefined,
     openGraph: {
       title,
       description,
@@ -48,7 +54,7 @@ export async function generateMetadata({
       images: post.cover_image_url ? [post.cover_image_url] : undefined,
     },
     alternates: {
-      canonical: post.canonical_url || undefined,
+      canonical: post.canonical_url || `/blog/${post.slug}`,
     },
   };
 }
@@ -67,15 +73,37 @@ export default async function BlogPostPage({
   const readingTime = calculateReadingTime(post.content);
   const formattedDate = formatDate(post.published_at || post.created_at);
 
+  const postUrl = `${SITE_URL}/blog/${post.slug}`;
+
+  // Author is unverified — replace with the real writer before this goes live.
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
     headline: post.title,
     description: post.seo_description || undefined,
-    image: post.cover_image_url || undefined,
+    image: post.cover_image_url ? [post.cover_image_url] : undefined,
     datePublished: post.published_at || post.created_at,
     dateModified: post.updated_at,
-    author: { "@type": "Organization", name: "Meagle 360" },
+    author: {
+      "@type": "Person",
+      name: "REPLACE_WITH_AUTHOR_NAME",
+      jobTitle: "REPLACE_WITH_AUTHOR_TITLE",
+      url: `${SITE_URL}/authors/REPLACE_WITH_AUTHOR_SLUG`,
+      sameAs: ["https://www.linkedin.com/in/REPLACE_WITH_AUTHOR_LINKEDIN"],
+    },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    wordCount: wordCount(post.content),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: postUrl },
+    ],
   };
 
   return (
@@ -83,6 +111,13 @@ export default async function BlogPostPage({
       {/* Blog Detail Hero Banner */}
       <section className="blog-post-banner">
         <div className="container blog-post-banner-inner">
+          <nav className="breadcrumb-trail" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span className="breadcrumb-sep">/</span>
+            <a href="/blog">Blog</a>
+            <span className="breadcrumb-sep">/</span>
+            <span aria-current="page">{post.title}</span>
+          </nav>
           <header className="blog-post-header">
             <div className="blog-post-badges">
               {formattedDate && (
@@ -155,6 +190,10 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
     </SiteChrome>
   );

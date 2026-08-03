@@ -95,6 +95,14 @@ export function ContactForm({
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
+      <p className="form-consent-line">
+        By submitting, you agree to our{" "}
+        <a href="/privacy" target="_blank" rel="noopener noreferrer">
+          Privacy Policy
+        </a>
+        .
+      </p>
+
       <div className="cta-form-footer">
         <button
           type="submit"

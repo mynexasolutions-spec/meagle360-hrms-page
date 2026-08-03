@@ -5,10 +5,10 @@ import { triggerRipple } from "../lib/ripple";
 
 const NAV_LINKS = [
   { href: "/", label: "Home", id: "home" },
-  { href: "/#pricing", label: "Pricing", id: "pricing" },
+  { href: "/pricing", label: "Pricing", id: "pricing" },
   { href: "/blog", label: "Blog", id: "blog" },
-  { href: "/careers", label: "Careers", id: "careers" },
   { href: "/contact", label: "Contact", id: "contact" },
+  { href: "/careers", label: "Careers", id: "careers" },
 ];
 
 export function SiteHeader({
@@ -27,8 +27,9 @@ export function SiteHeader({
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isBlog = pathname?.startsWith("/blog");
-  const isCareers = pathname?.startsWith("/careers");
   const isContact = pathname === "/contact";
+  const isPricing = pathname === "/pricing";
+  const isCareers = pathname?.startsWith("/careers");
 
   return (
     <header id="siteHeader" className={scrolled ? "scrolled" : ""}>
@@ -42,10 +43,10 @@ export function SiteHeader({
           {NAV_LINKS.map((link) => {
             let isActive = false;
             if (link.id === "blog") isActive = !!isBlog;
-            else if (link.id === "careers") isActive = !!isCareers;
             else if (link.id === "contact") isActive = isContact;
+            else if (link.id === "pricing") isActive = isPricing;
+            else if (link.id === "careers") isActive = !!isCareers;
             else if (link.id === "home") isActive = isHome && !activeNav;
-            else isActive = isHome && activeNav === link.id;
 
             return (
               <a

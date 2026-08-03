@@ -9,7 +9,7 @@ export const FAQS = [
   },
   {
     q: "Is my company's data secure?",
-    a: "All data is encrypted in transit and at rest, backed by role-based access controls and regular independent security audits, so your workforce data stays protected.",
+    a: "All data is encrypted in transit and at rest, backed by role-based access controls, so your workforce data stays protected.",
   },
   {
     q: "Does Meagle 360 handle payroll compliance?",

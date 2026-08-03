@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -9,7 +10,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://meagle360.com";
+const SITE_URL = "https://www.meagle360.com";
 const SITE_TITLE = "Meagle 360: HRMS Software | All-in-One HR Management System";
 const SITE_DESCRIPTION =
   "Meagle 360 is an all-in-one HRMS software that automates attendance, leave, payroll, and every core HR process, empowering employees and driving organizational success.";
@@ -21,20 +22,6 @@ export const metadata: Metadata = {
     template: "%s | Meagle 360",
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    "HRMS",
-    "HRMS software",
-    "HR management system",
-    "HR software",
-    "human resource management software",
-    "payroll software",
-    "attendance management system",
-    "leave management software",
-    "employee management software",
-    "HR automation software",
-    "HR compliance software",
-    "all-in-one HR platform",
-  ],
   authors: [{ name: "Nexa Solutions", url: "https://nexa-solutions.in" }],
   alternates: {
     canonical: "/",
@@ -77,25 +64,8 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Meagle 360",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  description: SITE_DESCRIPTION,
-  url: SITE_URL,
-  publisher: {
-    "@type": "Organization",
-    name: "Nexa Solutions",
-    url: "https://nexa-solutions.in",
-  },
-  offers: {
-    "@type": "Offer",
-    priceCurrency: "INR",
-    category: "SaaS",
-  },
-};
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 
 export default function RootLayout({
   children,
@@ -106,10 +76,23 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body>
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
+        {/* Loads gtag.js only when a real GA4 ID is configured — see
+            .env.example. Conversion events themselves fire from
+            /thank-you via lib/analytics.ts. */}
+        {GA_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+                ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

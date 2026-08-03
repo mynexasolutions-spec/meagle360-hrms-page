@@ -12,7 +12,7 @@ export function CtaBanner() {
       <div className="container" style={{ marginTop: 70 }}>
         <Reveal className="cta-banner reveal">
           <div className="cta-banner-inner">
-            <h3>Ready to Transform Your HR Management?</h3>
+            <h2>Ready to Transform Your HR Management?</h2>
             <p>
               Join 500+ organizations that trust Meagle 360 to manage their most
               valuable asset, their people.

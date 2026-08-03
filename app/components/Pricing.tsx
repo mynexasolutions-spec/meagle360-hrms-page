@@ -2,23 +2,13 @@
 
 import { Reveal } from "./Reveal";
 import { triggerRipple } from "../lib/ripple";
+import { PRICING_FEATURES } from "../../lib/pricing-data";
 
 const CHECK = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
     <path d="M20 6L9 17l-5-5" />
   </svg>
 );
-
-const FEATURES = [
-  "Unlimited employees",
-  "Attendance, leave & payroll automation",
-  "Employee self-service portal",
-  "Priority support + onboarding",
-  "Shift & roster management",
-  "Expense & reimbursement tracking",
-  "Custom reports & analytics",
-  "Bank-grade data security",
-];
 
 export function Pricing() {
   return (
@@ -57,9 +47,9 @@ export function Pricing() {
           </div>
 
           <div className="price-card-solo-features">
-            <h4>Everything your team needs</h4>
+            <h3>Everything your team needs</h3>
             <ul className="price-features-grid">
-              {FEATURES.map((f) => (
+              {PRICING_FEATURES.map((f) => (
                 <li key={f}>
                   {CHECK}
                   {f}

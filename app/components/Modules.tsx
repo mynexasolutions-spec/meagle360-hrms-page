@@ -71,7 +71,7 @@ export function Modules() {
                   </svg>
                 </div>
                 <div>
-                  <h4>{m.title}</h4>
+                  <h3>{m.title}</h3>
                   <p>{m.desc}</p>
                 </div>
               </li>

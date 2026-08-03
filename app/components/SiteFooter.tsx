@@ -1,21 +1,30 @@
+import { FEATURE_PAGES } from "../../lib/features-data";
+
 const FOOTER_COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "Pricing", href: "/#pricing" },
+      ...FEATURE_PAGES.slice(0, 4).map((f) => ({ label: f.navLabel, href: `/features/${f.slug}` })),
     ],
   },
   {
-    title: "Resources",
+    title: "More Features",
     links: [
-      { label: "Blog", href: "/blog" },
+      ...FEATURE_PAGES.slice(4).map((f) => ({ label: f.navLabel, href: `/features/${f.slug}` })),
+      { label: "Pricing", href: "/pricing" },
+      { label: "Book a Demo", href: "/demo" },
     ],
   },
   {
-    title: "Company",
+    title: "Company & Resources",
     links: [
+      { label: "About Us", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Contact Us", href: "/contact" },
+      { label: "Blog", href: "/blog" },
+      { label: "Security", href: "/security" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
     ],
   },
 ];
@@ -27,7 +36,7 @@ export function SiteFooter() {
         <div className="footer-grid">
           <div className="footer-brand">
             <a href="/" className="brand">
-              <img src="/logo.png" alt="Meagle 360 logo" className="brand-mark" />
+              <img src="/logo.png" alt="Meagle 360 logo" className="brand-mark" style={{ background: "#fff", padding: "4px", borderRadius: "8px" }} />
               Meagle<span>360</span>
             </a>
             <p>
@@ -56,10 +65,12 @@ export function SiteFooter() {
         </div>
 
         <div className="footer-bottom">
-          &copy; 2026 Meagle 360. All rights reserved. A product by{" "}
-          <a href="https://nexa-solutions.in" target="_blank" rel="noopener noreferrer">
-            Nexa Solutions
-          </a>
+          <span>
+            &copy; 2026 Meagle 360. All rights reserved. A product by{" "}
+            <a href="https://nexa-solutions.in" target="_blank" rel="noopener noreferrer">
+              Nexa Solutions
+            </a>
+          </span>
         </div>
       </div>
     </footer>

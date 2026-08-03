@@ -2,12 +2,21 @@ import type { Metadata } from "next";
 import { SiteChrome } from "../components/SiteChrome";
 import { CtaBanner } from "../components/CtaBanner";
 
+const TITLE = "Contact Us";
+const DESCRIPTION =
+  "Get in touch with the Meagle 360 team to request a demo, ask a question, or talk to us about your HR needs.";
+
 export const metadata: Metadata = {
-  title: "Contact Us",
-  description:
-    "Get in touch with the Meagle 360 team to request a demo, ask a question, or talk to us about your HR needs.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: {
     canonical: "/contact",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/contact",
+    type: "website",
   },
 };
 

@@ -17,21 +17,23 @@ export function AnimatedCounter({
 }) {
   const Component = as ?? "span";
   const ref = useRef<HTMLElement>(null);
-  const [value, setValue] = useState("0");
+  // Seed state with the real final value so it's what gets server-rendered
+  // and what crawlers/no-JS visitors see. The count-up animation, when it
+  // runs, temporarily overwrites this client-side after hydration.
+  const finalValue = count.toFixed(decimals) + suffix;
+  const [value, setValue] = useState(finalValue);
   const started = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
     function animate() {
-      const reduceMotion =
-        typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduceMotion) {
-        setValue(count.toFixed(decimals) + suffix);
-        return;
-      }
       const duration = 1400;
       let start: number | null = null;
       function step(ts: number) {
@@ -41,7 +43,7 @@ export function AnimatedCounter({
         const val = count * eased;
         setValue(val.toFixed(decimals) + suffix);
         if (progress < 1) requestAnimationFrame(step);
-        else setValue(count.toFixed(decimals) + suffix);
+        else setValue(finalValue);
       }
       requestAnimationFrame(step);
     }
