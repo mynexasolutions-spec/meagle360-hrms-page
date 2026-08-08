@@ -111,3 +111,28 @@ create policy "Admin can manage all applications"
 
 -- You'll also need to create a storage bucket in Supabase called "cv_uploads"
 -- Ensure it has public insert policies but admin-only read policies.
+
+-- Contact Form Submissions Table
+create table if not exists contact_submissions (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  phone text not null,
+  users text,
+  message text,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists contact_submissions_created_at_idx on contact_submissions (created_at desc);
+
+alter table contact_submissions enable row level security;
+
+-- Anyone can insert a contact form submission
+create policy "Public can insert contact submissions"
+  on contact_submissions for insert
+  with check (true);
+
+-- Only Admin can read/manage contact submissions
+create policy "Admin can manage all contact submissions"
+  on contact_submissions for all
+  using (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL')
+  with check (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL');

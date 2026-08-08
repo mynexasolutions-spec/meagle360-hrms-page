@@ -26,6 +26,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <a href="/admin/applications" style={{ color: "var(--primary)", fontWeight: 600 }}>
               Applications
             </a>
+            <a href="/admin/leads" style={{ color: "var(--primary)", fontWeight: 600 }}>
+              Leads
+            </a>
             <form action={logout} style={{ marginTop: "auto" }}>
               <button type="submit" className="btn btn-outline" style={{ padding: "8px 16px", width: "100%" }}>
                 Log out

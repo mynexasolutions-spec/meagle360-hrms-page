@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { createClient } from "../../../utils/supabase/server";
 
 const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "info@meagle360.com";
 
@@ -27,6 +28,22 @@ export async function POST(request: Request) {
       { error: "Name, phone number, and number of users are required." },
       { status: 400 },
     );
+  }
+
+  // Save the lead so it shows up in the admin dashboard, independent of the
+  // email flow below. A DB failure here must never block the email send —
+  // email delivery is what the user actually depends on.
+  try {
+    const supabase = await createClient();
+    const { error: dbError } = await supabase
+      .from("contact_submissions")
+      .insert({ name, phone, users, message: message || null });
+
+    if (dbError) {
+      console.error("Failed to save contact submission:", dbError);
+    }
+  } catch (err) {
+    console.error("Failed to save contact submission:", err);
   }
 
   const {
