@@ -14,8 +14,9 @@ export function CtaBanner() {
           <div className="cta-banner-inner">
             <h2>Ready to Transform Your HR Management?</h2>
             <p>
-              Join 500+ organizations that trust Meagle 360 to manage their most
-              valuable asset, their people.
+              Run attendance, leave and payroll on one platform, and give
+              your team a system they'll actually trust with their most
+              valuable asset: their people.
             </p>
             <ul className="cta-contact-info">
               <li>

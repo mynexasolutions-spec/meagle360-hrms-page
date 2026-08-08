@@ -102,8 +102,8 @@ export function Hero() {
                 </svg>
               </div>
               <div>
-                +128 New Hires
-                <small>Onboarded this quarter</small>
+                Live in 5 Days
+                <small>Average time to first payroll run</small>
               </div>
             </div>
             <div className="hero-float-badge hb-3">

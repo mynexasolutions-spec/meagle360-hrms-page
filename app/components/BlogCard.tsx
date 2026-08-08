@@ -21,7 +21,7 @@ export function BlogCard({ post }: { post: Post }) {
         )}
         {post.cover_image_url && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={post.cover_image_url} alt="" />
+          <img src={post.cover_image_url} alt={post.cover_image_alt || post.title} />
         )}
       </div>
       <div className="blog-card-body">
