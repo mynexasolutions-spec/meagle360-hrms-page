@@ -3298,28 +3298,33 @@
   align-items: center;
   gap: 20px;
   background: #fff;
-  padding: 24px 28px;
-  border-radius: 16px;
+  padding: 26px 28px;
+  border-radius: 18px;
   border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   transition: all 0.2s ease;
   text-decoration: none;
   color: inherit;
 }
 .job-card:hover {
   border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 .job-card-icon {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   background: var(--primary-light);
   color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease;
+}
+.job-card:hover .job-card-icon {
+  transform: scale(1.06) rotate(-4deg);
 }
 .job-card-body {
   flex: 1;
@@ -3327,30 +3332,44 @@
 }
 .job-card-body h3 {
   font-size: 19px;
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   color: var(--text-1);
 }
 .job-card-meta {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   flex-wrap: wrap;
-  color: var(--text-2);
-  font-size: 14px;
-  font-weight: 500;
 }
-.job-card-meta span {
+.job-meta-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  background: var(--bg-alt, #f8fafc);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 .job-card-cta {
   flex-shrink: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  color: var(--primary);
+  justify-content: center;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
   font-weight: 600;
   font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+  transition: all 0.2s ease;
+}
+.job-card:hover .job-card-cta {
+  background: var(--primary-dark);
+  box-shadow: 0 8px 22px rgba(79, 70, 229, 0.4);
 }
 
 @media (max-width: 640px) {
@@ -3360,7 +3379,6 @@
   }
   .job-card-cta {
     width: 100%;
-    justify-content: flex-end;
   }
 }
 

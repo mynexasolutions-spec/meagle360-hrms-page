@@ -19,11 +19,25 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const job = await getJobBySlug(params.slug);
   if (!job) return { title: "Job Not Found" };
 
+  const title = `${job.title} | Careers`;
+  const description = `Apply for the ${job.title} position.`;
+
   return {
-    title: `${job.title} | Careers`,
-    description: `Apply for the ${job.title} position.`,
+    title,
+    description,
     alternates: {
       canonical: `/careers/${job.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/careers/${job.slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -38,15 +52,20 @@ export default async function JobDetailsPage({ params }: { params: { slug: strin
   const jobUrl = `${SITE_URL}/careers/${job.slug}`;
   const isRemote = (job.location || "").toLowerCase().includes("remote");
 
-  // validThrough is real business data we don't have (no expiry field on the
-  // job record yet) — replace with the actual application deadline.
+  // No explicit expiry field on the job record yet, so default to 90 days
+  // after posting (Google requires a validThrough for JobPosting eligibility).
+  // Replace with the real application deadline once that field exists.
+  const validThrough = new Date(
+    new Date(job.created_at).getTime() + 90 * 24 * 60 * 60 * 1000,
+  ).toISOString();
+
   const jobPostingJsonLd = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
     title: job.title,
     description: job.description,
     datePosted: job.created_at,
-    validThrough: "REPLACE_WITH_VALID_THROUGH_DATE",
+    validThrough,
     employmentType: employmentType(job.job_type),
     hiringOrganization: { "@id": `${SITE_URL}/#organization` },
     ...(isRemote

@@ -3,7 +3,7 @@ import { SiteChrome } from "../components/SiteChrome";
 import { DemoRequestForm } from "../components/DemoRequestForm";
 import { FaqAccordion } from "../components/FaqAccordion";
 
-const TITLE = "Book a Free Demo";
+const TITLE = "Book a Free HRMS Demo | See Meagle 360 in 15 Minutes";
 const DESCRIPTION =
   "See Meagle 360 in 15 minutes. A live, no-pressure walkthrough of attendance, leave, payroll and self-service tailored to your team.";
 const SITE_URL = "https://www.meagle360.com";
@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: "/demo",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 

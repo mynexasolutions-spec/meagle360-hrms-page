@@ -9,7 +9,7 @@ export function BlogCtaSection() {
               See how Meagle 360 can help you manage attendance, payroll, and
               your people, all in one place.
             </p>
-            <a href="/#demo" className="btn btn-white">
+            <a href="/contact" className="btn btn-white">
               Request a Free Demo
             </a>
           </div>

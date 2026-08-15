@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     url: "/privacy",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function PrivacyPage() {
@@ -136,9 +141,10 @@ export default function PrivacyPage() {
                 <a href="mailto:info@meagle360.com">info@meagle360.com</a>.
               </p>
               <p>
-                Grievance Officer: REPLACE_WITH_GRIEVANCE_OFFICER_NAME
+                Grievance Officer contact:{" "}
+                <a href="tel:+918077313241">+91 80773 13241</a>
                 <br />
-                Registered address: REPLACE_WITH_REGISTERED_ADDRESS
+                Registered address: New Delhi, India
               </p>
             </div>
           </div>

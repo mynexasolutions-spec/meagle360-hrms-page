@@ -13,6 +13,9 @@ const FOOTER_COLUMNS = [
       ...FEATURE_PAGES.slice(4).map((f) => ({ label: f.navLabel, href: `/features/${f.slug}` })),
       { label: "Pricing", href: "/pricing" },
       { label: "Book a Demo", href: "/demo" },
+      { label: "Keka Alternative", href: "/alternatives/keka-alternative" },
+      { label: "greytHR Alternative", href: "/alternatives/greythr-alternative" },
+      { label: "HRMS for Startups", href: "/solutions/hrms-for-startups" },
     ],
   },
   {

@@ -10,6 +10,7 @@ export type Post = {
   seo_description: string | null;
   seo_keywords: string | null;
   canonical_url: string | null;
+  faq_json: { q: string; a: string }[] | null;
   published: boolean;
   published_at: string | null;
   created_at: string;

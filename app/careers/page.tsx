@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     url: "/careers",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default async function CareersPage() {
@@ -86,8 +91,8 @@ export default async function CareersPage() {
                       <h3>{job.title}</h3>
                       <div className="job-card-meta">
                         {job.location && (
-                          <span>
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <span className="job-meta-pill">
+                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
@@ -95,8 +100,8 @@ export default async function CareersPage() {
                           </span>
                         )}
                         {job.job_type && (
-                          <span>
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <span className="job-meta-pill">
+                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             {job.job_type}
@@ -104,12 +109,7 @@ export default async function CareersPage() {
                         )}
                       </div>
                     </div>
-                    <div className="job-card-cta">
-                      View Details
-                      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
+                    <span className="job-card-cta">View Details</span>
                   </Link>
                 ))
               )}

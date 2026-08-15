@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "../components/SiteChrome";
 
-const TITLE = "About Us";
+const TITLE = "About Meagle 360 — Built by Nexa Solutions, Noida";
 const DESCRIPTION =
   "Meagle 360 is built by Nexa Solutions for companies that outgrew spreadsheets. Meet the team and learn how to reach us.";
 const SITE_URL = "https://www.meagle360.com";
@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: "/about",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 

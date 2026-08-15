@@ -61,10 +61,10 @@ export function Hero() {
             success.
           </p>
           <div className="hero-actions">
-            <a href="#demo" className="btn btn-primary" onClick={triggerRipple}>
+            <a href="/contact" className="btn btn-primary" onClick={triggerRipple}>
               Request Demo
             </a>
-            <a href="#features" className="btn btn-outline" onClick={triggerRipple}>
+            <a href="/features/attendance-management-software" className="btn btn-outline" onClick={triggerRipple}>
               Explore Features
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z" />

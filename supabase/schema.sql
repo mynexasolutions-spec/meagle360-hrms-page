@@ -9,9 +9,15 @@ create table if not exists posts (
   excerpt text,
   content text not null default '',
   cover_image_url text,
+  cover_image_alt text,
+  category text,
+  canonical_url text,
   seo_title text,
   seo_description text,
   seo_keywords text,
+  -- Optional FAQPage rich-result data: [{ "q": "...", "a": "..." }, ...].
+  -- Rendered as FAQPage JSON-LD on the post page when present.
+  faq_json jsonb,
   published boolean not null default false,
   published_at timestamptz,
   created_at timestamptz not null default now(),

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "../components/SiteChrome";
 
-const TITLE = "Security";
+const TITLE = "Security & Data Protection";
 const DESCRIPTION =
   "How Meagle 360 protects your data: encryption, access controls, data residency, sub-processors, and how to report a security issue.";
 const SITE_URL = "https://www.meagle360.com";
@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: "/security",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 

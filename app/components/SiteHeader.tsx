@@ -61,7 +61,7 @@ export function SiteHeader({
             );
           })}
           <a
-            href="/#demo"
+            href="/contact"
             className="btn btn-primary nav-mobile-cta"
             onClick={(e) => { triggerRipple(e); onNavLinkClick(); }}
           >
@@ -71,7 +71,7 @@ export function SiteHeader({
 
         <div className="nav-actions">
           <a
-            href="/#demo"
+            href="/contact"
             className="btn btn-primary"
             style={{ borderRadius: 999, padding: "10px 22px" }}
             onClick={triggerRipple}

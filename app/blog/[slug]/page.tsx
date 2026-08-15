@@ -4,6 +4,7 @@ import { SiteChrome } from "../../components/SiteChrome";
 import { getPublishedPostBySlug, getRelatedPosts } from "../../../lib/posts";
 import { BlogCard } from "../../components/BlogCard";
 import { BlogCtaSection } from "../../components/BlogCtaSection";
+import { FaqAccordion } from "../../components/FaqAccordion";
 import { sanitizePostContent } from "../../../lib/sanitize";
 import { calculateReadingTime } from "../../../lib/blog-types";
 
@@ -106,6 +107,18 @@ export default async function BlogPostPage({
     ],
   };
 
+  const faqJsonLd = post.faq_json && post.faq_json.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faq_json.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      }
+    : null;
+
   return (
     <SiteChrome>
       {/* Blog Detail Hero Banner */}
@@ -168,6 +181,16 @@ export default async function BlogPostPage({
         </div>
       </section>
 
+      {/* FAQ */}
+      {post.faq_json && post.faq_json.length > 0 && (
+        <section className="section section-alt" style={{ padding: "48px 0" }}>
+          <div className="container" style={{ maxWidth: 760 }}>
+            <h2 style={{ textAlign: "center", marginBottom: 32 }}>Frequently asked questions</h2>
+            <FaqAccordion items={post.faq_json} />
+          </div>
+        </section>
+      )}
+
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
         <section className="section blog-related-section">
@@ -195,6 +218,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
     </SiteChrome>
   );
 }

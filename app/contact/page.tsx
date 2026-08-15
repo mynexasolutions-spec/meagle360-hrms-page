@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     url: "/contact",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function ContactPage() {

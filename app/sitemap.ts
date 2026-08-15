@@ -17,6 +17,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/security`, priority: 0.4, changeFrequency: "monthly" },
     { url: `${BASE}/privacy`, priority: 0.3, changeFrequency: "yearly" },
     { url: `${BASE}/terms`, priority: 0.3, changeFrequency: "yearly" },
+    { url: `${BASE}/alternatives/keka-alternative`, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${BASE}/alternatives/greythr-alternative`, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${BASE}/solutions/hrms-for-startups`, priority: 0.8, changeFrequency: "monthly" },
   ];
 
   const posts = await getPublishedPosts();
