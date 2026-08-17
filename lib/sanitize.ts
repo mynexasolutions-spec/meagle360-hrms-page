@@ -1,7 +1,7 @@
 import sanitizeHtml from "sanitize-html";
 
 export function sanitizePostContent(html: string): string {
-  return sanitizeHtml(html, {
+  const sanitized = sanitizeHtml(html, {
     allowedTags: [
       "h2",
       "h3",
@@ -46,4 +46,13 @@ export function sanitizePostContent(html: string): string {
       a: sanitizeHtml.simpleTransform("a", { rel: "noopener noreferrer" }),
     },
   });
+
+  // Wrap every table in a horizontally-scrollable container. Content tables
+  // are written as plain HTML (not the JSX comparison-table components
+  // elsewhere on the site), so without this a wide table just overflows the
+  // narrow mobile column instead of being swipeable.
+  return sanitized.replace(
+    /<table([^>]*)>([\s\S]*?)<\/table>/g,
+    '<div class="blog-table-wrap"><table$1>$2</table></div>',
+  );
 }
