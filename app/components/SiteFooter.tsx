@@ -16,6 +16,7 @@ const FOOTER_COLUMNS = [
       { label: "Keka Alternative", href: "/alternatives/keka-alternative" },
       { label: "greytHR Alternative", href: "/alternatives/greythr-alternative" },
       { label: "HRMS for Startups", href: "/solutions/hrms-for-startups" },
+      { label: "Payslip Generator", href: "/tools/payslip-generator" },
     ],
   },
   {

@@ -6,6 +6,7 @@ import { triggerRipple } from "../lib/ripple";
 const NAV_LINKS = [
   { href: "/", label: "Home", id: "home" },
   { href: "/pricing", label: "Pricing", id: "pricing" },
+  { href: "/tools/payslip-generator", label: "Tools", id: "tools" },
   { href: "/blog", label: "Blog", id: "blog" },
   { href: "/contact", label: "Contact", id: "contact" },
   { href: "/careers", label: "Careers", id: "careers" },
@@ -30,6 +31,7 @@ export function SiteHeader({
   const isContact = pathname === "/contact";
   const isPricing = pathname === "/pricing";
   const isCareers = pathname?.startsWith("/careers");
+  const isTools = pathname?.startsWith("/tools");
 
   return (
     <header id="siteHeader" className={scrolled ? "scrolled" : ""}>
@@ -46,6 +48,7 @@ export function SiteHeader({
             else if (link.id === "contact") isActive = isContact;
             else if (link.id === "pricing") isActive = isPricing;
             else if (link.id === "careers") isActive = !!isCareers;
+            else if (link.id === "tools") isActive = !!isTools;
             else if (link.id === "home") isActive = isHome && !activeNav;
 
             return (
