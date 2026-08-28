@@ -217,7 +217,8 @@ export function PayslipGeneratorTool() {
                 style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer', position: 'relative' }}
                 onClick={() => {
                   try {
-                    document.getElementById('month-picker-hidden')?.showPicker();
+                    const el = document.getElementById('month-picker-hidden');
+                    if (el) (el as any).showPicker();
                   } catch (e) {
                     document.getElementById('month-picker-hidden')?.focus();
                   }
