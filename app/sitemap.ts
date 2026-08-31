@@ -21,6 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/alternatives/greythr-alternative`, priority: 0.8, changeFrequency: "monthly" },
     { url: `${BASE}/solutions/hrms-for-startups`, priority: 0.8, changeFrequency: "monthly" },
     { url: `${BASE}/tools/payslip-generator`, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${BASE}/tools/ctc-to-in-hand-calculator`, priority: 0.8, changeFrequency: "monthly" },
   ];
 
   const posts = await getPublishedPosts();

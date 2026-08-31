@@ -17,6 +17,7 @@ const FOOTER_COLUMNS = [
       { label: "greytHR Alternative", href: "/alternatives/greythr-alternative" },
       { label: "HRMS for Startups", href: "/solutions/hrms-for-startups" },
       { label: "Payslip Generator", href: "/tools/payslip-generator" },
+      { label: "CTC to In-Hand Calculator", href: "/tools/ctc-to-in-hand-calculator" },
     ],
   },
   {

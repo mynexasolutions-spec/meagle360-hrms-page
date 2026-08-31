@@ -7,7 +7,6 @@ export async function POST(request: Request) {
   let body: {
     name?: string;
     work_email?: string;
-    company?: string;
     employees?: string;
     phone?: string;
   };
@@ -20,11 +19,10 @@ export async function POST(request: Request) {
 
   const name = (body.name || "").trim();
   const workEmail = (body.work_email || "").trim();
-  const company = (body.company || "").trim();
   const employees = (body.employees || "").trim();
   const phone = (body.phone || "").trim();
 
-  if (!name || !workEmail || !company || !employees || !phone) {
+  if (!name || !workEmail || !employees || !phone) {
     return NextResponse.json(
       { error: "All fields are required." },
       { status: 400 },
@@ -63,11 +61,10 @@ export async function POST(request: Request) {
       from: `"${fromName}" <${fromEmail}>`,
       to: TO_EMAIL,
       replyTo: workEmail,
-      subject: `New demo booking from ${name} (${company})`,
+      subject: `New demo booking from ${name}`,
       text: [
         `Name: ${name}`,
         `Work email: ${workEmail}`,
-        `Company: ${company}`,
         `Employees: ${employees}`,
         `Phone: ${phone}`,
       ].join("\n"),
@@ -75,7 +72,6 @@ export async function POST(request: Request) {
         <h2>New demo booking</h2>
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Work email:</strong> ${escapeHtml(workEmail)}</p>
-        <p><strong>Company:</strong> ${escapeHtml(company)}</p>
         <p><strong>Employees:</strong> ${escapeHtml(employees)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
       `,

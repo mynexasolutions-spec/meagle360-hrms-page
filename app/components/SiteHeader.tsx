@@ -1,15 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { triggerRipple } from "../lib/ripple";
 
 const NAV_LINKS = [
   { href: "/", label: "Home", id: "home" },
   { href: "/pricing", label: "Pricing", id: "pricing" },
-  { href: "/tools/payslip-generator", label: "Tools", id: "tools" },
   { href: "/blog", label: "Blog", id: "blog" },
   { href: "/contact", label: "Contact", id: "contact" },
   { href: "/careers", label: "Careers", id: "careers" },
+];
+
+const TOOL_LINKS = [
+  { href: "/tools/payslip-generator", label: "Payslip Generator" },
+  { href: "/tools/ctc-to-in-hand-calculator", label: "CTC to In-Hand Calculator" },
 ];
 
 export function SiteHeader({
@@ -33,6 +38,18 @@ export function SiteHeader({
   const isCareers = pathname?.startsWith("/careers");
   const isTools = pathname?.startsWith("/tools");
 
+  const [toolsOpen, setToolsOpen] = useState(false);
+
+  // Keep the Tools submenu from staying open when the mobile nav itself closes.
+  useEffect(() => {
+    if (!navOpen) setToolsOpen(false);
+  }, [navOpen]);
+
+  function handleToolLinkClick() {
+    setToolsOpen(false);
+    onNavLinkClick();
+  }
+
   return (
     <header id="siteHeader" className={scrolled ? "scrolled" : ""}>
       <nav className={`nav${navOpen ? " open" : ""}`} id="mainNav">
@@ -42,14 +59,50 @@ export function SiteHeader({
         </a>
 
         <div className="nav-links" id="navLinks">
-          {NAV_LINKS.map((link) => {
+          <a
+            href="/"
+            className={`nav-link${isHome && !activeNav ? " active" : ""}`}
+            data-nav
+            onClick={onNavLinkClick}
+          >
+            Home
+          </a>
+          <a
+            href="/pricing"
+            className={`nav-link${isPricing ? " active" : ""}`}
+            data-nav
+            onClick={onNavLinkClick}
+          >
+            Pricing
+          </a>
+
+          <div className={`nav-item${toolsOpen ? " open" : ""}`}>
+            <button
+              type="button"
+              className={`nav-link${isTools ? " active" : ""}`}
+              onClick={() => setToolsOpen((o) => !o)}
+              aria-expanded={toolsOpen}
+              aria-haspopup="true"
+            >
+              Tools
+              <svg className="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div className="dropdown">
+              {TOOL_LINKS.map((tool) => (
+                <a key={tool.href} href={tool.href} onClick={handleToolLinkClick}>
+                  {tool.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {NAV_LINKS.filter((l) => l.id !== "home" && l.id !== "pricing").map((link) => {
             let isActive = false;
             if (link.id === "blog") isActive = !!isBlog;
             else if (link.id === "contact") isActive = isContact;
-            else if (link.id === "pricing") isActive = isPricing;
             else if (link.id === "careers") isActive = !!isCareers;
-            else if (link.id === "tools") isActive = !!isTools;
-            else if (link.id === "home") isActive = isHome && !activeNav;
 
             return (
               <a
@@ -63,6 +116,7 @@ export function SiteHeader({
               </a>
             );
           })}
+
           <a
             href="/contact"
             className="btn btn-primary nav-mobile-cta"

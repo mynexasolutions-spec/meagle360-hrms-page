@@ -2,6 +2,7 @@
         --primary: #4f46e5;
         --primary-dark: #4338ca;
         --primary-light: #eef2ff;
+        --primary-lightest: #f5f6ff;
         --primary-rgb: 79, 70, 229;
         --text-1: #111827;
         --text-2: #6b7280;
@@ -416,6 +417,86 @@
         background: rgba(79, 70, 229, 0.08);
       }
 
+      /* Tools dropdown */
+      .nav-item {
+        position: relative;
+      }
+      .nav-item .nav-link {
+        background: none;
+        border: none;
+        font-family: inherit;
+        cursor: pointer;
+      }
+      .nav-item .caret {
+        width: 14px;
+        height: 14px;
+        transition: transform 0.2s ease;
+      }
+      .nav-item.open .caret,
+      .nav-item:hover .caret {
+        transform: rotate(180deg);
+      }
+      .dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        min-width: 220px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow-lg);
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        z-index: 50;
+      }
+      .nav-item:hover .dropdown,
+      .nav-item.open .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .dropdown a {
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #334155;
+        white-space: nowrap;
+      }
+      .dropdown a:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+      }
+      @media (max-width: 1280px) {
+        .nav-item .nav-link {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .dropdown {
+          position: static;
+          display: none;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          box-shadow: none;
+          border: none;
+          background: transparent;
+          padding: 0 0 4px 16px;
+          margin-top: 2px;
+        }
+        .nav-item:hover .dropdown {
+          display: none;
+        }
+        .nav-item.open .dropdown {
+          display: flex;
+        }
+      }
 
       .nav-actions {
         display: flex;
@@ -875,6 +956,32 @@
         font-size: 18px;
         color: var(--text-2);
         margin: 0;
+      }
+
+      /* Modules section image — no card behind it, blends into the section background */
+      .modules-image-frame {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        position: relative;
+      }
+      .modules-image-frame::after {
+        content: none;
+      }
+      .modules-image-frame img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .modules-image-frame .frame-fallback {
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-2);
+        font-weight: 600;
       }
 
       /* STATS */
@@ -3734,7 +3841,7 @@
   margin: 16px 0 0;
 }
 .demo-secondary-path {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-2);
   margin: 24px 0 0;
 }
@@ -5346,5 +5453,46 @@
   }
   .hr-benefits-grid .hr-benefits-list {
     text-align: left;
+  }
+}
+
+/* ── CTC to In-Hand Calculator — result rows reuse the payslip-tool-v3 card system ── */
+.ctc-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 14px;
+  color: var(--text-1);
+}
+.ctc-result-row:last-child {
+  border-bottom: none;
+}
+.ctc-result-row span {
+  color: var(--text-2);
+}
+.ctc-calc-disclaimer {
+  font-size: 12.5px;
+  color: var(--text-3);
+  text-align: center;
+  max-width: 640px;
+  margin: 24px auto 0;
+  line-height: 1.6;
+}
+
+/* Feature grid variant for exactly 3 items (Why-in-hand-is-lower, use-case sections) */
+.feature-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 960px) {
+  .feature-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .feature-grid-3 {
+    grid-template-columns: 1fr;
   }
 }

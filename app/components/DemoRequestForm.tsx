@@ -20,7 +20,6 @@ export function DemoRequestForm() {
     const payload = {
       name: formData.get("name"),
       work_email: formData.get("work_email"),
-      company: formData.get("company"),
       employees: formData.get("employees"),
       phone: formData.get("phone"),
     };
@@ -64,11 +63,6 @@ export function DemoRequestForm() {
           required
           placeholder="john@company.com"
         />
-      </div>
-
-      <div className="demo-form-field">
-        <label htmlFor="demo-company">Company *</label>
-        <input id="demo-company" name="company" type="text" required placeholder="Acme Inc." />
       </div>
 
       <div className="demo-form-field">

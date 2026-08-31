@@ -110,15 +110,15 @@ export default function DemoPage() {
             </ul>
 
             <div className="demo-host-card">
-              <div className="demo-host-avatar">?</div>
+              <div className="demo-host-avatar">AB</div>
               <div>
-                <strong>REPLACE_WITH_HOST_NAME</strong>
-                <span>REPLACE_WITH_HOST_ROLE</span>
+                <strong>Abdul Bari</strong>
+                <span>Co-Founder</span>
               </div>
             </div>
 
             <p className="demo-response-time">
-              Typical response time: REPLACE_WITH_RESPONSE_TIME
+              Typical response time: within 4 business hours
             </p>
 
             <p className="demo-secondary-path">

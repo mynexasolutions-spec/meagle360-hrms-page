@@ -80,7 +80,7 @@ export function Modules() {
         </div>
 
         <Reveal
-          className="dashboard-frame reveal"
+          className="modules-image-frame reveal"
           style={{ maxWidth: 460, margin: "0 auto", width: "100%" }}
         >
           <img
