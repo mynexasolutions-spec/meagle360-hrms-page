@@ -89,156 +89,164 @@ export function CtcInHandCalculator() {
   }
 
   return (
-    <div className="payslip-tool-v3">
-      <div className="payslip-header-info-v3">
-        <div className="payslip-header-text-v3">
-          <h2>CTC to In-Hand Salary Calculator</h2>
-          <p style={{ fontSize: "1.1rem" }}>
-            Enter your annual CTC to see your estimated monthly take-home — updates instantly as you adjust.
-          </p>
-        </div>
-      </div>
-
-      <div className="payslip-card-wrapper-v3">
-        {/* Card 1: CTC Input */}
-        <div className="payslip-card-v3">
-          <div className="card-header-v3">
+    <div className="ctc-calc-v4-container">
+      <div className="ctc-calc-v4-grid-top">
+        {/* Top Left: Inputs */}
+        <div className="ctc-calc-v4-card">
+          <div className="card-header-v3" style={{ marginBottom: 24 }}>
             <div className="icon-square-v3 tint-primary-light">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>
             </div>
-            <h3>Your CTC Details</h3>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a' }}>Your CTC Details</h3>
           </div>
 
-          <div className="input-group-v3">
-            <label>Annual CTC (₹) <span className="req-star">*</span></label>
-            <input
-              type="number"
-              min="0"
-              className="input-box-v3"
-              value={ctcInput}
-              onChange={(e) => setCtcInput(e.target.value)}
-              placeholder="e.g. 900000"
-            />
+          <div className="ctc-v4-inputs-row">
+            <div className="input-group-v3" style={{ flex: 1 }}>
+              <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>Annual CTC (₹) <span className="req-star" style={{ color: '#ef4444' }}>*</span></label>
+              <input
+                type="number"
+                min="0"
+                className="input-box-v3"
+                value={ctcInput}
+                onChange={(e) => setCtcInput(e.target.value)}
+                placeholder="e.g. 600000"
+                style={{ padding: '10px 12px', borderRadius: 6, border: '1px solid #cbd5e1' }}
+              />
+            </div>
+            
+            <div className="input-group-v3" style={{ flex: 1 }}>
+              <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>Basic Salary (% of CTC)</label>
+              <div style={{ position: 'relative' }}>
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  className="input-box-v3"
+                  value={basicPct}
+                  onChange={(e) => setBasicPct(Number(e.target.value))}
+                  style={{ padding: '10px 12px', paddingRight: 32, borderRadius: 6, border: '1px solid #cbd5e1', width: '100%' }}
+                />
+                <span style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', color: '#64748b' }}>%</span>
+              </div>
+            </div>
           </div>
 
-          <div className="pricing-calc-slider-row" style={{ marginTop: 24 }}>
-            <label htmlFor="basic-pct">Basic Salary (% of CTC)</label>
-            <div className="pricing-calc-slider-value">{basicPct}%</div>
-          </div>
-          <input
-            id="basic-pct"
-            type="range"
-            min={30}
-            max={60}
-            step={1}
-            value={basicPct}
-            onChange={(e) => setBasicPct(Number(e.target.value))}
-            className="pricing-calc-slider"
-            aria-label="Basic salary as a percentage of CTC"
-          />
-          <div className="pricing-calc-slider-scale">
-            <span>30%</span>
-            <span>60%</span>
-          </div>
-
-          <label className="pricing-calc-gst-toggle" style={{ marginTop: 24 }}>
+          <label className="pricing-calc-gst-toggle" style={{ marginTop: 24, fontSize: '0.9rem', color: '#1e293b' }}>
             <input
               type="checkbox"
               checked={ptEnabled}
               onChange={(e) => setPtEnabled(e.target.checked)}
             />
-            <span className="pricing-calc-gst-switch" aria-hidden="true"></span>
+            <span className="pricing-calc-gst-switch" aria-hidden="true" style={{ zoom: 0.9 }}></span>
             Professional Tax applies (₹200/month)
           </label>
         </div>
 
-        {/* Card 2: CTC Breakdown */}
-        <div className="payslip-card-v3">
-          <div className="card-header-v3">
+        {/* Top Right: Summary */}
+        <div className="ctc-calc-v4-card ctc-v4-summary-card">
+          <div className="ctc-v4-summary-left">
+            <div className="ctc-v4-summary-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg>
+            </div>
+            <div>
+              <div className="ctc-v4-summary-label" style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 600, marginBottom: 4 }}>Annual CTC</div>
+              <div className="ctc-v4-summary-value" style={{ color: 'var(--primary)', fontSize: '1.8rem', fontWeight: 700 }}>₹{formatINR(ctc)}</div>
+            </div>
+          </div>
+          <div className="ctc-v4-summary-divider"></div>
+          <div className="ctc-v4-summary-right">
+            <div className="ctc-v4-summary-label" style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500, marginBottom: 2 }}>Basic Salary ({basicPct}% of CTC)</div>
+            <div className="ctc-v4-summary-value" style={{ color: '#0f172a', fontSize: '1.2rem', fontWeight: 600, marginBottom: 12 }}>₹{formatINR(b.basic)}</div>
+            
+            <div className="ctc-v4-summary-label" style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500, marginBottom: 2 }}>Monthly In-Hand Salary</div>
+            <div className="ctc-v4-summary-value" style={{ color: 'var(--primary)', fontSize: '1.4rem', fontWeight: 700 }}>₹{formatINR(b.inHandMonthly)}</div>
+            
+            <div style={{ color: 'var(--primary)', fontSize: '0.8rem', marginTop: 8, fontWeight: 600 }}>See breakdown below ↓</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="ctc-calc-v4-grid-bottom">
+        {/* Bottom Left: CTC Breakdown */}
+        <div className="ctc-calc-v4-card" style={{ display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden' }}>
+          <div className="card-header-v3" style={{ padding: '24px 24px 20px' }}>
             <div className="icon-square-v3 tint-primary-light">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
             </div>
-            <h3>Annual CTC Breakdown</h3>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a' }}>Annual CTC Breakdown</h3>
           </div>
-          <div className="income-col-box-v3">
-            <div className="income-col-header-v3">
-              <div className="income-title-v3">
-                <div className="icon-circle-sm-v3 tint-emerald-light">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
-                </div>
-                <h4>Components</h4>
+          
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 24px', background: '#f8fafc', borderBottom: '1px solid #f1f5f9', borderTop: '1px solid #f1f5f9' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" style={{ width: 14, height: 14 }}><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0f172a' }}>Components</span>
               </div>
-              <span className="income-amount-label">Annual Amount</span>
+              <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500 }}>Annual Amount</span>
             </div>
-            <div className="income-col-body-v3">
-              <div className="ctc-result-row"><span>Basic Salary</span><strong>₹{formatINR(b.basic)}</strong></div>
-              <div className="ctc-result-row"><span>House Rent Allowance (HRA)</span><strong>₹{formatINR(b.hra)}</strong></div>
-              <div className="ctc-result-row"><span>Special Allowance</span><strong>₹{formatINR(b.specialAllowance)}</strong></div>
-              <div className="ctc-result-row"><span>Employer PF Contribution</span><strong>₹{formatINR(b.employerPF)}</strong></div>
-              <div className="ctc-result-row"><span>Gratuity (accrued)</span><strong>₹{formatINR(b.gratuity)}</strong></div>
+            
+            <div style={{ padding: '0 24px', flex: 1 }}>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0', borderBottom: '1px dashed #e2e8f0' }}><span style={{ color: '#475569' }}>Basic Salary</span><strong style={{ color: '#0f172a' }}>₹{formatINR(b.basic)}</strong></div>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0', borderBottom: '1px dashed #e2e8f0' }}><span style={{ color: '#475569' }}>House Rent Allowance (HRA)</span><strong style={{ color: '#0f172a' }}>₹{formatINR(b.hra)}</strong></div>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0', borderBottom: '1px dashed #e2e8f0' }}><span style={{ color: '#475569' }}>Special Allowance</span><strong style={{ color: '#0f172a' }}>₹{formatINR(b.specialAllowance)}</strong></div>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0', borderBottom: '1px dashed #e2e8f0' }}><span style={{ color: '#475569' }}>Employer PF Contribution</span><strong style={{ color: '#0f172a' }}>₹{formatINR(b.employerPF)}</strong></div>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0' }}><span style={{ color: '#475569' }}>Gratuity (accrued)</span><strong style={{ color: '#0f172a' }}>₹{formatINR(b.gratuity)}</strong></div>
             </div>
-            <div className="income-col-footer-v3 tint-primary-lightest">
-              <span>Total CTC</span>
-              <strong>₹{formatINR(ctc)}</strong>
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px 24px', background: '#f8fafc', borderTop: '1px solid #f1f5f9' }}>
+              <span style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 600 }}>Total CTC</span>
+              <strong style={{ fontSize: '1rem', color: 'var(--primary)', fontWeight: 700 }}>₹{formatINR(ctc)}</strong>
             </div>
           </div>
         </div>
 
-        {/* Card 3: Monthly In-Hand */}
-        <div className="payslip-card-v3">
-          <div className="card-header-v3">
+        {/* Bottom Right: In-Hand Breakdown */}
+        <div className="ctc-calc-v4-card" style={{ display: 'flex', flexDirection: 'column', padding: 0, overflow: 'hidden' }}>
+          <div className="card-header-v3" style={{ padding: '24px 24px 20px' }}>
             <div className="icon-square-v3 tint-primary-light">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg>
             </div>
-            <h3>Monthly In-Hand Breakdown</h3>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a' }}>Monthly In-Hand Breakdown</h3>
           </div>
-          <div className="income-col-box-v3">
-            <div className="income-col-header-v3">
-              <div className="income-title-v3">
-                <div className="icon-circle-sm-v3 tint-rose-light">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2.5"><path d="M12 5v14M19 12l-7 7-7-7" /></svg>
-                </div>
-                <h4>Deductions</h4>
+          
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px 24px', background: '#f8fafc', borderBottom: '1px solid #f1f5f9', borderTop: '1px solid #f1f5f9' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2.5" style={{ width: 14, height: 14 }}><path d="M12 5v14M19 12l-7 7-7-7" /></svg>
+                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0f172a' }}>Deductions</span>
               </div>
-              <span className="income-amount-label">Monthly Amount</span>
+              <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500 }}>Monthly Amount</span>
             </div>
-            <div className="income-col-body-v3">
-              <div className="ctc-result-row"><span>Gross Monthly Salary</span><strong>₹{formatINR(b.grossMonthly)}</strong></div>
-              <div className="ctc-result-row"><span>Employee PF (12% of Basic)</span><strong>− ₹{formatINR(b.employeePfMonthly)}</strong></div>
-              <div className="ctc-result-row"><span>Professional Tax</span><strong>− ₹{formatINR(b.professionalTaxMonthly)}</strong></div>
-              <div className="ctc-result-row"><span>Estimated TDS (New Regime)</span><strong>− ₹{formatINR(b.monthlyTds)}</strong></div>
+            
+            <div style={{ padding: '0 24px', flex: 1 }}>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0', borderBottom: '1px dashed #e2e8f0' }}><span style={{ color: '#475569' }}>Gross Monthly Salary</span><strong style={{ color: '#0f172a' }}>₹{formatINR(b.grossMonthly)}</strong></div>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0', borderBottom: '1px dashed #e2e8f0' }}><span style={{ color: '#64748b' }}>Employee PF (12% of Basic)</span><strong style={{ color: '#0f172a' }}>− ₹{formatINR(b.employeePfMonthly)}</strong></div>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0', borderBottom: '1px dashed #e2e8f0' }}><span style={{ color: '#64748b' }}>Professional Tax</span><strong style={{ color: '#0f172a' }}>− ₹{formatINR(b.professionalTaxMonthly)}</strong></div>
+              <div className="ctc-result-row" style={{ fontSize: '0.95rem', padding: '16px 0' }}><span style={{ color: '#64748b' }}>Estimated TDS (New Regime)</span><strong style={{ color: '#0f172a' }}>− ₹{formatINR(b.monthlyTds)}</strong></div>
             </div>
-            <div className="income-col-footer-v3 tint-primary-lightest">
-              <span>Total Deductions</span>
-              <strong>₹{formatINR(b.totalMonthlyDeductions)}</strong>
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px 24px', background: '#f8fafc', borderTop: '1px solid #f1f5f9' }}>
+              <span style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 600 }}>Total Deductions</span>
+              <strong style={{ fontSize: '1rem', color: 'var(--primary)', fontWeight: 700 }}>₹{formatINR(b.totalMonthlyDeductions)}</strong>
             </div>
-          </div>
-
-          <div className="net-payable-box-v3" style={{ marginTop: 20 }}>
-            <div className="net-payable-text-v3">
-              <h4>Monthly In-Hand Salary</h4>
-              <p>Gross Monthly − Total Deductions</p>
-            </div>
-            <div className="net-payable-amount-v3">₹{formatINR(b.inHandMonthly)}</div>
-          </div>
-          <div className="amount-in-words-v3">
-            Annual in-hand: ₹{formatINR(b.inHandAnnual)}
           </div>
         </div>
       </div>
 
-      <div className="payslip-actions-v3">
-        <button type="button" className="btn btn-outline" onClick={handleReset} style={{ background: "#fff", border: "1px solid #e2e8f0", color: "var(--text-1)", fontWeight: 600 }}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 18, height: 18, marginRight: 8 }}><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
-          Reset
-        </button>
+      <div className="ctc-calc-v4-footer">
+        <div className="ctc-calc-v4-footer-inner" style={{ background: '#f5f3ff', borderRadius: 12, padding: '24px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <h4 style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: 700, margin: 0, marginBottom: 4 }}>Monthly In-Hand Salary</h4>
+            <p style={{ color: 'var(--primary)', opacity: 0.8, fontSize: '0.85rem', margin: 0 }}>Gross Monthly - Total Deductions</p>
+          </div>
+          <div style={{ color: 'var(--primary)', fontSize: '2.5rem', fontWeight: 700 }}>
+            ₹{formatINR(b.inHandMonthly)}
+          </div>
+        </div>
+        <div style={{ textAlign: 'right', marginTop: 12, fontSize: '0.85rem', color: '#64748b', fontWeight: 500, paddingRight: 8 }}>
+          Annual In-hand: ₹{formatINR(b.inHandAnnual)}
+        </div>
       </div>
-      <p className="ctc-calc-disclaimer">
-        Estimates use standard salary-structuring assumptions (Basic {basicPct}% of CTC, HRA 50% of Basic,
-        employer PF 12% of Basic, statutory gratuity accrual) and New Tax Regime slabs for FY 2025-26. Actual
-        figures depend on your employer&apos;s specific salary structure — see our{" "}
-        <a href="/blog/ctc-vs-in-hand-salary">CTC vs In-Hand Salary guide</a> for the full formula.
-      </p>
     </div>
   );
 }

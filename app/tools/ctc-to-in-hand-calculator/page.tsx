@@ -35,10 +35,30 @@ export const metadata: Metadata = {
 };
 
 const STEPS = [
-  { title: "Enter your annual CTC", desc: "The total cost-to-company figure from your offer letter" },
-  { title: "It splits into components", desc: "Basic, HRA, Special Allowance, employer PF, and gratuity, using standard structuring ratios" },
-  { title: "Deductions are applied", desc: "Employee PF (12% of Basic), Professional Tax, and estimated TDS" },
-  { title: "See your in-hand salary", desc: "Both monthly and annual, alongside the full breakup" },
+  { 
+    title: "Enter your annual CTC", 
+    desc: "The total cost-to-company figure from your offer letter",
+    tint: "tint-primary",
+    icon: <><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></>
+  },
+  { 
+    title: "It splits into components", 
+    desc: "Basic, HRA, Special Allowance, employer PF, and gratuity, using standard structuring ratios",
+    tint: "tint-emerald",
+    icon: <><path d="M21.21 15.89A10 10 0 1 1 8 2.83" /><path d="M22 12A10 10 0 0 0 12 2v10z" /></>
+  },
+  { 
+    title: "Deductions are applied", 
+    desc: "Employee PF (12% of Basic), Professional Tax, and estimated TDS",
+    tint: "tint-rose",
+    icon: <><circle cx="12" cy="12" r="10" /><line x1="8" y1="12" x2="16" y2="12" /></>
+  },
+  { 
+    title: "See your in-hand salary", 
+    desc: "Both monthly and annual, alongside the full breakup",
+    tint: "tint-amber",
+    icon: <><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></>
+  },
 ];
 
 const WHY_LOWER = [
@@ -166,30 +186,33 @@ export default function CtcToInHandCalculatorPage() {
             
             <div className="hero-v3-card-img" style={{ flex: 1 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/ctc-calculator-hero.jpg" alt="CTC Calculator Interface" style={{ width: '100%', maxWidth: '400px', display: 'block', margin: '0 auto', borderRadius: '16px' }} />
+              <img src="/ctc-to-in-hand.webp" alt="CTC Calculator Interface" style={{ width: '100%', maxWidth: '400px', display: 'block', margin: '0 auto' }} />
             </div>
           </div>
         </div>
       </section>
 
       <section className="section payslip-tool-section-v2" id="generator">
-        <div className="container" style={{ maxWidth: '1360px' }}>
+        <div className="container">
           <CtcInHandCalculator />
         </div>
       </section>
 
       <section className="section section-alt">
-        <div className="container" style={{ maxWidth: 1000 }}>
+        <div className="container">
           <div className="section-head" style={{ textAlign: "center", marginBottom: 48, marginLeft: "auto", marginRight: "auto" }}>
             <span className="eyebrow" style={{ justifyContent: "center" }}>How It Works</span>
             <h2>How This Calculator Works</h2>
           </div>
-          <div className="payslip-steps-grid">
+          <div className="feature-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
             {STEPS.map((step, i) => (
-              <div className="payslip-step-card" key={step.title}>
-                <div className="payslip-step-num">{i + 1}</div>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
+              <div className="feature-card" key={step.title} style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
+                <div style={{ position: 'absolute', top: 24, right: 24, fontSize: '4rem', fontWeight: 800, color: '#f1f5f9', zIndex: 0, lineHeight: 1 }}>{i + 1}</div>
+                <div className={`icon-badge ${step.tint}`} style={{ position: 'relative', zIndex: 1, marginBottom: 20 }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">{step.icon}</svg>
+                </div>
+                <h3 style={{ position: 'relative', zIndex: 1, marginBottom: 12 }}>{step.title}</h3>
+                <p style={{ position: 'relative', zIndex: 1, flex: 1 }}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -197,7 +220,7 @@ export default function CtcToInHandCalculatorPage() {
       </section>
 
       <section className="section">
-        <div className="container" style={{ maxWidth: 1100 }}>
+        <div className="container">
           <div className="section-head" style={{ textAlign: "center", marginBottom: 48, marginLeft: "auto", marginRight: "auto" }}>
             <span className="eyebrow" style={{ justifyContent: "center" }}>The Real Numbers</span>
             <h2>Why In-Hand Salary Is Always Lower Than CTC</h2>
@@ -223,7 +246,7 @@ export default function CtcToInHandCalculatorPage() {
       </section>
 
       <section className="section section-alt">
-        <div className="container" style={{ maxWidth: 1100 }}>
+        <div className="container">
           <div className="section-head" style={{ textAlign: "center", marginBottom: 48, marginLeft: "auto", marginRight: "auto" }}>
             <span className="eyebrow" style={{ justifyContent: "center" }}>Who It's For</span>
             <h2>What This Calculator Is Useful For</h2>
@@ -242,8 +265,22 @@ export default function CtcToInHandCalculatorPage() {
         </div>
       </section>
 
+      <section className="section" style={{ background: '#f8fafc' }}>
+        <div className="container">
+          <div className="section-head" style={{ textAlign: "center", marginBottom: 40, marginLeft: "auto", marginRight: "auto" }}>
+            <span className="eyebrow" style={{ justifyContent: "center" }}>The Math</span>
+            <h2>Formula Used</h2>
+          </div>
+          <div style={{ background: '#1e293b', color: '#fff', padding: '32px', borderRadius: '16px', fontFamily: 'monospace', fontSize: '16px', lineHeight: 1.8 }}>
+            Gross Monthly Salary = (Basic + HRA + Special Allowance) ÷ 12
+            <br />
+            In-Hand Salary = Gross Monthly Salary − (Employee PF + Professional Tax + TDS)
+          </div>
+        </div>
+      </section>
+
       <section className="section">
-        <div className="container" style={{ maxWidth: 800 }}>
+        <div className="container">
           <div className="section-head" style={{ textAlign: "center", marginBottom: 40, marginLeft: "auto", marginRight: "auto" }}>
             <span className="eyebrow" style={{ justifyContent: "center" }}>FAQ</span>
             <h2>Frequently Asked Questions</h2>
