@@ -15,6 +15,7 @@ const NAV_LINKS = [
 const TOOL_LINKS = [
   { href: "/tools/payslip-generator", label: "Payslip Generator" },
   { href: "/tools/ctc-to-in-hand-calculator", label: "CTC to In-Hand Calculator" },
+  { href: "/tools/quotation-maker", label: "Quotation Maker" },
 ];
 
 export function SiteHeader({
