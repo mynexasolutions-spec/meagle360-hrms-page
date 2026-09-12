@@ -27,7 +27,7 @@ export function Stats() {
           className="reveal"
           style={{ fontSize: "clamp(28px, 3.4vw, 38px)", letterSpacing: "-0.02em", maxWidth: 520 }}
         >
-          Benefits That Drive Business Success
+          How Meagle 360 Saves You Time and Drives Business Success
         </Reveal>
         <Reveal
           as="p"

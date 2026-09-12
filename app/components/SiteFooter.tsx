@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FEATURE_PAGES } from "../../lib/features-data";
 
 const FOOTER_COLUMNS = [
@@ -18,6 +19,7 @@ const FOOTER_COLUMNS = [
       { label: "HRMS for Startups", href: "/solutions/hrms-for-startups" },
       { label: "Payslip Generator", href: "/tools/payslip-generator" },
       { label: "CTC to In-Hand Calculator", href: "/tools/ctc-to-in-hand-calculator" },
+      { label: "Quotation Maker", href: "/tools/quotation-maker" },
     ],
   },
   {
@@ -41,7 +43,7 @@ export function SiteFooter() {
         <div className="footer-grid">
           <div className="footer-brand">
             <a href="/" className="brand">
-              <img src="/logo.png" alt="Meagle 360 logo" className="brand-mark" style={{ background: "#fff", padding: "4px", borderRadius: "8px" }} />
+              <Image src="/logo.png" alt="Meagle 360 logo" className="brand-mark" width={46} height={46} style={{ background: "#fff", padding: "4px", borderRadius: "8px" }} />
               Meagle<span>360</span>
             </a>
             <p>

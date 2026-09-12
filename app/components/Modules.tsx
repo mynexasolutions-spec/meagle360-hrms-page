@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { imageFallback } from "../lib/ripple";
 
@@ -59,7 +60,7 @@ export function Modules() {
               margin: "0 0 48px",
             }}
           >
-            A Complete Suite of HR Management Modules
+            A Complete Suite of HR & Payroll Management Modules
           </Reveal>
 
           <Reveal as="ul" className="module-list reveal-stagger">
@@ -83,9 +84,13 @@ export function Modules() {
           className="modules-image-frame reveal"
           style={{ maxWidth: 460, margin: "0 auto", width: "100%" }}
         >
-          <img
+          <Image
             src="/complete-hr-modules.png"
-            alt="Meagle 360 modules overview"
+            alt="Meagle 360 HR management modules overview"
+            width={1024}
+            height={1024}
+            sizes="(max-width: 900px) 90vw, 460px"
+            style={{ width: "100%", height: "auto" }}
             onError={imageFallback}
           />
           <div className="frame-fallback" style={{ display: "none" }}>

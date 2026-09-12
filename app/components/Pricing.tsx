@@ -41,8 +41,8 @@ export function Pricing() {
               <span className="per">/user/mo</span>
             </div>
             <p className="price-note">Billed monthly, cancel anytime</p>
-            <a href="#demo" className="btn btn-white btn-block" onClick={triggerRipple}>
-              Get Started
+            <a href="/demo" className="btn btn-white btn-block" onClick={triggerRipple}>
+              Start Free Trial
             </a>
           </div>
 

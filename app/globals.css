@@ -3804,11 +3804,16 @@
   letter-spacing: -0.02em;
   margin: 0 0 20px;
 }
+.demo-host-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
 .demo-host-card {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: 28px;
   padding: 16px 18px;
   background: var(--bg-gray);
   border-radius: 14px;

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { SiteChrome } from "../../components/SiteChrome";
 import { FaqAccordion } from "../../components/FaqAccordion";
@@ -108,8 +109,14 @@ export default async function FeaturePage({
       <section className="section" style={{ padding: "48px 0" }}>
         <div className="container" style={{ maxWidth: 900 }}>
           <div className="dashboard-frame" style={{ maxWidth: 760, margin: "0 auto", borderRadius: "16px", boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0,0,0,0.05)", overflow: "hidden" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/hrms-image.png" alt={`${feature.h1} — Meagle 360 dashboard`} style={{ display: "block", width: "100%", height: "auto" }} />
+            <Image
+              src="/hrms-image.png"
+              alt={`${feature.h1} — Meagle 360 dashboard`}
+              width={1536}
+              height={1024}
+              sizes="(max-width: 900px) 90vw, 760px"
+              style={{ display: "block", width: "100%", height: "auto" }}
+            />
           </div>
         </div>
       </section>
@@ -292,9 +299,14 @@ export default async function FeaturePage({
       <section className="section" style={{ textAlign: "center", padding: "48px 0" }}>
         <div className="container">
           <h2 style={{ marginBottom: 24 }}>See it running on your own data</h2>
-          <a href="/demo" className="btn btn-primary">
-            Book a 15-min demo
-          </a>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="/demo" className="btn btn-primary">
+              Book a 15-min demo
+            </a>
+            <a href="/demo" className="btn btn-outline">
+              Start Free Trial
+            </a>
+          </div>
         </div>
       </section>
 

@@ -1004,6 +1004,125 @@ export const FEATURE_PAGES: FeaturePage[] = [
     relatedFeatureSlug: "employee-database-software",
     relatedFeatureLabel: "Employee Database Software",
   },
+  {
+    slug: "hiring-management-software",
+    navLabel: "Hiring Management",
+    metaTitle: "Hiring Management Software for Growing Teams",
+    metaDescription:
+      "Post jobs, track applicants through a clear pipeline, and onboard new hires without spreadsheets and email threads. Flat ₹149/user/month. Book a demo.",
+    h1: "Hiring Management Software That Takes You From Job Post to Day One",
+    heroSubhead:
+      "Track every applicant through a clear hiring pipeline, and turn an accepted offer into a fully onboarded employee — without juggling spreadsheets, email threads, and an onboarding checklist nobody remembers to finish.",
+    painIntro:
+      "Hiring usually looks manageable right up until you're running three or four open roles at once, and nobody on the team can answer \"where did that candidate go?\" without digging back through email.",
+    painPoints: [
+      "Applications scattered across a shared inbox, personal email, and job-board notifications mean candidates get missed, forgotten, or contacted twice by two different people on the same team.",
+      "Without a shared pipeline, nobody can say with confidence how many candidates are actually at interview stage for a role, or who's supposed to follow up with them next.",
+      "A new hire's first week often depends on someone in HR remembering every onboarding step by hand — laptop request, account creation, document collection, induction — instead of a checklist that runs the same way every time.",
+      "Offer letters, ID proofs, and joining documents collected over email are easy to lose track of, with no single record connecting a new hire back to their original application.",
+    ],
+    capabilitiesIntro:
+      "Meagle 360 gives every open role a single pipeline the whole hiring team can see, and connects an accepted offer directly into onboarding — so a new hire's employee record exists before their first day, not sometime after someone gets around to entering it.",
+    capabilities: [
+      {
+        title: "Job posting and candidate pipeline",
+        desc: "Post an opening once and track every applicant through a clear pipeline — applied, screening, interview, offer — so anyone on the hiring team can see exactly where a candidate stands without having to ask.",
+      },
+      {
+        title: "Resume and application tracking",
+        desc: "Every candidate's resume, contact details, and notes from the team stay attached to their profile in one place, instead of scattered across inboxes and forwarded email threads.",
+      },
+      {
+        title: "Interview scheduling and feedback",
+        desc: "Schedule interviews and collect structured feedback from each interviewer in the same record, so a hiring decision doesn't depend on someone recalling a verbal conversation from two weeks earlier.",
+      },
+      {
+        title: "Offer letter management",
+        desc: "Generate and send offer letters directly from a candidate's record, with status tracking for sent, accepted, and declined offers, instead of hunting down the latest version in an email chain.",
+      },
+      {
+        title: "Seamless hire-to-onboarding handoff",
+        desc: "Once an offer is accepted, the candidate's details flow directly into onboarding — nobody has to re-enter the same name, contact details, and documents a second time.",
+      },
+      {
+        title: "Onboarding checklists",
+        desc: "Set up a standard onboarding checklist — documents, equipment, account access, induction — so a new hire's first week runs the same way every time, regardless of who happens to be managing it that week.",
+      },
+      {
+        title: "Hiring reports and pipeline visibility",
+        desc: "See how many candidates are at each stage, per open role, without sending a message asking a recruiter or hiring manager for a manual update.",
+      },
+    ],
+    builtForTitle: "Built for teams hiring without a dedicated recruitment team",
+    builtForParagraphs: [
+      "Most growing companies don't have a dedicated recruiter running a full applicant-tracking system — hiring is something a founder, an HR generalist, or a hiring manager handles alongside their actual job. Meagle 360's hiring module is built for exactly that: enough structure to keep a pipeline organized, without the complexity of an enterprise ATS nobody has time to configure.",
+      "It's also built for the handoff that usually breaks somewhere in the process: the moment between \"candidate accepted the offer\" and \"employee shows up ready to work.\" Instead of that information living in one recruiter's inbox, it flows directly into the same employee record system that already handles attendance, payroll, and documents.",
+      "For a hiring manager, that means checking where a specific candidate stands without pinging HR for an update. For HR, it means not re-typing the same candidate's details three separate times across a spreadsheet, an offer letter template, and an onboarding form.",
+      "And when hiring picks up — three open roles instead of one — the same system holds up, because the pipeline's structure doesn't depend on any single person's personal system for tracking who's where.",
+    ],
+    comparisonIntro:
+      "A look at how hiring and onboarding on Meagle 360 compares to Keka and greytHR on pricing, and on whether a hire actually flows into onboarding without manual re-entry.",
+    comparisonRows: [
+      { capability: "Starting price", meagle: "₹149/user/month, flat", keka: "₹9,999/mo base (≈₹100/user/mo at 100 seats)", greythr: "₹2,495/mo base (≈₹50/user/mo at 50 seats)" },
+      { capability: "Candidate pipeline tracking", meagle: "Included", keka: "Included", greythr: "Included (via greytHR Recruit, separate module)" },
+      { capability: "Offer letter generation", meagle: "Included", keka: "Included", greythr: "Included" },
+      { capability: "Hire-to-onboarding handoff", meagle: "Automatic, same platform", keka: "Included, same platform", greythr: "Data transfer between modules, not always automatic" },
+      { capability: "Onboarding checklists", meagle: "Included", keka: "Included", greythr: "Included" },
+      { capability: "Minimum seats", meagle: "None", keka: "Base fee bundles up to 100 employees", greythr: "Base fee bundles up to 50 employees" },
+    ],
+    faqs: [
+      {
+        q: "Does the hiring pipeline connect directly to onboarding?",
+        a: "Yes. Once an offer is marked accepted, the candidate's details carry directly into onboarding and their employee record, without needing to be re-entered.",
+      },
+      {
+        q: "Can multiple people on the team review the same candidate?",
+        a: "Yes, interviewers can leave structured feedback on the same candidate record, so a hiring decision is based on everyone's input in one place rather than scattered messages.",
+      },
+      {
+        q: "Can I send offer letters directly from the platform?",
+        a: "Yes, offer letters can be generated and sent from a candidate's record, with status tracking for sent, accepted, and declined offers.",
+      },
+      {
+        q: "Is hiring management included in the base price, or is it a separate add-on?",
+        a: "It's included. Meagle 360 is a flat ₹149 per user per month for every module, including hiring management — there are no per-module add-on fees.",
+      },
+      {
+        q: "How long does it take to set up a hiring pipeline for a new role?",
+        a: "Setting up a pipeline for a new open role typically takes a few minutes — you're not configuring a complex enterprise ATS from scratch.",
+      },
+      {
+        q: "Can I customize the onboarding checklist for different roles?",
+        a: "Yes, onboarding checklists can be configured to match what a specific role or department actually needs, rather than one generic checklist for everyone.",
+      },
+      {
+        q: "Can hiring managers see pipeline status without contacting HR?",
+        a: "Yes, hiring managers can see where their own open roles' candidates stand directly, based on the access level configured for their role.",
+      },
+      {
+        q: "Is there a free trial before we commit to a paid plan?",
+        a: "Yes, you can start a 14-day free trial with full access to hiring management and every other module, with no credit card required.",
+      },
+      {
+        q: "Can I track multiple open roles at the same time?",
+        a: "Yes, each open role gets its own pipeline, so tracking three or four roles at once doesn't mean juggling separate spreadsheets for each.",
+      },
+      {
+        q: "What happens to a candidate's information once they're hired?",
+        a: "It carries directly into their employee profile — the same resume, contact details, and documents collected during hiring, without duplicate data entry.",
+      },
+      {
+        q: "Can I see hiring reports across all open roles?",
+        a: "Yes, you can see how many candidates are at each pipeline stage across every open role from one view, rather than requesting an update from each recruiter individually.",
+      },
+    ],
+    relatedBlogSlugs: [
+      "7-must-have-hiring-processes-every-company-needs",
+      "complete-guide-employee-onboarding",
+    ],
+    relatedFeatureSlug: "employee-database-software",
+    relatedFeatureLabel: "Employee Database Software",
+  },
 ];
 
 export function getFeaturePage(slug: string): FeaturePage | undefined {

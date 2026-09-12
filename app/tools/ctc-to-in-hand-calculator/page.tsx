@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteChrome } from "../../components/SiteChrome";
 import { FaqAccordion } from "../../components/FaqAccordion";
 import { CtcInHandCalculator } from "../../components/CtcInHandCalculator";
@@ -185,8 +186,15 @@ export default function CtcToInHandCalculatorPage() {
             </div>
             
             <div className="hero-v3-card-img" style={{ flex: 1 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/ctc-to-in-hand.webp" alt="CTC Calculator Interface" style={{ width: '100%', maxWidth: '400px', display: 'block', margin: '0 auto' }} />
+              <Image
+                src="/ctc-to-in-hand.webp"
+                alt="CTC to in-hand salary calculator interface"
+                width={1536}
+                height={1024}
+                priority
+                sizes="(max-width: 900px) 90vw, 400px"
+                style={{ width: '100%', maxWidth: '400px', height: 'auto', display: 'block', margin: '0 auto' }}
+              />
             </div>
           </div>
         </div>

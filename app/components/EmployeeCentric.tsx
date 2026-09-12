@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 const CHECKLIST = [
@@ -71,7 +72,14 @@ export function EmployeeCentric() {
           onMouseLeave={handleMouseLeave}
         >
           <div className="phone-shell" ref={shellRef}>
-            <img src="/left.png" alt="Meagle 360 employee self-service app" />
+            <Image
+              src="/left.png"
+              alt="Meagle 360 employee self-service app on mobile"
+              width={1536}
+              height={1024}
+              sizes="(max-width: 900px) 90vw, 560px"
+              style={{ width: "100%", height: "auto" }}
+            />
           </div>
           <div className="float-card float-1">
             <div className="dot tint-emerald">

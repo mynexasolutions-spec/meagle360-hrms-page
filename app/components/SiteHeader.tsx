@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { triggerRipple } from "../lib/ripple";
 
 const NAV_LINKS = [
@@ -55,7 +56,7 @@ export function SiteHeader({
     <header id="siteHeader" className={scrolled ? "scrolled" : ""}>
       <nav className={`nav${navOpen ? " open" : ""}`} id="mainNav">
         <a href="/" className="brand">
-          <img src="/logo.png" alt="Meagle 360 logo" className="brand-mark" />
+          <Image src="/logo.png" alt="Meagle 360 logo" className="brand-mark" width={46} height={46} priority />
           Meagle<span>360</span>
         </a>
 

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { SiteChrome } from "../../components/SiteChrome";
 import { QuotationMakerTool } from "../../components/QuotationMakerTool";
 import { FaqAccordion } from "../../components/FaqAccordion";
@@ -157,8 +158,15 @@ export default function QuotationMakerPage() {
             </div>
 
             <div className="hero-v3-card-img" style={{ flex: 1 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/quotation-maker.webp" alt="Quotation Maker Interface" style={{ width: '100%', maxWidth: '400px', display: 'block', margin: '0 auto' }} />
+              <Image
+                src="/quotation-maker.webp"
+                alt="Quotation maker tool interface"
+                width={1536}
+                height={1024}
+                priority
+                sizes="(max-width: 900px) 90vw, 400px"
+                style={{ width: '100%', maxWidth: '400px', height: 'auto', display: 'block', margin: '0 auto' }}
+              />
             </div>
           </div>
         </div>

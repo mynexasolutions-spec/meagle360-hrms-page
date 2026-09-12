@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { triggerRipple } from "../lib/ripple";
 
 export function Hero() {
@@ -90,7 +91,15 @@ export function Hero() {
               </div>
             </div>
             <div className="dashboard-frame">
-              <img src="/hrms-image.png" alt="Meagle 360 dashboard preview" />
+              <Image
+                src="/hrms-image.png"
+                alt="Meagle 360 HRMS dashboard preview showing attendance, leave and payroll management"
+                width={1536}
+                height={1024}
+                priority
+                sizes="(max-width: 900px) 90vw, 560px"
+                style={{ width: "100%", height: "auto" }}
+              />
             </div>
             <div className="hero-float-badge hb-2">
               <div

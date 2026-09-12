@@ -11,11 +11,26 @@ import { Faq } from "./components/Faq";
 import { CtaBanner } from "./components/CtaBanner";
 import { FAQS } from "../lib/faq-data";
 
+const HOME_TITLE = "HR, Payroll & Employee Management Software | Meagle 360";
+const HOME_DESCRIPTION =
+  "Meagle 360 is all-in-one HR management software for payroll, attendance, leave and employee management. Save time, automate HR. ₹149/user/month, live in 5 days.";
+
 export const metadata: Metadata = {
-  description:
-    "Automate attendance, leave, payroll, and every core HR process with Meagle 360, the all-in-one HRMS software built for growing businesses.",
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
   },
 };
 

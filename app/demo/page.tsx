@@ -109,11 +109,20 @@ export default function DemoPage() {
               </li>
             </ul>
 
-            <div className="demo-host-card">
-              <div className="demo-host-avatar">AB</div>
-              <div>
-                <strong>Abdul Bari</strong>
-                <span>Co-Founder</span>
+            <div className="demo-host-cards">
+              <div className="demo-host-card">
+                <div className="demo-host-avatar">AB</div>
+                <div>
+                  <strong>Abdul Bari</strong>
+                  <span>Co-Founder</span>
+                </div>
+              </div>
+              <div className="demo-host-card">
+                <div className="demo-host-avatar">SA</div>
+                <div>
+                  <strong>Sadiq Ali</strong>
+                  <span>Co-Founder</span>
+                </div>
               </div>
             </div>
 

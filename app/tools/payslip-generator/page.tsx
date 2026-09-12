@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteChrome } from "../../components/SiteChrome";
 import { FaqAccordion } from "../../components/FaqAccordion";
 import { PayslipGeneratorTool } from "../../components/PayslipGeneratorTool";
@@ -151,8 +152,15 @@ export default function PayslipGeneratorPage() {
             </div>
             
             <div className="hero-v3-card-img" style={{ flex: 1 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/payslip-generator-hero.webp" alt="Payslip Generator Interface" style={{ width: '100%', maxWidth: '400px', display: 'block', margin: '0 auto' }} />
+              <Image
+                src="/payslip-generator-hero.webp"
+                alt="Payslip generator tool interface"
+                width={1536}
+                height={1024}
+                priority
+                sizes="(max-width: 900px) 90vw, 400px"
+                style={{ width: '100%', maxWidth: '400px', height: 'auto', display: 'block', margin: '0 auto' }}
+              />
             </div>
           </div>
         </div>
@@ -360,8 +368,14 @@ export default function PayslipGeneratorPage() {
         <div className="container">
           <div className="hr-benefits-grid">
             <div className="hr-benefits-img" style={{ flex: 1 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/built-for-hr.webp" alt="HR professional using payslip generator" style={{ width: '100%', maxWidth: '500px', margin: '0 auto', display: 'block' }} />
+              <Image
+                src="/built-for-hr.webp"
+                alt="HR professional using payslip generator"
+                width={1536}
+                height={1024}
+                sizes="(max-width: 900px) 90vw, 500px"
+                style={{ width: '100%', maxWidth: '500px', height: 'auto', margin: '0 auto', display: 'block' }}
+              />
             </div>
             <div className="hr-benefits-content" style={{ flex: 1 }}>
               <span className="eyebrow-v2" style={{ color: 'var(--primary)', fontWeight: 600, fontSize: 14, textTransform: 'uppercase', letterSpacing: 1 }}>Built For HR Professionals</span>

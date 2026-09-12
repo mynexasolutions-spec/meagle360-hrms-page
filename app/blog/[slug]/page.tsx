@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { SiteChrome } from "../../components/SiteChrome";
 import { getPublishedPostBySlug, getRelatedPosts } from "../../../lib/posts";
@@ -164,10 +165,13 @@ export default async function BlogPostPage({
           <div className="blog-article-wrapper">
             {post.cover_image_url && (
               <div className="blog-post-cover-wrapper">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={post.cover_image_url}
                   alt={post.cover_image_alt || post.title}
+                  width={1200}
+                  height={630}
+                  priority
+                  sizes="(max-width: 800px) 100vw, 760px"
                   className="blog-post-cover-img"
                 />
               </div>

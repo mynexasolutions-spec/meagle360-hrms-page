@@ -82,7 +82,7 @@ export function PricingCalculator() {
         </div>
       </div>
 
-      <a href="/#demo" className="btn btn-primary btn-block" onClick={triggerRipple}>
+      <a href="/demo" className="btn btn-primary btn-block" onClick={triggerRipple}>
         Start Free Trial
       </a>
     </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Post } from "../../lib/posts";
 import { calculateReadingTime } from "../../lib/blog-types";
 
@@ -20,8 +21,13 @@ export function BlogCard({ post }: { post: Post }) {
           </span>
         )}
         {post.cover_image_url && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={post.cover_image_url} alt={post.cover_image_alt || post.title} />
+          <Image
+            src={post.cover_image_url}
+            alt={post.cover_image_alt || post.title}
+            fill
+            sizes="(max-width: 700px) 100vw, 380px"
+            style={{ objectFit: "cover" }}
+          />
         )}
       </div>
       <div className="blog-card-body">
