@@ -142,12 +142,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "payroll-software",
     navLabel: "Payroll",
-    metaTitle: "Payroll Software with Automatic Statutory Compliance",
+    metaTitle: "Cloud-Based Payroll Software with Automatic Statutory Compliance",
     metaDescription:
-      "Run payroll from attendance data automatically, with PF, ESI and TDS compliance built in. Flat ₹149/user/month, no setup fee. Book a demo.",
+      "Cloud-based payroll software that runs from attendance data automatically, with PF, ESI and TDS compliance built in. Flat ₹149/user/month, no setup fee. Book a demo.",
     h1: "Payroll Software That Runs Itself From Your Attendance Data",
     heroSubhead:
-      "Payroll built on top of your actual attendance and leave records, with statutory deductions calculated automatically, instead of a spreadsheet rebuilt from scratch every month by whoever drew the short straw.",
+      "Cloud-based payroll automation built on top of your actual attendance and leave records, with statutory deductions calculated automatically, instead of a spreadsheet rebuilt from scratch every month by whoever drew the short straw.",
     painIntro:
       "Payroll is usually the one process nobody wants to touch manually and, at most growing companies, the one still run partly by hand, stitched together from attendance, leave and reimbursement data that all live in different places.",
     painPoints: [
@@ -276,7 +276,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "Without a shared calendar, too many people from the same team can end up approved for leave on the same day, and nobody notices the coverage gap until it's already a problem.",
     ],
     capabilitiesIntro:
-      "Meagle 360 gives every employee one place to request leave, and gives managers and HR one accurate, always-current record of who's applied for what so leave stops being tracked in three different places at once.",
+      "Meagle 360 gives every employee one place to request leave, backed by a leave management system that gives managers and HR one accurate, always-current record of who's applied for what so leave stops being tracked in three different places at once.",
     capabilities: [
       {
         title: "Self-service leave requests",

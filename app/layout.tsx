@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 const SITE_URL = "https://www.meagle360.com";
-const SITE_TITLE = "HRMS Software for Growing Businesses | Meagle 360";
+const SITE_TITLE = "HRMS Software in India for Growing Businesses | Meagle 360";
 const SITE_DESCRIPTION =
   "All-in-one HRMS for attendance, leave, payroll and employee self-service. Flat ₹149/user/month, no setup fee, live in 5 days. Book a free demo.";
 

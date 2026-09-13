@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SiteChrome } from "../../components/SiteChrome";
 import { FaqAccordion } from "../../components/FaqAccordion";
 
-const TITLE = "HRMS for Startups — HR Software That Grows With You";
+const TITLE = "HRMS for Startups & Small Businesses";
 const DESCRIPTION =
-  "HR software built for startups: attendance, payroll and leave from day one. No minimum seats, flat ₹149/user/month, live in 5 days.";
+  "HR software for startups and small businesses: attendance, payroll and leave from day one. No minimum seats, flat ₹149/user/month, live in 5 days.";
 const SITE_URL = "https://www.meagle360.com";
 
 export const metadata: Metadata = {
@@ -27,6 +27,10 @@ export const metadata: Metadata = {
 };
 
 const FAQS = [
+  {
+    q: "Is Meagle 360 good HR software for small businesses?",
+    a: "Yes. Meagle 360 is built for small businesses and startups alike — flat ₹149/user/month with no minimum seats, every module (attendance, leave, payroll, employee database) included from day one, and no dedicated HR hire required to run it.",
+  },
   {
     q: "Is Meagle 360 suitable for a 10-person startup?",
     a: "Yes. There's no minimum seat count — you pay ₹149/user/month for exactly the employees you have today, whether that's 10 or 100, and every module is included from the first user.",
@@ -63,7 +67,7 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-    { "@type": "ListItem", position: 2, name: "HRMS for Startups", item: `${SITE_URL}/solutions/hrms-for-startups` },
+    { "@type": "ListItem", position: 2, name: "HRMS for Startups & Small Businesses", item: `${SITE_URL}/solutions/hrms-for-startups` },
   ],
 };
 
@@ -82,7 +86,7 @@ export default function HrmsForStartupsPage() {
       >
         <div className="container" style={{ textAlign: "center", maxWidth: 780, margin: "0 auto" }}>
           <h1 className="blog-post-title" style={{ margin: "0 0 16px" }}>
-            HRMS for Startups — HR Software That Grows With You
+            HRMS for Startups & Small Businesses
           </h1>
           <p style={{ fontSize: 18, color: "rgba(255,255,255,0.85)", margin: "0 0 28px" }}>
             Attendance, payroll and leave running properly from your first hire, without a
@@ -98,7 +102,7 @@ export default function HrmsForStartupsPage() {
         <div className="container" style={{ maxWidth: 760 }}>
           <h2 style={{ textAlign: "center", marginBottom: 12 }}>When spreadsheets stop working</h2>
           <p style={{ textAlign: "center", color: "var(--text-2)", marginBottom: 32, fontSize: 18 }}>
-            Most startups run HR informally for as long as they can — until somewhere around
+            Most startups and small businesses run HR informally for as long as they can — until somewhere around
             the 10 to 30 employee mark, the cracks start showing:
           </p>
           <ul className="check-list" style={{ maxWidth: 640, margin: "0 auto" }}>
@@ -129,7 +133,7 @@ export default function HrmsForStartupsPage() {
 
       <section className="section section-alt" style={{ padding: "48px 0" }}>
         <div className="container" style={{ maxWidth: 760 }}>
-          <h2 style={{ textAlign: "center", marginBottom: 24 }}>What startups actually need from HR software</h2>
+          <h2 style={{ textAlign: "center", marginBottom: 24 }}>What startups and small businesses actually need from HR software</h2>
           <ul className="check-list" style={{ maxWidth: 640, margin: "0 auto" }}>
             <li>
               <div className="ico">{CHECK}</div>
@@ -157,7 +161,7 @@ export default function HrmsForStartupsPage() {
 
       <section className="section" style={{ padding: "48px 0" }}>
         <div className="container" style={{ maxWidth: 900 }}>
-          <h2 style={{ textAlign: "center", marginBottom: 12 }}>How Meagle 360 is built for startup pace</h2>
+          <h2 style={{ textAlign: "center", marginBottom: 12 }}>How Meagle 360 is built for startup and small-business pace</h2>
           <p style={{ textAlign: "center", color: "var(--text-2)", marginBottom: 40, fontSize: 18 }}>
             Four modules matter most at this stage — and all four are included from day one, at no extra cost.
           </p>
