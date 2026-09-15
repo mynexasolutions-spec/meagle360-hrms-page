@@ -1,6 +1,6 @@
 import { Reveal } from "./Reveal";
 
-const FEATURES = [
+export const FEATURES = [
   {
     tint: "tint-indigo",
     title: "Employee Directory",

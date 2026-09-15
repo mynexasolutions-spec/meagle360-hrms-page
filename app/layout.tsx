@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Caveat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -10,10 +10,17 @@ const inter = Inter({
   display: "swap",
 });
 
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-caveat",
+  display: "swap",
+});
+
 const SITE_URL = "https://www.meagle360.com";
-const SITE_TITLE = "HRMS Software in India for Growing Businesses | Meagle 360";
+const SITE_TITLE = "HRMS & HRIS Software in India for Growing Businesses | Meagle 360";
 const SITE_DESCRIPTION =
-  "All-in-one HRMS for attendance, leave, payroll and employee self-service. Flat ₹149/user/month, no setup fee, live in 5 days. Book a free demo.";
+  "All-in-one HRMS (HRIS) for attendance, leave, payroll and employee self-service. Flat ₹149/user/month, no setup fee, live in 5 days. Book a free demo.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -73,7 +80,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${caveat.variable}`}>
       <body>
         {children}
         {/* Loads gtag.js only when a real GA4 ID is configured — see

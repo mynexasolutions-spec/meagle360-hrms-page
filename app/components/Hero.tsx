@@ -57,7 +57,7 @@ export function Hero() {
             </span>
           </h1>
           <p>
-            Meagle 360 is a powerful HRMS platform that automates your HR
+            Meagle 360 is a powerful HRMS (HRIS) platform that automates your HR
             processes, empowers your people, and drives organizational
             success.
           </p>

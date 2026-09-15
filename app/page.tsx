@@ -11,9 +11,9 @@ import { Faq } from "./components/Faq";
 import { CtaBanner } from "./components/CtaBanner";
 import { FAQS } from "../lib/faq-data";
 
-const HOME_TITLE = "Best HRMS Software in India for HR & Payroll | Meagle 360";
+const HOME_TITLE = "Best HRMS & HRIS Software in India | Meagle 360";
 const HOME_DESCRIPTION =
-  "Meagle 360 is a leading HRMS software in India for payroll, attendance, leave and employee management. Save time, automate HR. ₹149/user/month, live in 5 days.";
+  "Meagle 360 is a leading HRMS (HRIS) software in India for payroll, attendance and leave management. Save time, automate HR. ₹149/user/month, live in 5 days.";
 
 export const metadata: Metadata = {
   title: HOME_TITLE,
@@ -80,7 +80,7 @@ const organizationJsonLd = {
       "@id": `${SITE_URL}/#software`,
       name: "Meagle 360",
       applicationCategory: "BusinessApplication",
-      applicationSubCategory: "Human Resource Management System",
+      applicationSubCategory: "Human Resource Management System (HRIS)",
       operatingSystem: "Web, iOS, Android",
       url: `${SITE_URL}/`,
       publisher: { "@id": `${SITE_URL}/#organization` },

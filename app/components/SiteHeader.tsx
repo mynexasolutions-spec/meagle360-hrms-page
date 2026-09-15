@@ -39,6 +39,7 @@ export function SiteHeader({
   const isPricing = pathname === "/pricing";
   const isCareers = pathname?.startsWith("/careers");
   const isTools = pathname?.startsWith("/tools");
+  const isFeatures = pathname?.startsWith("/features");
 
   const [toolsOpen, setToolsOpen] = useState(false);
 
@@ -69,6 +70,16 @@ export function SiteHeader({
           >
             Home
           </a>
+
+          <a
+            href="/features"
+            className={`nav-link${isFeatures ? " active" : ""}`}
+            data-nav
+            onClick={onNavLinkClick}
+          >
+            Features
+          </a>
+
           <a
             href="/pricing"
             className={`nav-link${isPricing ? " active" : ""}`}
