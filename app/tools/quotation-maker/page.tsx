@@ -229,6 +229,16 @@ export default function QuotationMakerPage() {
         </div>
       </section>
 
+      <section className="section no-print" style={{ padding: "0 0 96px" }}>
+        <div className="container">
+          <div className="payslip-cta">
+            <h2>Managing your growing business takes more than quotes</h2>
+            <p style={{ fontSize: '1.1rem' }}>Meagle 360 handles your team's attendance, leave and payroll in one place, so your HR runs as smoothly as your sales pipeline.</p>
+            <a href="/demo" className="btn btn-white">Book a free demo</a>
+          </div>
+        </div>
+      </section>
+
       {/* JSON-LD scripts */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />

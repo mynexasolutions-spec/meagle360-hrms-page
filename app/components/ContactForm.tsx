@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { triggerRipple } from "../lib/ripple";
 import { Select } from "./Select";
 
@@ -16,8 +17,9 @@ export function ContactForm({
   onSuccess,
 }: {
   title?: string;
-  onSuccess: () => void;
+  onSuccess?: () => void;
 }) {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [users, setUsers] = useState("");
@@ -49,12 +51,8 @@ export function ContactForm({
         throw new Error(data.error || "Something went wrong. Please try again.");
       }
 
-      setStatus("success");
-      setName("");
-      setPhone("");
-      setUsers("");
-      setMessage("");
-      onSuccess();
+      onSuccess?.();
+      router.push("/thank-you");
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
@@ -105,9 +103,6 @@ export function ContactForm({
           {status === "loading" ? "Sending..." : "Request Demo"}
         </button>
         {status === "error" && <span className="cta-form-status error">{error}</span>}
-        {status === "success" && (
-          <span className="cta-form-status">Thanks! Our team will reach out shortly.</span>
-        )}
       </div>
 
       <p className="form-consent-line">

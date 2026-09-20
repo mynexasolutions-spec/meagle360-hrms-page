@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { submitApplication } from "../../careers/actions";
 
 export function JobApplicationForm({ jobId }: { jobId: string }) {
+  const router = useRouter();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -21,8 +23,7 @@ export function JobApplicationForm({ jobId }: { jobId: string }) {
       setErrorMessage(res.error);
       setStatus("error");
     } else {
-      setStatus("success");
-      (e.target as HTMLFormElement).reset();
+      router.push("/careers/application-submitted");
     }
   }
 

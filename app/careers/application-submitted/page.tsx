@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
-import { SiteChrome } from "../components/SiteChrome";
-import { ThankYouTracking } from "../components/ThankYouTracking";
+import { SiteChrome } from "../../components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "Thank You",
-  description: "Your request has been received.",
+  title: "Application Received",
+  description: "Your job application has been received.",
   robots: {
     index: false,
     follow: true,
   },
 };
 
-export default function ThankYouPage() {
+export default function ApplicationSubmittedPage() {
   return (
     <SiteChrome>
-      <ThankYouTracking />
       <section className="section" style={{ minHeight: "60vh", display: "flex", alignItems: "center" }}>
         <div className="container" style={{ maxWidth: 560, textAlign: "center" }}>
           <div className="thank-you-check">
@@ -22,13 +20,13 @@ export default function ThankYouPage() {
               <path d="M20 6L9 17l-5-5" />
             </svg>
           </div>
-          <h1 style={{ margin: "0 0 12px" }}>You&apos;re all set</h1>
+          <h1 style={{ margin: "0 0 12px" }}>Application received</h1>
           <p style={{ color: "var(--text-2)", fontSize: 18, marginBottom: 32 }}>
-            Thanks for your interest in Meagle 360. We&apos;ve received your
-            details and will reach out shortly.
+            Thank you for applying. We&apos;ll review your application and be in touch if your
+            profile matches the role.
           </p>
-          <a href="/" className="btn btn-primary">
-            Back to homepage
+          <a href="/careers" className="btn btn-primary">
+            Back to open positions
           </a>
         </div>
       </section>

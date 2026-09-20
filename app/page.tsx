@@ -13,7 +13,7 @@ import { FAQS } from "../lib/faq-data";
 
 const HOME_TITLE = "Best HRMS & HRIS Software in India | Meagle 360";
 const HOME_DESCRIPTION =
-  "Meagle 360 is a leading HRMS (HRIS) software in India for payroll, attendance and leave management. Save time, automate HR. ₹149/user/month, live in 5 days.";
+  "Meagle 360 is a leading HRMS (HRIS) software in India for payroll, attendance and leave management.";
 
 export const metadata: Metadata = {
   title: HOME_TITLE,

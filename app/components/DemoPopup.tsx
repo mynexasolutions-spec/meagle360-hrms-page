@@ -2,14 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { ContactForm } from "./ContactForm";
-import { useToast } from "./ToastProvider";
 
 const OPEN_DELAY_MS = 15000;
 const DISMISSED_KEY = "demoPopupDismissed";
 
 export function DemoPopup() {
   const [open, setOpen] = useState(false);
-  const showToast = useToast();
 
   useEffect(() => {
     if (localStorage.getItem(DISMISSED_KEY)) return;
@@ -47,10 +45,7 @@ export function DemoPopup() {
         </button>
         <ContactForm
           title="Get a Free Demo"
-          onSuccess={() => {
-            showToast("Thanks! Our team will reach out shortly.");
-            close();
-          }}
+          onSuccess={close}
         />
       </div>
     </div>

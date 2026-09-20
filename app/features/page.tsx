@@ -291,27 +291,12 @@ export default function FeaturesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="section" style={{ padding: "0 0 48px" }}>
+      <section className="section" style={{ padding: "0 0 96px" }}>
         <div className="container">
-          <div className="cta-card-simple">
-            <div className="cta-card-simple-blob cta-card-simple-blob-1"></div>
-            <div className="cta-card-simple-blob cta-card-simple-blob-2"></div>
-            <div className="cta-card-simple-content">
-              <h2 style={{ fontSize: "clamp(28px, 3.4vw, 38px)", letterSpacing: "-0.02em", margin: "0 0 12px" }}>
-                Ready to <span style={{ color: "var(--primary)" }}>simplify</span> your HR operations?
-              </h2>
-              <p style={{ fontSize: 18, color: "var(--text-2)", margin: "0 0 32px" }}>
-                Join growing businesses that trust Meagle 360.
-              </p>
-              <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                <Link href="/demo" className="btn btn-primary">
-                  Start Free Trial
-                </Link>
-                <Link href="/contact" className="btn btn-outline">
-                  Talk to Sales
-                </Link>
-              </div>
-            </div>
+          <div className="payslip-cta">
+            <h2>Need every one of these features running for your team?</h2>
+            <p style={{ fontSize: '1.1rem' }}>Meagle 360 brings attendance, leave, payroll and more into one platform, live in as little as 5 days.</p>
+            <Link href="/demo" className="btn btn-white">Book a free demo</Link>
           </div>
         </div>
       </section>

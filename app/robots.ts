@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         // /admin isn't in the audit's snippet (it doesn't know this project
         // has an admin panel) — kept disallowed so the login/CMS never gets
         // crawled or indexed.
-        disallow: ["/admin", "/api/", "/*?*utm_", "/thank-you"],
+        disallow: ["/admin", "/api/", "/*?*utm_", "/thank-you", "/careers/application-submitted"],
       },
       {
         userAgent: "GPTBot",
