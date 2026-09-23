@@ -170,6 +170,37 @@ export default async function FeaturePage({
         </div>
       </section>
 
+      {feature.extraSection && (
+        <section className="section" style={{ padding: "48px 0" }}>
+          <div className="container" style={{ maxWidth: 760 }}>
+            <h2 style={{ textAlign: "center", marginBottom: 12 }}>
+              {feature.extraSection.title}
+            </h2>
+            <p style={{ textAlign: "center", color: "var(--text-2)", marginBottom: 32, fontSize: 18 }}>
+              {feature.extraSection.intro}
+            </p>
+            <ul className="check-list" style={{ maxWidth: 640, margin: "0 auto" }}>
+              {feature.extraSection.bullets.map((bullet) => (
+                <li key={bullet}>
+                  <div className="ico">{CHECK}</div>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+            {feature.extraSection.closingText && (
+              <p style={{ textAlign: "center", color: "var(--text-2)", marginTop: 24, fontSize: 18 }}>
+                {feature.extraSection.closingText}{" "}
+                {feature.extraSection.closingLinkHref && (
+                  <a href={feature.extraSection.closingLinkHref}>
+                    {feature.extraSection.closingLinkLabel}
+                  </a>
+                )}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
       <section className="section" style={{ padding: "48px 0" }}>
         <div className="container" style={{ maxWidth: 760 }}>
           <h2 style={{ textAlign: "center", marginBottom: 24 }}>Getting started</h2>

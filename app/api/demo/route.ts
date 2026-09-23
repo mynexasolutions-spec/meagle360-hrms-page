@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "info@meagle360.com";
+import { waitUntil } from "@vercel/functions";
+import { createClient } from "../../../utils/supabase/server";
+import { escapeHtml, isEmailConfigured, sendLeadEmail } from "../../../lib/lead-email";
 
 export async function POST(request: Request) {
   let body: {
@@ -29,69 +29,56 @@ export async function POST(request: Request) {
     );
   }
 
-  const {
-    SMTP_HOST,
-    SMTP_PORT,
-    SMTP_USER,
-    SMTP_PASSWORD,
-    SMTP_FROM_EMAIL,
-    SMTP_FROM_NAME,
-  } = process.env;
+  const emailPromise = isEmailConfigured()
+    ? sendLeadEmail({
+        replyTo: workEmail,
+        subject: `New demo booking from ${name}`,
+        text: [
+          `Name: ${name}`,
+          `Work email: ${workEmail}`,
+          `Employees: ${employees}`,
+          `Phone: ${phone}`,
+        ].join("\n"),
+        html: `
+          <h2>New demo booking</h2>
+          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Work email:</strong> ${escapeHtml(workEmail)}</p>
+          <p><strong>Employees:</strong> ${escapeHtml(employees)}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
+        `,
+      })
+    : Promise.reject(new Error("Missing SMTP configuration environment variables."));
+  emailPromise.catch((err) => console.error("Failed to send demo request email:", err));
 
-  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASSWORD) {
-    console.error("Missing SMTP configuration environment variables.");
-    return NextResponse.json(
-      { error: "Email is not configured on the server." },
-      { status: 500 },
-    );
+  // Demo bookings are stored alongside contact requests so they appear in
+  // /admin/leads even if the email is delayed or fails.
+  let saved = false;
+  try {
+    const supabase = await createClient();
+    const { error: dbError } = await supabase.from("contact_submissions").insert({
+      name,
+      phone,
+      users: employees,
+      message: `Demo booking. Work email: ${workEmail}`,
+    });
+    if (dbError) console.error("Failed to save demo booking:", dbError);
+    else saved = true;
+  } catch (err) {
+    console.error("Failed to save demo booking:", err);
   }
 
-  const transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: Number(SMTP_PORT),
-    secure: Number(SMTP_PORT) === 465,
-    auth: { user: SMTP_USER, pass: SMTP_PASSWORD },
-  });
-
-  const fromName = SMTP_FROM_NAME || "Meagle 360 Website";
-  const fromEmail = SMTP_FROM_EMAIL || SMTP_USER;
+  if (saved) {
+    waitUntil(emailPromise.catch(() => {}));
+    return NextResponse.json({ ok: true });
+  }
 
   try {
-    await transporter.sendMail({
-      from: `"${fromName}" <${fromEmail}>`,
-      to: TO_EMAIL,
-      replyTo: workEmail,
-      subject: `New demo booking from ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Work email: ${workEmail}`,
-        `Employees: ${employees}`,
-        `Phone: ${phone}`,
-      ].join("\n"),
-      html: `
-        <h2>New demo booking</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Work email:</strong> ${escapeHtml(workEmail)}</p>
-        <p><strong>Employees:</strong> ${escapeHtml(employees)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
-      `,
-    });
-  } catch (err) {
-    console.error("Failed to send demo request email:", err);
+    await emailPromise;
+  } catch {
     return NextResponse.json(
       { error: "Failed to send your request. Please try again later." },
       { status: 502 },
     );
   }
-
   return NextResponse.json({ ok: true });
-}
-
-function escapeHtml(str: string) {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
 }

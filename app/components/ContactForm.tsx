@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { triggerRipple } from "../lib/ripple";
 import { Select } from "./Select";
@@ -20,6 +20,11 @@ export function ContactForm({
   onSuccess?: () => void;
 }) {
   const router = useRouter();
+
+  // Warm the confirmation page so the redirect after submit is instant.
+  useEffect(() => {
+    router.prefetch("/thank-you");
+  }, [router]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [users, setUsers] = useState("");

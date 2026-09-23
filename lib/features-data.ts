@@ -17,6 +17,18 @@ export type FeaturePage = {
   relatedBlogSlugs: string[];
   relatedFeatureSlug: string;
   relatedFeatureLabel: string;
+  // Optional dedicated section rendered right after "Built for..." — used
+  // where a page needs to target a specific audience (e.g. small business)
+  // without disturbing the shared copy above it. Omitted on pages that
+  // don't need it.
+  extraSection?: {
+    title: string;
+    intro: string;
+    bullets: string[];
+    closingText?: string;
+    closingLinkLabel?: string;
+    closingLinkHref?: string;
+  };
 };
 
 export const FEATURE_PAGES: FeaturePage[] = [
@@ -142,12 +154,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "payroll-software",
     navLabel: "Payroll",
-    metaTitle: "Cloud-Based Payroll Software with Automatic Statutory Compliance",
+    metaTitle: "Payroll Software for Small Business in India",
     metaDescription:
-      "Cloud-based payroll software that runs from attendance data automatically, with PF, ESI and TDS compliance built in. Flat ₹149/user/month, no setup fee. Book a demo.",
-    h1: "Payroll Software That Runs Itself From Your Attendance Data",
+      "Payroll software for small business with automatic PF, ESI and TDS compliance. Flat ₹149/user/month, no setup fee. 14-day free trial, book a demo.",
+    h1: "Payroll Software for Small Business That Runs Itself From Your Attendance Data",
     heroSubhead:
-      "Cloud-based payroll automation built on top of your actual attendance and leave records, with statutory deductions calculated automatically, instead of a spreadsheet rebuilt from scratch every month by whoever drew the short straw.",
+      "Payroll software built for small businesses that have outgrown spreadsheets but don't want enterprise pricing or a multi-week implementation. Runs on top of your actual attendance and leave records, with statutory deductions calculated automatically.",
     painIntro:
       "Payroll is usually the one process nobody wants to touch manually and, at most growing companies, the one still run partly by hand, stitched together from attendance, leave and reimbursement data that all live in different places.",
     painPoints: [
@@ -250,13 +262,40 @@ export const FEATURE_PAGES: FeaturePage[] = [
         q: "Can payroll handle employees with different salary structures?",
         a: "Yes, each employee's salary structure is configured individually, so a mix of fixed pay, variable components and allowances is handled correctly per person rather than assuming one structure fits everyone.",
       },
+      {
+        q: "Is Meagle 360's payroll software suitable for a small business with under 20 employees?",
+        a: "Yes, there's no minimum seat count, so a small team pays the same flat ₹149/user/month rate as a larger company, without a bundled base fee sized for bigger organizations.",
+      },
+      {
+        q: "Do I need a dedicated HR or payroll person to use this?",
+        a: "No, statutory deductions (PF, ESI, TDS) are calculated automatically as part of the payroll run, so a business without a dedicated payroll specialist can still stay compliant.",
+      },
+      {
+        q: "How is this different from payroll software built for large companies?",
+        a: "Large-company payroll tools often come with a base fee bundling far more employees than a small business has, plus modules a small team doesn't need yet. Meagle 360's flat per-user pricing with no minimum seats is built specifically for teams that don't fit that mold.",
+      },
     ],
     relatedBlogSlugs: [
       "streamline-payroll-process-2026",
       "best-all-in-one-hrms-software-for-growing-businesses-in-2026",
+      "payroll-software-pricing-in-india",
     ],
     relatedFeatureSlug: "attendance-management-software",
     relatedFeatureLabel: "Attendance Management Software",
+    extraSection: {
+      title: "Why Small Businesses Choose Meagle 360 for Payroll",
+      intro:
+        "Most payroll software is priced and built for companies with a dedicated HR or finance team. Small businesses usually don't have one they have someone wearing five hats, payroll being just one of them.",
+      bullets: [
+        "No minimum seat count, so a 10-person team pays the same flat rate as a 100-person team, no bundled base fee designed for a bigger company than yours",
+        "No dedicated payroll admin required, statutory compliance runs automatically instead of needing someone who understands PF/ESI/TDS rules in depth",
+        "Setup in 3-5 business days, not a multi-week enterprise onboarding project",
+        "Flat ₹149/user/month with everything included, so a small business isn't paying for modules (recruitment suites, advanced analytics) it doesn't need yet",
+      ],
+      closingText: "Building a team from scratch instead? See how Meagle 360 works for",
+      closingLinkLabel: "startups",
+      closingLinkHref: "/solutions/hrms-for-startups",
+    },
   },
   {
     slug: "leave-management-software",

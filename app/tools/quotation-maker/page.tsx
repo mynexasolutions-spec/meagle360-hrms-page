@@ -7,14 +7,14 @@ import { FaqAccordion } from "../../components/FaqAccordion";
 const SITE_URL = "https://meagle360.com"; // Change to actual site URL
 
 export const metadata: Metadata = {
-  title: "Free Quotation Maker – Create Professional Quotes Online",
-  description: "Generate accurate, branded quotations in minutes with our free online quotation maker. Add pricing, taxes, and client details easily.",
+  title: "Free Quotation Maker & Online Quotation Generator",
+  description: "Create professional quotations online free. Our quotation maker lets you add items, pricing, and terms, then download a ready PDF in seconds. No signup needed.",
   alternates: {
     canonical: `${SITE_URL}/tools/quotation-maker`,
   },
   openGraph: {
-    title: "Free Quotation Maker – Create Professional Quotes Online",
-    description: "Generate accurate, branded quotations in minutes with our free online quotation maker. Add pricing, taxes, and client details easily.",
+    title: "Free Quotation Maker & Online Quotation Generator",
+    description: "Create professional quotations online free. Our quotation maker lets you add items, pricing, and terms, then download a ready PDF in seconds. No signup needed.",
     url: `${SITE_URL}/tools/quotation-maker`,
     siteName: "Meagle 360",
     images: [
@@ -86,8 +86,16 @@ const USE_CASES = [
 
 const FAQS = [
   {
-    q: "Is this quotation maker completely free?",
-    a: "Yes! Our quotation maker is 100% free to use. You do not need to create an account or provide credit card details.",
+    q: "Is this quotation maker free to use?",
+    a: "Yes, this tool is completely free with no signup required. You do not need to create an account or provide credit card details.",
+  },
+  {
+    q: "Can I use the quotation maker on my phone?",
+    a: "Yes, the tool works in any mobile browser, no separate app download required.",
+  },
+  {
+    q: "What details can I include in a quotation?",
+    a: "You can add your company details and logo, your GSTIN, client details, a quote number, line items with quantity and rate, plus payment terms and notes — everything needed for a professional, ready-to-send quotation.",
   },
   {
     q: "How do I save the quotation as a PDF?",
@@ -141,15 +149,15 @@ export default function QuotationMakerPage() {
           <div className="payslip-hero-v3-card">
             <div className="hero-v3-card-content" style={{ flex: 1 }}>
               <h1 className="payslip-hero-v3-title" style={{ marginBottom: '24px' }}>
-                Free Quotation Maker
+                Free Quotation Maker — Create &amp; Download Quotations Online
               </h1>
               <p style={{ color: '#555', fontSize: '1.1rem', marginBottom: '32px', lineHeight: 1.5 }}>
-                Generate accurate, branded quotations in minutes.<br/>Add pricing, taxes, and client details easily—no design software needed.
+                An online quotation maker for generating accurate, branded quotations in minutes.<br/>Add pricing, taxes, and client details easily—no design software needed.
               </p>
-              
+
               <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                 <a href="#generator" className="btn btn-primary" style={{ padding: '14px 32px', fontSize: '1rem' }}>
-                  Create Quote Now
+                  Try the Free Quotation Generator
                 </a>
                 <svg viewBox="0 0 100 50" fill="none" style={{ width: '60px', height: '30px', color: 'var(--primary)' }}>
                   <path d="M10 10 Q 50 10, 80 40 M 80 40 L 70 30 M 80 40 L 60 45" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -182,7 +190,7 @@ export default function QuotationMakerPage() {
         <div className="container">
           <div className="section-head" style={{ textAlign: "center", marginBottom: 48, marginLeft: "auto", marginRight: "auto" }}>
             <span className="eyebrow" style={{ justifyContent: "center" }}>How It Works</span>
-            <h2>How This Quotation Maker Works</h2>
+            <h2>How This Quotation Generator Online Works</h2>
           </div>
           <div className="feature-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
             {STEPS.map((step, i) => (

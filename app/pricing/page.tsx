@@ -162,16 +162,19 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="section section-alt" style={{ textAlign: "center", padding: "48px 0" }}>
+      <section className="section" style={{ padding: "0 0 96px" }}>
         <div className="container">
-          <h2 style={{ marginBottom: 24 }}>Ready to get started?</h2>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="/#demo" className="btn btn-primary">
-              Start Free Trial
-            </a>
-            <a href="/contact" className="btn btn-outline">
-              Talk to Sales
-            </a>
+          <div className="payslip-cta">
+            <h2>Ready to get started?</h2>
+            <p style={{ fontSize: '1.1rem' }}>No hidden fees, no surprises — every module included at one flat price.</p>
+            <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+              <a href="/demo" className="btn btn-white">
+                Start Free Trial
+              </a>
+              <a href="/contact" className="btn btn-outline-light">
+                Talk to Sales
+              </a>
+            </div>
           </div>
         </div>
       </section>

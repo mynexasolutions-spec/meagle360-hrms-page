@@ -275,6 +275,15 @@
       .btn-white:hover {
         background: #f4f4ff;
       }
+      .btn-outline-light {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .btn-outline-light:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: #fff;
+      }
       .btn-block {
         width: 100%;
         justify-content: center;

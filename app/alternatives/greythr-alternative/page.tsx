@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteChrome } from "../../components/SiteChrome";
 import { FaqAccordion } from "../../components/FaqAccordion";
 
@@ -129,6 +130,16 @@ export default function GreytHRAlternativePage() {
 
       <section className="section section-alt" style={{ padding: "48px 0" }}>
         <div className="container" style={{ maxWidth: 900 }}>
+          <div style={{ maxWidth: 800, margin: "0 auto 32px" }}>
+            <Image
+              src="/greythr-pricing.webp"
+              alt="Meagle 360 vs greytHR pricing and feature comparison table — starting price, minimum seats, setup fee, shift and roster management, EPFO/ESIC compliance and mobile attendance"
+              width={1672}
+              height={941}
+              sizes="(max-width: 900px) 90vw, 800px"
+              style={{ display: "block", width: "100%", height: "auto" }}
+            />
+          </div>
           <h2 style={{ textAlign: "center", marginBottom: 12 }}>Meagle 360 vs greytHR — side by side</h2>
           <p style={{ textAlign: "center", color: "var(--text-2)", marginBottom: 32, fontSize: 18 }}>
             greytHR prices on a base-fee-plus-headcount model for its paid plan — figures below

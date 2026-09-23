@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { waitUntil } from "@vercel/functions";
 import { createClient } from "../../../utils/supabase/server";
-
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL || "info@meagle360.com";
+import { escapeHtml, isEmailConfigured, sendLeadEmail } from "../../../lib/lead-email";
 
 export async function POST(request: Request) {
   let body: {
@@ -30,85 +29,55 @@ export async function POST(request: Request) {
     );
   }
 
-  // Save the lead so it shows up in the admin dashboard, independent of the
-  // email flow below. A DB failure here must never block the email send —
-  // email delivery is what the user actually depends on.
+  // Start the email straight away so it runs alongside the database save
+  // instead of after it.
+  const emailPromise = isEmailConfigured()
+    ? sendLeadEmail({
+        subject: `New demo request from ${name}`,
+        text: [
+          `Name: ${name}`,
+          `Phone: ${phone}`,
+          `Number of users: ${users}`,
+          `Message: ${message || "(none)"}`,
+        ].join("\n"),
+        html: `
+          <h2>New demo request</h2>
+          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
+          <p><strong>Number of users:</strong> ${escapeHtml(users)}</p>
+          <p><strong>Message:</strong><br/>${escapeHtml(message || "(none)").replace(/\n/g, "<br/>")}</p>
+        `,
+      })
+    : Promise.reject(new Error("Missing SMTP configuration environment variables."));
+  emailPromise.catch((err) => console.error("Failed to send contact email:", err));
+
+  let saved = false;
   try {
     const supabase = await createClient();
     const { error: dbError } = await supabase
       .from("contact_submissions")
       .insert({ name, phone, users, message: message || null });
-
-    if (dbError) {
-      console.error("Failed to save contact submission:", dbError);
-    }
+    if (dbError) console.error("Failed to save contact submission:", dbError);
+    else saved = true;
   } catch (err) {
     console.error("Failed to save contact submission:", err);
   }
 
-  const {
-    SMTP_HOST,
-    SMTP_PORT,
-    SMTP_USER,
-    SMTP_PASSWORD,
-    SMTP_FROM_EMAIL,
-    SMTP_FROM_NAME,
-  } = process.env;
-
-  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASSWORD) {
-    console.error("Missing SMTP configuration environment variables.");
-    return NextResponse.json(
-      { error: "Email is not configured on the server." },
-      { status: 500 },
-    );
+  if (saved) {
+    // The lead is safely stored (and visible in /admin/leads), so answer now
+    // and let the email finish in the background.
+    waitUntil(emailPromise.catch(() => {}));
+    return NextResponse.json({ ok: true });
   }
 
-  const transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: Number(SMTP_PORT),
-    secure: Number(SMTP_PORT) === 465,
-    auth: { user: SMTP_USER, pass: SMTP_PASSWORD },
-  });
-
-  const fromName = SMTP_FROM_NAME || "Meagle 360 Website";
-  const fromEmail = SMTP_FROM_EMAIL || SMTP_USER;
-
+  // Couldn't store it, so the email is the only record: wait for it.
   try {
-    await transporter.sendMail({
-      from: `"${fromName}" <${fromEmail}>`,
-      to: TO_EMAIL,
-      replyTo: undefined,
-      subject: `New demo request from ${name}`,
-      text: [
-        `Name: ${name}`,
-        `Phone: ${phone}`,
-        `Number of users: ${users}`,
-        `Message: ${message || "(none)"}`,
-      ].join("\n"),
-      html: `
-        <h2>New demo request</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
-        <p><strong>Number of users:</strong> ${escapeHtml(users)}</p>
-        <p><strong>Message:</strong><br/>${escapeHtml(message || "(none)").replace(/\n/g, "<br/>")}</p>
-      `,
-    });
-  } catch (err) {
-    console.error("Failed to send contact email:", err);
+    await emailPromise;
+  } catch {
     return NextResponse.json(
       { error: "Failed to send your message. Please try again later." },
       { status: 502 },
     );
   }
-
   return NextResponse.json({ ok: true });
-}
-
-function escapeHtml(str: string) {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
 }

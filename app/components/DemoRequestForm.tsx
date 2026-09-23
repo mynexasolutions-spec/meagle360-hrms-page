@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { triggerRipple } from "../lib/ripple";
 
@@ -8,6 +8,11 @@ type Status = "idle" | "loading" | "error";
 
 export function DemoRequestForm() {
   const router = useRouter();
+
+  // Warm the confirmation page so the redirect after submit is instant.
+  useEffect(() => {
+    router.prefetch("/thank-you");
+  }, [router]);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 

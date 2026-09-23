@@ -115,7 +115,7 @@ const FAQS = [
   },
   {
     q: "Is this calculator accurate for every company?",
-    a: "It provides a close estimate based on standard salary structuring practices. Exact figures can vary slightly since companies structure CTC components (Basic %, HRA %, allowances) differently.",
+    a: "It provides a close estimate based on standard salary structuring practices, and it's completely free to use. Exact figures can vary slightly since companies structure CTC components (Basic %, HRA %, allowances) differently.",
   },
   {
     q: "Can HR teams use this to structure an offer?",
@@ -172,7 +172,7 @@ export default function CtcToInHandCalculatorPage() {
                 CTC to In-Hand Salary Calculator
               </h1>
               <p style={{ color: '#555', fontSize: '1.1rem', marginBottom: '32px', lineHeight: 1.5 }}>
-                Convert your CTC to in-hand salary instantly.<br/>Get a full breakdown of your actual monthly take-home.
+                Convert your CTC to in-hand salary instantly with this free calculator.<br/>Get a full breakdown of your actual monthly take-home.
               </p>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
@@ -301,7 +301,7 @@ export default function CtcToInHandCalculatorPage() {
         <div className="container">
           <div className="payslip-cta">
             <h2>Explaining CTC breakups manually to every new hire doesn&apos;t scale</h2>
-            <p>Meagle 360 generates clear, automatic CTC-to-in-hand breakdowns for every employee on your team.</p>
+            <p>Meagle 360 generates instant, automatic CTC-to-in-hand breakdowns for every employee on your team.</p>
             <a href="/demo" className="btn btn-white">Book a free demo</a>
           </div>
         </div>

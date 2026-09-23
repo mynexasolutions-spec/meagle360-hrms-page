@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteChrome } from "../../components/SiteChrome";
 import { FaqAccordion } from "../../components/FaqAccordion";
 
@@ -140,6 +141,16 @@ export default function KekaAlternativePage() {
             Keka prices on a base-fee-plus-headcount model rather than a flat per-user rate — the
             figures below are Keka&apos;s cheapest published plan as of August 2026.
           </p>
+          <div style={{ maxWidth: 800, margin: "0 auto 32px" }}>
+            <Image
+              src="/keka-pricing.webp"
+              alt="Meagle 360 vs Keka pricing and feature comparison table — starting price, minimum seats, setup fee, time to go live, modules included, payroll compliance and mobile attendance"
+              width={1672}
+              height={941}
+              sizes="(max-width: 900px) 90vw, 800px"
+              style={{ display: "block", width: "100%", height: "auto" }}
+            />
+          </div>
           <div className="pricing-compare-scroll">
             <table className="pricing-compare-table">
               <thead>

@@ -4,9 +4,9 @@ import { SiteChrome } from "../../components/SiteChrome";
 import { FaqAccordion } from "../../components/FaqAccordion";
 import { PayslipGeneratorTool } from "../../components/PayslipGeneratorTool";
 
-const TITLE = "Free Payslip Generator Online - Create Salary Slips Instantly";
+const TITLE = "Free Salary Slip Generator & Payslip Generator";
 const DESCRIPTION =
-  "Generate professional payslips online for free. Enter salary details, add earnings and deductions, and download a ready-to-share PDF payslip in seconds.";
+  "Generate professional payslips and salary slips online for free. Add earnings and deductions, then download a ready-to-share PDF in seconds.";
 const SITE_URL = "https://www.meagle360.com";
 
 export const metadata: Metadata = {
@@ -72,6 +72,18 @@ const WHY_USE = [
 
 const FAQS = [
   {
+    q: "Is a salary slip the same as a payslip?",
+    a: "Yes, \"salary slip\" and \"payslip\" refer to the same document. The terms are used interchangeably across India, and this tool works the same way regardless of which term you search for.",
+  },
+  {
+    q: "Can I create a salary slip online for free?",
+    a: "Yes, this tool is completely free to use with no signup required.",
+  },
+  {
+    q: "Can I generate a salary slip in Excel format?",
+    a: "This tool generates a ready-to-download PDF payslip. Excel-format export is not currently supported.",
+  },
+  {
     q: "Is this payslip generator free to use?",
     a: "Yes, the tool is completely free with no signup required. Enter the details, preview the payslip, and download it as a PDF.",
   },
@@ -85,18 +97,18 @@ const FAQS = [
   },
   {
     q: "What details do I need to generate a payslip?",
-    a: "You'll need company details such as name and address, employee details such as name, ID, and designation, the pay period, all earnings components like Basic, HRA, DA, and allowances, and applicable deductions like PF, PT, and TDS.",
+    a: "You'll need company details such as name and address, employee details such as name, ID, and designation, the pay period, all earnings components like Basic, HRA, DA, and allowances, and applicable deductions like PF, PT, and TDS — everything needed for a monthly pay slip or a one-off company pay slip.",
   },
   {
     q: "Can I use this to generate payslips for my whole team?",
-    a: "This free tool is best suited for individual or occasional payslips. For generating and distributing payslips automatically for an entire team every month, Meagle 360's payroll software handles this at scale.",
+    a: "This free tool is best suited for individual or occasional payslips. For generating and distributing each employee's pay slip automatically for an entire team every month, Meagle 360's payroll software handles this at scale.",
   },
 ];
 
 const softwareJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Meagle 360 Payslip Generator",
+  name: "Meagle 360 Salary Slip Generator & Payslip Generator",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   offers: {
@@ -104,7 +116,7 @@ const softwareJsonLd = {
     price: "0",
     priceCurrency: "INR",
   },
-  description: "Free online payslip generator to create and download professional salary slips as PDF.",
+  description: "Free online salary slip generator and payslip generator to create and download professional salary slips as PDF.",
 };
 
 const faqJsonLd = {
@@ -135,10 +147,10 @@ export default function PayslipGeneratorPage() {
           <div className="payslip-hero-v3-card">
             <div className="hero-v3-card-content" style={{ flex: 1 }}>
               <h1 className="payslip-hero-v3-title" style={{ marginBottom: '24px' }}>
-                Free Online Payslip Generator
+                Free Salary Slip Generator — Create &amp; Download Payslips Online
               </h1>
               <p style={{ color: '#555', fontSize: '1.1rem', marginBottom: '32px', lineHeight: 1.5 }}>
-                Create Professional Payslips in Minutes.<br/>No Sign-up Required.
+                Create a salary slip online for free — enter earnings and deductions, and get a professional payslip in minutes.<br/>No sign-up required.
               </p>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
@@ -217,7 +229,7 @@ export default function PayslipGeneratorPage() {
                 <svg viewBox="0 0 100 80" fill="none" className="step-icon-v2" style={{ width: '100%', height: 100 }}><rect x="25" y="10" width="50" height="60" rx="4" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="2"/><rect x="35" y="25" width="30" height="3" rx="1.5" fill="#e2e8f0"/><rect x="35" y="35" width="25" height="3" rx="1.5" fill="#e2e8f0"/><rect x="35" y="45" width="30" height="3" rx="1.5" fill="#e2e8f0"/><circle cx="70" cy="60" r="14" fill="#10b981"/><path d="M70 54v9M66 60l4 4 4-4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
               <h3 style={{ fontSize: 18, marginTop: 24, marginBottom: 8, color: '#111', fontWeight: 600 }}>Download</h3>
-              <p style={{ color: '#64748b', fontSize: '1.1rem', lineHeight: 1.5 }}>Download your professional payslip in PDF format.</p>
+              <p style={{ color: '#64748b', fontSize: '1.1rem', lineHeight: 1.5 }}>Download your salary slip PDF instantly, ready to share.</p>
             </div>
           </div>
         </div>
@@ -309,6 +321,10 @@ export default function PayslipGeneratorPage() {
               Why This, Not a Template
             </span>
             <h2 style={{ fontSize: '36px', color: '#111', fontWeight: 800, marginBottom: 16 }}>Why Use a <span style={{ color: 'var(--primary)' }}>Payslip Generator</span></h2>
+            <p style={{ textAlign: 'center', color: '#555', fontSize: '1.05rem', maxWidth: 640, margin: '0 auto' }}>
+              Whether you call it a payslip generator or a salary slip generator, it's the same
+              tool doing the same job: turning salary components into a clean, downloadable document.
+            </p>
           </div>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24, marginBottom: 24 }}>
