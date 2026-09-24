@@ -110,7 +110,7 @@ const FAQS = [
 const softwareJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Meagle 360 Quotation Maker",
+  name: "Meagle 360 Quotation Maker & Online Quotation Generator",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   offers: {
@@ -118,7 +118,7 @@ const softwareJsonLd = {
     price: "0",
     priceCurrency: "INR",
   },
-  description: "Free online tool to generate professional business quotations instantly.",
+  description: "Free online quotation maker and quotation generator to create and download professional business quotations as PDF.",
 };
 
 const faqJsonLd = {
