@@ -16,7 +16,7 @@ export function BlogCard({ post }: { post: Post }) {
     <a href={`/blog/${post.slug}`} className="blog-card">
       <div className="blog-card-cover" style={{ position: "relative" }}>
         {post.category && (
-          <span style={{ position: "absolute", top: "12px", left: "12px", zIndex: 10, background: "var(--primary)", color: "#fff", padding: "4px 10px", borderRadius: "100px", fontSize: "12px", fontWeight: 600, textTransform: "uppercase" }}>
+          <span style={{ position: "absolute", bottom: "12px", left: "12px", zIndex: 10, background: "var(--primary)", color: "#fff", padding: "4px 10px", borderRadius: "100px", fontSize: "12px", fontWeight: 600, textTransform: "uppercase" }}>
             {post.category}
           </span>
         )}
