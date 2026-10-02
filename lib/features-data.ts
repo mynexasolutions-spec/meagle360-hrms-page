@@ -17,6 +17,12 @@ export type FeaturePage = {
   relatedBlogSlugs: string[];
   relatedFeatureSlug: string;
   relatedFeatureLabel: string;
+  // Optional dedicated dashboard image for this feature, shown in the section
+  // right under the hero. Falls back to the generic /hrms-image.png when
+  // omitted. When set, expected to be a 1672x941 (16:9) webp, matching this
+  // site's established feature/blog cover convention — update the width/height
+  // on the <Image> in app/features/[slug]/page.tsx if a future image differs.
+  heroImage?: string;
   // Optional dedicated section rendered right after "Built for..." — used
   // where a page needs to target a specific audience (e.g. small business)
   // without disturbing the shared copy above it. Omitted on pages that
@@ -34,11 +40,12 @@ export type FeaturePage = {
 export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "attendance-management-software",
+    heroImage: "/attendance-management-workspace.webp",
     navLabel: "Attendance Management",
-    metaTitle: "Attendance Management Software for Growing Teams",
+    metaTitle: "Attendance Management System with Payroll Integration",
     metaDescription:
-      "Geo-tagged mobile check-in, regularisation workflows, and automatic attendance-to-payroll sync. Flat ₹149/user/month, no setup fee. Book a demo.",
-    h1: "Attendance Management Software for Growing Teams",
+      "A complete attendance management system with geo-location tracking, automated reports, and direct payroll integration. Flat ₹149/user/month, no setup fee.",
+    h1: "Attendance Management System",
     heroSubhead:
       "Track attendance accurately across office, field and remote teams, with mobile check-ins that flow straight into payroll no registers, no spreadsheets, no manual reconciliation before every cycle.",
     painIntro:
@@ -50,7 +57,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "Proving where a field employee actually was on a given day for a client dispute, a compliance question, or simple accountability is nearly impossible without a timestamped, location-tagged record to point to.",
     ],
     capabilitiesIntro:
-      "Meagle 360 replaces registers and disconnected exports with one attendance system that your team actually checks in through, and that payroll trusts automatically no export, no re-entry, no separate reconciliation step at month-end.",
+      "Meagle 360 is attendance management software that replaces registers and disconnected exports with one system your team actually checks in through, and that payroll trusts automatically no export, no re-entry, no separate reconciliation step at month-end.",
     capabilities: [
       {
         title: "Geo-tagged mobile check-in",
@@ -66,7 +73,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         title: "Attendance-to-payroll sync",
-        desc: "Once attendance is finalised for a cycle, it flows directly into payroll present days, leave, late marks and overtime are all reflected without anyone re-entering the numbers or exporting a CSV between two different tools. Payroll runs from the same data attendance actually recorded, not a manually rebuilt summary of it.",
+        desc: "This is what properly integrated attendance and payroll software looks like in practice: once attendance is finalised for a cycle, it flows directly into payroll present days, leave, late marks and overtime are all reflected without anyone re-entering the numbers or exporting a CSV between two different tools. Payroll runs from the same data attendance actually recorded, not a manually rebuilt summary of it.",
       },
       {
         title: "Late marks, overtime and shift rules",
@@ -74,7 +81,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         title: "Attendance reports without a rebuild",
-        desc: "Present-day counts, late-arrival trends and overtime totals are available as reports pulled from live attendance data, so answering a question about a specific team's attendance pattern doesn't mean exporting and rebuilding a summary by hand.",
+        desc: "As time and attendance software, present-day counts, late-arrival trends and overtime totals are available as reports pulled from live attendance data, so answering a question about a specific team's attendance pattern doesn't mean exporting and rebuilding a summary by hand.",
       },
       {
         title: "One policy, applied consistently everywhere",
@@ -83,7 +90,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     builtForTitle: "Built for field teams, factories and offices",
     builtForParagraphs: [
-      "Not every team clocks in from the same desk every day. Meagle 360's attendance module is built to handle a factory floor with shift-based biometric check-ins, a field sales team checking in by phone from a client site, and an office team logging in from their laptop all inside one system, with one attendance record per employee.",
+      "Not every team clocks in from the same desk every day. Meagle 360's employee attendance software is built to handle a factory floor with shift-based biometric check-ins, a field sales team checking in by phone from a client site, and an office team logging in from their laptop all inside one system, with one attendance record per employee.",
       "That matters most at exactly the moment it's hardest to manage manually: when your team grows past the point where one person can eyeball the register every morning, and attendance data has to be right the first time because payroll, leave balances and compliance reporting all depend on it.",
       "It also matters for the questions that come up after the fact a client asking whether your field engineer actually visited their site on a given date, or a compliance audit asking for proof of attendance for a specific team over a specific period. A geo-tagged, timestamped record answers that in seconds instead of a manual search through old logs.",
       "And it matters for HR itself, which no longer has to be the single point of contact for every attendance question. Managers can see their own team's attendance directly, and employees can check their own record, instead of everything routing through one person who has to look it up manually.",
@@ -142,6 +149,30 @@ export const FEATURE_PAGES: FeaturePage[] = [
       {
         q: "Can HR see attendance for the whole company, not just one team?",
         a: "Yes, HR has visibility across the full company, while managers typically see their own team, based on the access level configured for their role.",
+      },
+      {
+        q: "What is an attendance management system?",
+        a: "An attendance management system is software that records employee check-ins, check-outs, and absences automatically, then uses that data for reporting and payroll, replacing manual registers or standalone spreadsheets.",
+      },
+      {
+        q: "What's the difference between an online attendance system and a traditional one?",
+        a: "An online attendance management system captures attendance digitally, through mobile check-ins, geo-location, or biometric devices, and syncs it in real time, instead of relying on paper registers or offline machines that need manual data entry later.",
+      },
+      {
+        q: "Can attendance management software work with payroll automatically?",
+        a: "Yes, attendance and payroll software that's properly integrated applies attendance data, including late marks, absences, and overtime, directly into payroll calculations without manual re-entry, reducing both effort and the chance of mismatched records.",
+      },
+      {
+        q: "What should I look for in an employee attendance management system?",
+        a: "Real-time syncing, geo-location or biometric verification, direct payroll integration, and self-service access so employees can view their own attendance history without asking HR, are the features that matter most for day-to-day use.",
+      },
+      {
+        q: "Is a cloud based attendance system better than an on-premise one?",
+        a: "Generally yes, for most small and mid-sized teams, a cloud based attendance system needs no local server or hardware maintenance, updates automatically, and works for remote or multi-location teams, where an on-premise system would require separate setups per location.",
+      },
+      {
+        q: "Does HR attendance software replace the need for biometric devices?",
+        a: "Not necessarily, many HR attendance software platforms integrate with existing biometric devices rather than replacing them, combining device-level verification with cloud-based reporting and payroll integration.",
       },
     ],
     relatedBlogSlugs: [
@@ -299,13 +330,14 @@ export const FEATURE_PAGES: FeaturePage[] = [
   },
   {
     slug: "leave-management-software",
+    heroImage: "/leave-management-workspace.webp",
     navLabel: "Leave Management",
-    metaTitle: "Leave Management Software for Fast, Fair Approvals",
+    metaTitle: "Leave Management System with Automated Approvals",
     metaDescription:
-      "Self-service leave requests, automatic balance tracking, and manager approvals in one place. Flat ₹149/user/month, no setup fee. Book a demo.",
-    h1: "Leave Management Software That Ends the Email Thread",
+      "A complete leave management system with automated approvals, real-time balances, and direct payroll sync. Flat ₹149/user/month, no setup fee.",
+    h1: "Leave Management System",
     heroSubhead:
-      "Employees apply, managers approve, and balances update automatically leave management that doesn't live in someone's inbox, a shared spreadsheet, or a WhatsApp message to a manager who's out of office.",
+      "Leave management software where employees apply, managers approve, and balances update automatically it doesn't live in someone's inbox, a shared spreadsheet, or a WhatsApp message to a manager who's out of office.",
     painIntro:
       "Leave looks like a small process to manage until you're running it over email and spreadsheets for more than a handful of people, across more than one team, with more than one type of leave policy to track.",
     painPoints: [
@@ -319,7 +351,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     capabilities: [
       {
         title: "Self-service leave requests",
-        desc: "Employees apply for leave from the same self-service portal they use for payslips and attendance, with their current balance shown before they submit no guessing, no separate form, no waiting for someone to confirm what's left.",
+        desc: "This is the employee leave management system in action: employees apply for leave from the same self-service portal they use for payslips and attendance, with their current balance shown before they submit no guessing, no separate form, no waiting for someone to confirm what's left.",
       },
       {
         title: "Configurable leave policies",
@@ -331,7 +363,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         title: "Real-time balance tracking",
-        desc: "Leave balances update the moment a request is approved, so there's one number everyone employee, manager and HR can trust, instead of a spreadsheet someone has to remember to update after every approval.",
+        desc: "As time off tracking software, leave balances update the moment a request is approved, so there's one number everyone employee, manager and HR can trust, instead of a spreadsheet someone has to remember to update after every approval.",
       },
       {
         title: "Team leave calendar",
@@ -354,7 +386,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "That same structure gives HR a clear, defensible answer whenever a leave decision is questioned later, because the policy, the request and the approval are all recorded in one place rather than scattered across email threads from months ago.",
     ],
     comparisonIntro:
-      "How leave management on Meagle 360 stacks up against Keka and greytHR on the details that matter day-to-day not just whether leave requests exist, but whether the whole approval and balance-tracking loop is actually automatic.",
+      "What separates the best leave management system from a basic leave tracker isn't whether leave requests exist it's whether the whole approval and balance-tracking loop is actually automatic. Here's how Meagle 360 stacks up against Keka and greytHR on exactly that.",
     comparisonRows: [
       { capability: "Starting price", meagle: "₹149/user/month, flat", keka: "₹9,999/mo base (≈₹100/user/mo at 100 seats)", greythr: "₹2,495/mo base (≈₹50/user/mo at 50 seats)" },
       { capability: "Configurable leave policies", meagle: "Included", keka: "Included", greythr: "Included" },
@@ -407,6 +439,26 @@ export const FEATURE_PAGES: FeaturePage[] = [
       {
         q: "Can HR override an approved or rejected leave request if needed?",
         a: "Yes, HR retains the ability to review and adjust leave records when a genuine exception requires it, alongside the standard manager approval flow.",
+      },
+      {
+        q: "What is a leave management system?",
+        a: "A leave management system is software that lets employees apply for leave, tracks balances automatically, and routes requests to managers for approval, replacing manual leave registers or spreadsheet-based tracking.",
+      },
+      {
+        q: "How is an employee leave management system different from a basic leave tracker?",
+        a: "An employee leave management system typically includes self-service access, so employees can check their own balance and apply directly, along with manager approval workflows and payroll integration, rather than just logging days off in a spreadsheet.",
+      },
+      {
+        q: "What should I look for in an online leave management system?",
+        a: "Real-time balance visibility, configurable leave policies by department or location, automated approval routing, and integration with payroll and attendance are the features that matter most for day-to-day use.",
+      },
+      {
+        q: "Can an HR leave management system handle different leave types and policies?",
+        a: "Yes, a proper HR leave management system should support multiple leave types such as casual, sick, and earned leave with separate balances and rules for each, since a single uniform policy rarely fits every leave category.",
+      },
+      {
+        q: "What makes a leave management system worth switching to from spreadsheets?",
+        a: "Automated balance tracking removes manual calculation errors, approval workflows remove the back-and-forth of email or chat-based requests, and payroll integration means approved leave reflects in salary calculations without manual re-entry.",
       },
     ],
     relatedBlogSlugs: [

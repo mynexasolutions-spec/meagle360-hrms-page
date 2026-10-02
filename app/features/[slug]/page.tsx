@@ -110,10 +110,10 @@ export default async function FeaturePage({
         <div className="container" style={{ maxWidth: 900 }}>
           <div className="dashboard-frame" style={{ maxWidth: 760, margin: "0 auto", borderRadius: "16px", boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0,0,0,0.05)", overflow: "hidden" }}>
             <Image
-              src="/hrms-image.png"
+              src={feature.heroImage || "/hrms-image.png"}
               alt={`${feature.h1} — Meagle 360 dashboard`}
-              width={1536}
-              height={1024}
+              width={feature.heroImage ? 1672 : 1536}
+              height={feature.heroImage ? 941 : 1024}
               sizes="(max-width: 900px) 90vw, 760px"
               style={{ display: "block", width: "100%", height: "auto" }}
             />

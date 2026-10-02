@@ -1,0 +1,49 @@
+# Technical Audit — 2026-09-27
+
+Crawled 58 URLs from the live sitemap.
+
+- https://www.meagle360.com/pricing: title too long (65 chars): "HRMS Software Pricing — ₹149/User/Month, All Modules | Meagle 360"
+- https://www.meagle360.com/demo: title too long (65 chars): "Book a Free HRMS Demo | See Meagle 360 in 15 Minutes | Meagle 360"
+- https://www.meagle360.com/demo: title contains "Meagle 360" more than once — likely the double-suffix bug: "Book a Free HRMS Demo | See Meagle 360 in 15 Minutes | Meagle 360"
+- https://www.meagle360.com/about: title too long (62 chars): "About Meagle 360 — Built by Nexa Solutions, Noida | Meagle 360"
+- https://www.meagle360.com/about: title contains "Meagle 360" more than once — likely the double-suffix bug: "About Meagle 360 — Built by Nexa Solutions, Noida | Meagle 360"
+- https://www.meagle360.com/tools/ctc-to-in-hand-calculator: title too long (62 chars): "CTC to In-Hand Salary Calculator — Free & Instant | Meagle 360"
+- https://www.meagle360.com/blog/free-employee-database-template: title too long (68 chars): "Free Employee Database Template (Excel & Google Sheets) | Meagle 360"
+- https://www.meagle360.com/blog/sandwich-leave-policy-india: title too long (77 chars): "Sandwich Leave Policy in India: Meaning, Rules & Examples (2026) | Meagle 360"
+- https://www.meagle360.com/blog/hr-vs-marketing-salary-in-india: title too long (62 chars): "HR vs Marketing Salary in India: Which Pays More? | Meagle 360"
+- https://www.meagle360.com/blog/hr-vs-marketing-salary-in-india: meta description too long (179 chars)
+- https://www.meagle360.com/blog/hr-salary-in-india: title too long (73 chars): "HR Salary in India 2026: What HR Professionals Actually Earn | Meagle 360"
+- https://www.meagle360.com/blog/highest-paying-jobs-in-india: title too long (72 chars): "Highest Paying Jobs in India: What These Roles Actually Pay | Meagle 360"
+- https://www.meagle360.com/blog/highest-paying-jobs-in-india: meta description too long (180 chars)
+- https://www.meagle360.com/blog/payroll-software-pricing-in-india: title too long (72 chars): "Payroll Software Pricing in India: What You'll Actually Pay | Meagle 360"
+- https://www.meagle360.com/blog/labour-codes-2026-compliance-guide: title too long (83 chars): "India's New Labour Codes: Complete 2026 Compliance Guide for Employers | Meagle 360"
+- https://www.meagle360.com/blog/labour-codes-2026-compliance-guide: meta description too long (164 chars)
+- https://www.meagle360.com/blog/best-hris-for-small-midsize-large-business: title too long (70 chars): "Best HRIS for Small, Midsize and Large Businesses in 2026 | Meagle 360"
+- https://www.meagle360.com/blog/leave-encashment-in-india: title too long (89 chars): "Leave Encashment in India: Meaning, Rules, Calculation & Tax Benefits (2026) | Meagle 360"
+- https://www.meagle360.com/blog/bonus-vs-incentive: title too long (87 chars): "Bonus vs Incentive: What's the Difference? Meaning, Examples & Calculation | Meagle 360"
+- https://www.meagle360.com/blog/perquisites-in-income-tax: title too long (100 chars): "Perquisites in Income Tax: Meaning, Types, Valuation and Taxability Under Section 17(2) | Meagle 360"
+- https://www.meagle360.com/blog/transport-allowance-2026: title too long (75 chars): "Transport Allowance 2026: Rates, Rules & Exemption Guide India | Meagle 360"
+- https://www.meagle360.com/blog/fuel-reimbursement-in-india: title too long (121 chars): "Fuel Reimbursement in India: Complete Guide to Tax Rules, Exemption Limits & Claiming Process for FY 2026-27 | Meagle 360"
+- https://www.meagle360.com/blog/fuel-reimbursement-in-india: meta description too long (163 chars)
+- https://www.meagle360.com/blog/income-tax-on-salary-new-vs-old-regime: title too long (85 chars): "How to Calculate Income Tax on Salary in India: New vs Old Regime (2026) | Meagle 360"
+- https://www.meagle360.com/blog/income-tax-on-salary-new-vs-old-regime: meta description too long (162 chars)
+- https://www.meagle360.com/blog/leave-policy-in-india: title too long (85 chars): "Leave Policy in India: Types of Leaves Every Employee Should Know (2026) | Meagle 360"
+- https://www.meagle360.com/blog/gross-salary-vs-net-salary: title too long (81 chars): "Gross Salary vs Net Salary: Difference Explained with Example (2026) | Meagle 360"
+- https://www.meagle360.com/blog/ctc-vs-in-hand-salary: title too long (70 chars): "CTC vs In-Hand Salary: Full Breakdown with Example (2026) | Meagle 360"
+- https://www.meagle360.com/blog/salary-slip-format: title too long (72 chars): "Salary Slip Format: What Every Component Means (2026 Guide) | Meagle 360"
+- https://www.meagle360.com/blog/what-is-employee-database-software: title too long (94 chars): "What Is Employee Database Software? Meaning, Features & Benefits Explained (2026) | Meagle 360"
+- https://www.meagle360.com/blog/what-is-employee-database-software: meta description too long (169 chars)
+- https://www.meagle360.com/blog/what-is-pf-in-salary: title too long (84 chars): "What Is PF in Salary? Meaning, Deduction & Calculation Explained (2026) | Meagle 360"
+- https://www.meagle360.com/blog/leave-policy-india: title too long (83 chars): "Leave Policy in India 2026: Types, Rules and What Companies Must Offer | Meagle 360"
+- https://www.meagle360.com/blog/leave-policy-india: meta description too long (169 chars)
+- https://www.meagle360.com/blog/best-hrms-software-india-2026: title too long (67 chars): "Best HRMS Software in India 2026: An Honest Comparison | Meagle 360"
+- https://www.meagle360.com/blog/pf-calculation-india: title too long (74 chars): "PF Calculation in India 2026: How to Calculate Provident Fund | Meagle 360"
+- https://www.meagle360.com/blog/7-must-have-hiring-processes-every-company-needs: title too long (61 chars): "7 Must-Have Hiring Processes Every Company Needs | Meagle 360"
+- https://www.meagle360.com/blog/7-must-have-hiring-processes-every-company-needs: meta description too long (165 chars)
+- https://www.meagle360.com/blog/best-all-in-one-hrms-software-for-growing-businesses-in-2026: title too long (65 chars): "Best All-in-One HRMS Software for Growing Businesses | Meagle 360"
+- https://www.meagle360.com/blog/how-to-build-a-modern-and-effective-hr-management-system: title too long (73 chars): "Modern HR Management System for Smarter Workforce Management | Meagle 360"
+- https://www.meagle360.com/blog/how-to-build-a-modern-and-effective-hr-management-system: meta description too long (174 chars)
+- https://www.meagle360.com/blog/complete-guide-employee-onboarding: title too long (61 chars): "Employee Onboarding Guide: A Practical Framework | Meagle 360"
+- https://www.meagle360.com/features/attendance-management-software: title too long (61 chars): "Attendance Management Software for Growing Teams | Meagle 360"
+- https://www.meagle360.com/features/leave-management-software: title too long (63 chars): "Leave Management Software for Fast, Fair Approvals | Meagle 360"
+- https://www.meagle360.com/features/employee-self-service: title too long (68 chars): "Employee Self-Service Portal for Payslips, Leave & More | Meagle 360"

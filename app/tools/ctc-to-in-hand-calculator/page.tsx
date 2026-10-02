@@ -6,7 +6,7 @@ import { CtcInHandCalculator } from "../../components/CtcInHandCalculator";
 
 const TITLE = "CTC to In-Hand Salary Calculator — Free & Instant";
 const DESCRIPTION =
-  "Convert your CTC to in-hand salary instantly. Enter your annual CTC and get a full breakdown of Basic, HRA, PF, deductions, and your actual monthly take-home.";
+  "Free CTC to in-hand salary calculator. See your monthly take-home from ₹15,000 to ₹14 lakh+ CTC, with a full breakdown of PF, tax, and deductions.";
 const SITE_URL = "https://www.meagle360.com";
 
 export const metadata: Metadata = {
@@ -124,6 +124,34 @@ const FAQS = [
   {
     q: "Does this calculator account for tax regime (old vs new)?",
     a: "It estimates TDS using the New Tax Regime slabs, which is the default regime since FY 2023-24. For an exact comparison against the Old Regime, see our dedicated income tax guide.",
+  },
+  {
+    q: "What is the in-hand salary for ₹15,000 CTC?",
+    a: "For a ₹15,000 monthly CTC (₹1,80,000 annual), using this calculator's standard assumptions (40% Basic, 12% PF), the in-hand salary works out to approximately ₹13,000-13,300 per month after employee PF and other standard deductions. Professional Tax may not apply at this income level depending on your state, and no income tax is due.",
+  },
+  {
+    q: "What is the in-hand salary for ₹18,000 CTC?",
+    a: "For an ₹18,000 monthly CTC (₹2,16,000 annual), with the same standard structure, the in-hand salary works out to approximately ₹15,700-15,950 per month. Professional Tax applicability varies by state at this income level, and no income tax is due.",
+  },
+  {
+    q: "What is the in-hand salary for ₹20,000 CTC?",
+    a: "For a ₹20,000 monthly CTC (₹2,40,000 annual), the in-hand salary works out to approximately ₹17,450-17,700 per month, after employee PF and Professional Tax (where applicable, typically around ₹200/month in states that levy it). No income tax is due.",
+  },
+  {
+    q: "What is the in-hand salary for ₹30,000 CTC?",
+    a: "For a ₹30,000 monthly CTC (₹3,60,000 annual), the in-hand salary works out to approximately ₹26,300-26,550 per month, after employee PF and Professional Tax (where applicable). No income tax is due at this level under the New Regime.",
+  },
+  {
+    q: "What is the in-hand salary for ₹14 lakh CTC?",
+    a: "For a ₹14,00,000 annual CTC, assuming a standard structure (40% Basic, 12% PF, New Tax Regime), the monthly in-hand salary works out to approximately ₹97,400-97,650 after employer PF, gratuity provisioning, employee PF, income tax, and Professional Tax. Exact take-home depends on your specific salary structure and any additional deductions — enter this CTC above to see your own breakdown.",
+  },
+  {
+    q: "How do I calculate in-hand salary from CTC?",
+    a: "Subtract employer contributions (PF, gratuity, insurance) from CTC to get gross salary, then subtract employee-side deductions like employee PF, Professional Tax, and TDS from gross salary to arrive at in-hand salary. Use the calculator above to get this instantly for any CTC amount.",
+  },
+  {
+    q: "How do I calculate CTC from in-hand salary?",
+    a: "Working backward from a target in-hand salary to CTC means adding back employee deductions to get gross salary, then adding employer-side contributions (employer PF, gratuity provisioning) to arrive at CTC. This is less precise than the forward calculation since it depends on assumptions about salary structure, and exact figures vary by company.",
   },
 ];
 

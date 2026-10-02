@@ -1,0 +1,47 @@
+name: Weekly SEO Automation
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # every Monday, 6 AM UTC
+  workflow_dispatch: {} # allows manual trigger from the Actions tab
+
+jobs:
+  seo-automation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Pull GSC data
+        run: node scripts/pull-gsc-data.js
+        env:
+          GSC_SERVICE_ACCOUNT_KEY: ${{ secrets.GSC_SERVICE_ACCOUNT_KEY }}
+
+      - name: Request indexing for recently updated pages
+        run: node scripts/request-indexing.js
+        env:
+          GSC_SERVICE_ACCOUNT_KEY: ${{ secrets.GSC_SERVICE_ACCOUNT_KEY }}
+
+      - name: Run technical audit
+        run: node scripts/technical-audit.js
+
+      - name: Suggest internal links
+        run: node scripts/suggest-internal-links.js
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+
+      - name: Run Lighthouse CI
+        run: npx lhci autorun || true # non-blocking: scores are logged, not a merge gate
+
+      - name: Commit updated data files
+        run: |
+          git config user.name "seo-automation-bot"
+          git config user.email "actions@github.com"
+          git add seo-data/
+          git diff --staged --quiet || git commit -m "Weekly SEO automation update"
+          git push
