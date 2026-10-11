@@ -10,7 +10,7 @@ export async function submitApplication(formData: FormData): Promise<{ error?: s
   const expectedSalary = formData.get("expected_salary") as string;
   const cvFile = formData.get("cv") as File | null;
 
-  if (!jobId || !name || !email || !expectedSalary || !cvFile) {
+  if (!jobId || !name || !email || !phone || !expectedSalary || !cvFile) {
     return { error: "Missing required fields." };
   }
 
@@ -52,7 +52,7 @@ export async function submitApplication(formData: FormData): Promise<{ error?: s
       job_id: jobId,
       name,
       email,
-      phone: phone || null,
+      phone,
       expected_salary: expectedSalary,
       cv_url: cvUrl,
     });

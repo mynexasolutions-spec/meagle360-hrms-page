@@ -32,6 +32,7 @@ export default async function AdminLeadsPage() {
               <thead>
                 <tr>
                   <th>Name</th>
+                  <th>Email</th>
                   <th>Phone</th>
                   <th>Users</th>
                   <th>Message</th>
@@ -43,6 +44,7 @@ export default async function AdminLeadsPage() {
                 {submissions.map((s) => (
                   <tr key={s.id}>
                     <td className="admin-title-cell">{s.name}</td>
+                    <td>{s.email ? <a href={`mailto:${s.email}`}>{s.email}</a> : "-"}</td>
                     <td>
                       <a href={`tel:${s.phone}`}>{s.phone}</a>
                     </td>

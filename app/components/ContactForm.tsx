@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { triggerRipple } from "../lib/ripple";
 import { Select } from "./Select";
+import { PhoneInput } from "./PhoneInput";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -26,6 +27,7 @@ export function ContactForm({
     router.prefetch("/thank-you");
   }, [router]);
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [users, setUsers] = useState("");
   const [message, setMessage] = useState("");
@@ -48,7 +50,7 @@ export function ContactForm({
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, users, message }),
+        body: JSON.stringify({ name, email, phone, users, message }),
       });
       const data = await res.json();
 
@@ -77,12 +79,19 @@ export function ContactForm({
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          type="tel"
-          placeholder="Phone number"
-          aria-label="Phone number"
+          type="email"
+          placeholder="Email address"
+          aria-label="Email address"
           required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <PhoneInput
+          required
+          ariaLabel="Phone number"
+          placeholder="Phone number"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(full) => setPhone(full)}
         />
         <Select
           ariaLabel="Number of users"

@@ -1582,6 +1582,128 @@
         resize: vertical;
       }
 
+      /* PHONE INPUT (country code + number) — self-contained styling so it
+         looks consistent inside every host form (cta-form, demo-form,
+         job-apply, template-gate), regardless of that form's own input
+         rules. The inner <input> strips any host `input` styling (border,
+         background) so only the wrapper's box is visible. */
+      .phone-input {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: visible;
+        position: relative;
+      }
+      .phone-input-code-wrap {
+        position: relative;
+        flex-shrink: 0;
+        border-right: 1px solid var(--border);
+      }
+      .phone-input-code {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        height: 100%;
+        padding: 12px 10px 12px 14px;
+        background: none;
+        border: none;
+        font-size: 14.5px;
+        font-family: inherit;
+        color: var(--text-1);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .phone-input-flag {
+        font-size: 16px;
+        line-height: 1;
+      }
+      .phone-input-caret {
+        width: 14px;
+        height: 14px;
+        color: var(--text-3);
+      }
+      .phone-input input {
+        flex: 1;
+        min-width: 0;
+        border: none !important;
+        background: transparent !important;
+        padding: 12px 14px !important;
+        font-size: 14.5px;
+        font-family: inherit;
+        color: var(--text-1);
+        outline: none;
+        box-shadow: none !important;
+      }
+      .phone-input:focus-within {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+      }
+      .phone-input-dropdown {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        width: 280px;
+        max-width: 80vw;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: var(--shadow-lg);
+        padding: 8px;
+        z-index: 40;
+      }
+      .phone-input-search {
+        width: 100%;
+        padding: 9px 12px !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-bottom: 6px;
+        background: #fff !important;
+        color: var(--text-1);
+      }
+      .phone-input-list {
+        max-height: 220px;
+        overflow-y: auto;
+      }
+      .phone-input-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 9px 10px;
+        border: none;
+        background: none;
+        border-radius: 8px;
+        font-size: 14px;
+        color: var(--text-1);
+        text-align: left;
+        cursor: pointer;
+      }
+      .phone-input-option:hover,
+      .phone-input-option.selected {
+        background: var(--primary-light);
+      }
+      .phone-input-country-name {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .phone-input-dial {
+        color: var(--text-3);
+        font-size: 13px;
+        flex-shrink: 0;
+      }
+      .phone-input-no-results {
+        padding: 12px;
+        text-align: center;
+        color: var(--text-3);
+        font-size: 13.5px;
+      }
+
       /* CUSTOM SELECT */
       .custom-select {
         position: relative;
@@ -3311,8 +3433,29 @@
   background: #fff;
   color: var(--text-1);
 }
-.template-gate-form button {
-  flex-shrink: 0;
+.template-gate-form .phone-input {
+  flex: 1.6;
+  min-width: 220px;
+  background: #fff;
+}
+.template-gate-form .template-gate-name {
+  flex: 0.7;
+  min-width: 120px;
+}
+.template-gate-form .template-gate-break {
+  flex-basis: 100%;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+.template-gate-form .template-gate-submit {
+  flex: 0 0 auto;
+  width: auto;
+  justify-content: center;
+  margin-top: 4px;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 .template-gate-consent {
   font-size: 12.5px;
@@ -3348,8 +3491,12 @@
   }
   .template-gate-form input,
   .template-gate-form select,
-  .template-gate-form button {
+  .template-gate-form .phone-input {
     width: 100%;
+  }
+  .template-gate-form .template-gate-submit {
+    width: auto;
+    align-self: flex-start;
   }
 }
 

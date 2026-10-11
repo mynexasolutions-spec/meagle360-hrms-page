@@ -129,6 +129,7 @@ create policy "Admin can manage all applications"
 create table if not exists contact_submissions (
   id uuid primary key default gen_random_uuid(),
   name text not null,
+  email text,
   phone text not null,
   users text,
   message text,

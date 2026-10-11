@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { submitApplication } from "../../careers/actions";
+import { PhoneInput } from "../PhoneInput";
 
 export function JobApplicationForm({ jobId }: { jobId: string }) {
   const router = useRouter();
@@ -71,14 +72,8 @@ export function JobApplicationForm({ jobId }: { jobId: string }) {
 
       <div className="job-apply-form-grid">
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-          <label htmlFor="phone" style={{ fontSize: 14, fontWeight: 600 }}>Phone Number</label>
-          <input 
-            id="phone" 
-            name="phone" 
-            type="tel" 
-            style={{ padding: "12px", borderRadius: 8, border: "1px solid var(--border)", fontSize: 15 }}
-            placeholder="+1 (555) 000-0000"
-          />
+          <label htmlFor="phone" style={{ fontSize: 14, fontWeight: 600 }}>Phone Number *</label>
+          <PhoneInput id="phone" name="phone" required placeholder="98765 43210" />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           <label htmlFor="expected_salary" style={{ fontSize: 14, fontWeight: 600 }}>Expected Salary/Stipend (Monthly) *</label>

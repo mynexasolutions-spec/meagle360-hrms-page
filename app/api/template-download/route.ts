@@ -8,6 +8,7 @@ export async function POST(request: Request) {
   let body: {
     name?: string;
     work_email?: string;
+    phone?: string;
     company_size?: string;
     source?: string;
   };
@@ -20,11 +21,12 @@ export async function POST(request: Request) {
 
   const name = (body.name || "").trim();
   const workEmail = (body.work_email || "").trim();
+  const phone = (body.phone || "").trim();
   const companySize = (body.company_size || "").trim();
   const source = (body.source || "").trim();
 
-  if (!name || !workEmail || !source) {
-    return NextResponse.json({ error: "Name, work email, and source are required." }, { status: 400 });
+  if (!name || !workEmail || !phone || !source) {
+    return NextResponse.json({ error: "Name, work email, phone, and source are required." }, { status: 400 });
   }
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(workEmail)) {
@@ -50,6 +52,7 @@ export async function POST(request: Request) {
     const { error: dbError } = await supabase.from("template_downloads").insert({
       name,
       work_email: workEmail,
+      phone,
       company_size: companySize || null,
       source,
     });
@@ -72,6 +75,7 @@ export async function POST(request: Request) {
       text: [
         `Name: ${name}`,
         `Work email: ${workEmail}`,
+        `Phone: ${phone}`,
         `Company size: ${companySize || "-"}`,
         `Source: ${source}`,
       ].join("\n"),
@@ -79,6 +83,7 @@ export async function POST(request: Request) {
         <h2>New template download</h2>
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Work email:</strong> ${escapeHtml(workEmail)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Company size:</strong> ${escapeHtml(companySize || "-")}</p>
         <p><strong>Source:</strong> ${escapeHtml(source)}</p>
       `,

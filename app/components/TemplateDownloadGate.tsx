@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { PhoneInput } from "./PhoneInput";
 
 type Links = { xlsxUrl: string | null; xlsxFilename: string; sheetsUrl: string | null };
 
@@ -14,6 +15,7 @@ export function TemplateDownloadGate({ source, heading }: { source: string; head
   const [links, setLinks] = useState<Links | null>(null);
   const [name, setName] = useState("");
   const [workEmail, setWorkEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [companySize, setCompanySize] = useState(COMPANY_SIZES[0]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -44,7 +46,7 @@ export function TemplateDownloadGate({ source, heading }: { source: string; head
       const res = await fetch("/api/template-download", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, work_email: workEmail, company_size: companySize, source }),
+        body: JSON.stringify({ name, work_email: workEmail, phone, company_size: companySize, source }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -107,6 +109,7 @@ export function TemplateDownloadGate({ source, heading }: { source: string; head
           value={workEmail}
           onChange={(e) => setWorkEmail(e.target.value)}
         />
+        <PhoneInput required placeholder="Phone number" value={phone} onChange={(full) => setPhone(full)} />
         <select value={companySize} onChange={(e) => setCompanySize(e.target.value)}>
           {COMPANY_SIZES.map((size) => (
             <option key={size} value={size}>

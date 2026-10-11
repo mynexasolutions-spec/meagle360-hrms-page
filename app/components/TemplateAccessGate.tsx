@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { PhoneInput } from "./PhoneInput";
 
 type AccessFile = { format: string; label: string; url: string; filename: string };
 
@@ -60,10 +61,11 @@ export function TemplateAccessGate({ source }: { source: string }) {
         One quick form unlocks every template on Meagle 360 — not just this one.
       </p>
       <form className="template-gate-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Your name" required value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="template-gate-name" type="text" placeholder="Your name" required value={name} onChange={(e) => setName(e.target.value)} />
         <input type="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type="tel" placeholder="Phone number" required value={phone} onChange={(e) => setPhone(e.target.value)} />
-        <button type="submit" className="btn btn-primary" disabled={submitting}>
+        <PhoneInput required placeholder="Phone number" value={phone} onChange={(full) => setPhone(full)} />
+        <div className="template-gate-break" aria-hidden="true" />
+        <button type="submit" className="btn btn-primary template-gate-submit" disabled={submitting}>
           {submitting ? "Unlocking..." : "Get free access"}
         </button>
       </form>

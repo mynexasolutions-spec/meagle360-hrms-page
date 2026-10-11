@@ -6,6 +6,7 @@ import { escapeHtml, isEmailConfigured, sendLeadEmail } from "../../../lib/lead-
 export async function POST(request: Request) {
   let body: {
     name?: string;
+    email?: string;
     phone?: string;
     users?: string;
     message?: string;
@@ -18,24 +19,31 @@ export async function POST(request: Request) {
   }
 
   const name = (body.name || "").trim();
+  const email = (body.email || "").trim();
   const phone = (body.phone || "").trim();
   const users = (body.users || "").trim();
   const message = (body.message || "").trim();
 
-  if (!name || !phone || !users) {
+  if (!name || !email || !phone || !users) {
     return NextResponse.json(
-      { error: "Name, phone number, and number of users are required." },
+      { error: "Name, email, phone number, and number of users are required." },
       { status: 400 },
     );
+  }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
   }
 
   // Start the email straight away so it runs alongside the database save
   // instead of after it.
   const emailPromise = isEmailConfigured()
     ? sendLeadEmail({
+        replyTo: email,
         subject: `New demo request from ${name}`,
         text: [
           `Name: ${name}`,
+          `Email: ${email}`,
           `Phone: ${phone}`,
           `Number of users: ${users}`,
           `Message: ${message || "(none)"}`,
@@ -43,6 +51,7 @@ export async function POST(request: Request) {
         html: `
           <h2>New demo request</h2>
           <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
           <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
           <p><strong>Number of users:</strong> ${escapeHtml(users)}</p>
           <p><strong>Message:</strong><br/>${escapeHtml(message || "(none)").replace(/\n/g, "<br/>")}</p>
@@ -56,7 +65,7 @@ export async function POST(request: Request) {
     const supabase = await createClient();
     const { error: dbError } = await supabase
       .from("contact_submissions")
-      .insert({ name, phone, users, message: message || null });
+      .insert({ name, email, phone, users, message: message || null });
     if (dbError) console.error("Failed to save contact submission:", dbError);
     else saved = true;
   } catch (err) {

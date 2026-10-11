@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { triggerRipple } from "../lib/ripple";
+import { PhoneInput } from "./PhoneInput";
 
 type Status = "idle" | "loading" | "error";
 
@@ -83,7 +84,7 @@ export function DemoRequestForm() {
 
       <div className="demo-form-field">
         <label htmlFor="demo-phone">Phone *</label>
-        <input id="demo-phone" name="phone" type="tel" required placeholder="+91 98765 43210" />
+        <PhoneInput id="demo-phone" name="phone" required placeholder="98765 43210" />
       </div>
 
       <p className="form-consent-line">
