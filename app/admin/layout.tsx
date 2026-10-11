@@ -32,6 +32,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             <a href="/admin/template-downloads" style={{ color: "var(--primary)", fontWeight: 600 }}>
               Template Downloads
             </a>
+            <a href="/admin/chatbot-leads" style={{ color: "var(--primary)", fontWeight: 600 }}>
+              Chatbot Leads
+            </a>
             <form action={logout} style={{ marginTop: "auto" }}>
               <button type="submit" className="btn btn-outline" style={{ padding: "8px 16px", width: "100%" }}>
                 Log out

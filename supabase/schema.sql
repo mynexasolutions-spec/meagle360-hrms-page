@@ -182,6 +182,31 @@ create policy "Admin can manage all template downloads"
   using (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL')
   with check (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL');
 
+-- Chatbot Leads Table — the floating bot widget answers from a rule-based
+-- FAQ (no DB involved for that). After the visitor's 3rd message it asks
+-- for a phone number before continuing; that number plus the conversation
+-- transcript so far get saved here as a lead.
+create table if not exists chatbot_leads (
+  id uuid primary key default gen_random_uuid(),
+  phone text not null,
+  transcript jsonb not null default '[]'::jsonb,
+  source text,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists chatbot_leads_created_at_idx on chatbot_leads (created_at desc);
+
+alter table chatbot_leads enable row level security;
+
+create policy "Public can insert chatbot leads"
+  on chatbot_leads for insert
+  with check (true);
+
+create policy "Admin can manage all chatbot leads"
+  on chatbot_leads for all
+  using (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL')
+  with check (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL');
+
 -- HR Templates Library (/templates, /templates/[slug]) — downloadable HR
 -- letters, policies, forms and trackers. Files are hosted on ImageKit, not
 -- Supabase storage. Gated behind a name/email/phone lead form (see

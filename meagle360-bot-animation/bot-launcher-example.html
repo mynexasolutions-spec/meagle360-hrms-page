@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meagle360 bot launcher – example</title>
+<style>
+  body { margin: 0; min-height: 100vh; font-family: system-ui, sans-serif; background: #f5f7fb; }
+
+  /* Floating chat-bot button */
+  .meagle-bot {
+    position: fixed; right: 24px; bottom: 24px;
+    width: 72px; height: 72px; padding: 0; border: 0;
+    border-radius: 50%; overflow: hidden; cursor: pointer;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(20, 28, 60, .22), 0 0 0 3px #1f2336;
+    transition: transform .2s ease;
+  }
+  .meagle-bot:hover { transform: translateY(-3px) scale(1.04); }
+  .meagle-bot video, .meagle-bot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Respect users who prefer less motion: show the still poster instead */
+  @media (prefers-reduced-motion: reduce) { .meagle-bot video { display: none; } .meagle-bot .still { display: block; } }
+  .meagle-bot .still { display: none; }
+</style>
+</head>
+<body>
+
+<button class="meagle-bot" aria-label="Chat with Meagle360 assistant">
+  <!-- MP4 plays everywhere (Chrome, Safari, iOS, Firefox); the circle crop is done by CSS -->
+  <video autoplay loop muted playsinline preload="auto">
+    <source src="meagle-bot-avatar-512.mp4" type="video/mp4">
+  </video>
+  <img class="still" src="meagle-bot-avatar-256.webp" alt="">
+</button>
+
+<!--
+  Alternatives in this pack:
+  • meagle-bot-avatar-128.webp / -256.webp  → drop-in <img>, already circular with transparent corners
+  • meagle-bot-bust-transparent.webm/.webp → transparent bust, put it on your own brand-colour circle
+  • meagle-bot-full-transparent.webm/.webp → full body with transparency (e.g. a greeting popup)
+    Note: transparent WebM works in Chrome/Edge/Firefox; for Safari use the .webp or the .mp4.
+  • meagle-bot-avatar-200.gif → fallback for email / very old tools
+-->
+</body>
+</html>
