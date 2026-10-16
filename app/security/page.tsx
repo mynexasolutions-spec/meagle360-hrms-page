@@ -102,22 +102,17 @@ export default function SecurityPage() {
                 </li>
               </ul>
 
-              <h2>Backups &amp; recovery</h2>
-              <p>REPLACE_WITH_BACKUP_POLICY</p>
-
               <h2>Certifications</h2>
               <p>
                 We do not currently hold SOC 2, ISO 27001, or any other
-                third-party security certification. REPLACE_WITH_CERTIFICATION_ROADMAP
+                third-party security certification.
               </p>
 
               <h2>Report a security issue</h2>
               <p>
                 If you believe you&apos;ve found a security vulnerability,
                 please report it to{" "}
-                <a href="mailto:REPLACE_WITH_SECURITY_CONTACT_EMAIL">
-                  REPLACE_WITH_SECURITY_CONTACT_EMAIL
-                </a>
+                <a href="mailto:info@meagle360.com">info@meagle360.com</a>
                 . We&apos;ll acknowledge reports and keep you updated as we
                 investigate.
               </p>

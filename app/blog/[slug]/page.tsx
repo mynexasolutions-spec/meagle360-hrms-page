@@ -104,13 +104,7 @@ export default async function BlogPostPage({
     image: post.cover_image_url ? [post.cover_image_url] : undefined,
     datePublished: post.published_at || post.created_at,
     dateModified: post.updated_at,
-    author: {
-      "@type": "Person",
-      name: "REPLACE_WITH_AUTHOR_NAME",
-      jobTitle: "REPLACE_WITH_AUTHOR_TITLE",
-      url: `${SITE_URL}/authors/REPLACE_WITH_AUTHOR_SLUG`,
-      sameAs: ["https://www.linkedin.com/in/REPLACE_WITH_AUTHOR_LINKEDIN"],
-    },
+    author: { "@id": `${SITE_URL}/#organization` },
     publisher: { "@id": `${SITE_URL}/#organization` },
     wordCount: wordCount(post.content),
   };

@@ -37,7 +37,6 @@ export const metadata: Metadata = {
 
 const SITE_URL = "https://www.meagle360.com";
 
-// Social handles are still unverified — replace before this goes live.
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -62,11 +61,6 @@ const organizationJsonLd = {
           areaServed: ["IN", "AE", "SA", "SG", "GB", "DE"],
           availableLanguage: ["en", "hi"],
         },
-      ],
-      sameAs: [
-        "https://www.linkedin.com/company/REPLACE_WITH_LINKEDIN_HANDLE",
-        "https://x.com/REPLACE_WITH_X_HANDLE",
-        "https://www.youtube.com/@REPLACE_WITH_YOUTUBE_HANDLE",
       ],
     },
     {

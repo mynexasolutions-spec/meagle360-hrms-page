@@ -124,9 +124,7 @@ export default function TermsPage() {
 
               <h2>9. Governing Law</h2>
               <p>
-                These Terms are governed by the laws of India, and any disputes
-                will be subject to the exclusive jurisdiction of the courts of
-                REPLACE_WITH_JURISDICTION_CITY.
+                These Terms are governed by the laws of India.
               </p>
 
               <h2>10. Changes to These Terms</h2>

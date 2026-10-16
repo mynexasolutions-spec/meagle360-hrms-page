@@ -1542,6 +1542,64 @@
       }
       /* The address is static text, not a link, so it needs the same layout
          the anchors get from .cta-contact-info a. */
+      /* Contact page: standalone office-address card */
+      .contact-office-section {
+        padding: 40px 0 0;
+      }
+      .contact-office {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 24px 28px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+      }
+      .contact-office-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        background: var(--primary-light);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-office-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .contact-office-body h2 {
+        margin: 0 0 6px;
+        font-size: 18px;
+        color: var(--text-1);
+      }
+      .contact-office-body address {
+        font-style: normal;
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-2);
+      }
+      .contact-office-link {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .contact-office-link:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 480px) {
+        .contact-office {
+          padding: 18px;
+          gap: 14px;
+        }
+      }
       .cta-address {
         display: inline-flex;
         align-items: flex-start;
@@ -4992,6 +5050,18 @@
 }
 
 /* About Page */
+.about-map {
+  margin: 8px 0 20px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.about-map iframe {
+  display: block;
+  width: 100%;
+  height: 320px;
+  border: 0;
+}
 .about-person-card {
   display: flex;
   gap: 20px;

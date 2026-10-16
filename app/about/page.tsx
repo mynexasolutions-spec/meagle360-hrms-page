@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "../components/SiteChrome";
-import { COMPANY_ADDRESS_LINES } from "../../lib/company";
+import { COMPANY_ADDRESS_INLINE, COMPANY_ADDRESS_LINES } from "../../lib/company";
 
 const TITLE = "About Meagle 360 — Built by Nexa Solutions, Noida";
 const DESCRIPTION =
@@ -53,37 +53,23 @@ export default function AboutPage() {
         <div className="container blog-post-container">
           <div className="blog-article-wrapper">
             <div className="blog-content">
-              <h2>Why we built Meagle 360</h2>
-              <p>REPLACE_WITH_FOUNDER_STORY</p>
-
               <h2>Who&apos;s behind it</h2>
               <div className="about-person-card">
-                <div className="about-person-avatar">
-                  <img src="REPLACE_WITH_FOUNDER_PHOTO" alt="REPLACE_WITH_FOUNDER_NAME" />
-                </div>
                 <div>
-                  <strong>REPLACE_WITH_FOUNDER_NAME</strong>
-                  <span>REPLACE_WITH_FOUNDER_TITLE</span>
-                  <p>REPLACE_WITH_FOUNDER_BACKGROUND</p>
-                  <a
-                    href="REPLACE_WITH_FOUNDER_LINKEDIN"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn →
-                  </a>
+                  <strong>Abdul Bari</strong>
+                  <span>Director</span>
                 </div>
               </div>
-              <p>REPLACE_WITH_TEAM_MEMBERS</p>
 
               <h2>Nexa Solutions</h2>
               <p>
-                Meagle 360 is a product built and operated by Nexa Solutions,
-                the registered entity behind the platform.
+                Meagle 360 is a product built by Nexa Solutions and operated by
+                Meagle360 Private Limited, the registered entity behind the
+                platform.
               </p>
               <p>
                 <strong>Registered entity name:</strong>{" "}
-                REPLACE_WITH_REGISTERED_ENTITY_NAME
+                Meagle360 Private Limited
               </p>
 
               <h2>Where we are</h2>
@@ -92,7 +78,15 @@ export default function AboutPage() {
                 <br />
                 {COMPANY_ADDRESS_LINES[1]}
               </p>
-              <p>REPLACE_WITH_MAP_EMBED</p>
+              <div className="about-map">
+                <iframe
+                  title="Meagle 360 office location on Google Maps"
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(COMPANY_ADDRESS_INLINE)}&output=embed`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
 
               <h2>How to reach us</h2>
               <ul>
@@ -103,7 +97,7 @@ export default function AboutPage() {
                 <li>
                   Phone: <a href="tel:+918077313241">+91 80773 13241</a>
                 </li>
-                <li>Business hours: REPLACE_WITH_BUSINESS_HOURS</li>
+                <li>Business hours: Mon–Sat, 10:00 AM – 10:00 PM IST</li>
               </ul>
             </div>
           </div>
