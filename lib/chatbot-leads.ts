@@ -4,6 +4,7 @@ export type ChatTranscriptMessage = { role: "user" | "bot"; text: string };
 
 export type ChatbotLead = {
   id: string;
+  name: string | null;
   phone: string;
   transcript: ChatTranscriptMessage[];
   source: string | null;
@@ -14,7 +15,7 @@ export async function getChatbotLeadsForAdmin(): Promise<ChatbotLead[]> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("chatbot_leads")
-    .select("id, phone, transcript, source, created_at")
+    .select("id, name, phone, transcript, source, created_at")
     .order("created_at", { ascending: false });
 
   if (error) {

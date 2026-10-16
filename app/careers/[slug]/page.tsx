@@ -3,6 +3,7 @@ import { getJobBySlug } from "../../../lib/jobs";
 import { JobApplicationForm } from "../../components/careers/JobApplicationForm";
 import type { Metadata } from "next";
 import { SiteChrome } from "../../components/SiteChrome";
+import { COMPANY_ADDRESS } from "../../../lib/company";
 
 const SITE_URL = "https://www.meagle360.com";
 
@@ -78,7 +79,7 @@ export default async function JobDetailsPage({ params }: { params: { slug: strin
             "@type": "Place",
             address: {
               "@type": "PostalAddress",
-              addressLocality: job.location || "REPLACE_WITH_CITY",
+              addressLocality: job.location || COMPANY_ADDRESS.city,
               addressCountry: "IN",
             },
           },

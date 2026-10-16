@@ -5,25 +5,27 @@ import { escapeHtml, isEmailConfigured, sendLeadEmail } from "../../../lib/lead-
 import type { ChatTranscriptMessage } from "../../../lib/chatbot-leads";
 
 export async function POST(request: Request) {
-  let body: { phone?: string; transcript?: ChatTranscriptMessage[]; source?: string };
+  let body: { name?: string; phone?: string; transcript?: ChatTranscriptMessage[]; source?: string };
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
+  const name = (body.name || "").trim();
   const phone = (body.phone || "").trim();
   const source = (body.source || "").trim();
   const transcript = Array.isArray(body.transcript) ? body.transcript.slice(0, 50) : [];
 
-  if (!phone) {
-    return NextResponse.json({ error: "Phone number is required." }, { status: 400 });
+  if (!name || !phone) {
+    return NextResponse.json({ error: "Name and phone number are required." }, { status: 400 });
   }
 
   let saved = false;
   try {
     const supabase = await createClient();
     const { error: dbError } = await supabase.from("chatbot_leads").insert({
+      name,
       phone,
       transcript,
       source: source || null,
@@ -44,10 +46,11 @@ export async function POST(request: Request) {
       .map((m) => `<p><strong>${m.role === "user" ? "Visitor" : "Bot"}:</strong> ${escapeHtml(m.text)}</p>`)
       .join("");
     const internalEmail = sendLeadEmail({
-      subject: `New chatbot lead: ${phone}`,
-      text: [`Phone: ${phone}`, `Source: ${source || "-"}`, "", "Transcript:", transcriptText].join("\n"),
+      subject: `New chatbot lead: ${name}`,
+      text: [`Name: ${name}`, `Phone: ${phone}`, `Source: ${source || "-"}`, "", "Transcript:", transcriptText].join("\n"),
       html: `
         <h2>New chatbot lead</h2>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Source:</strong> ${escapeHtml(source || "-")}</p>
         <h3>Transcript</h3>

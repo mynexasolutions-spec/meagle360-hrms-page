@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "../components/SiteChrome";
+import { COMPANY_ADDRESS_LINES } from "../../lib/company";
 
 const TITLE = "About Meagle 360 — Built by Nexa Solutions, Noida";
 const DESCRIPTION =
@@ -86,7 +87,11 @@ export default function AboutPage() {
               </p>
 
               <h2>Where we are</h2>
-              <p>REPLACE_WITH_REGISTERED_ADDRESS</p>
+              <p>
+                {COMPANY_ADDRESS_LINES[0]}
+                <br />
+                {COMPANY_ADDRESS_LINES[1]}
+              </p>
               <p>REPLACE_WITH_MAP_EMBED</p>
 
               <h2>How to reach us</h2>

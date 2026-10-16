@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FEATURE_PAGES } from "../../lib/features-data";
+import { COMPANY_ADDRESS_LINES } from "../../lib/company";
 
 const FOOTER_COLUMNS = [
   {
@@ -50,6 +51,11 @@ export function SiteFooter() {
             <p>
               Meagle 360 is an all-in-one HR management solution designed to
               simplify and empower your workforce.
+            </p>
+            <p className="footer-address">
+              {COMPANY_ADDRESS_LINES[0]}
+              <br />
+              {COMPANY_ADDRESS_LINES[1]}
             </p>
             <p className="footer-tagline">
               A product by{" "}

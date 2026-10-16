@@ -2,6 +2,7 @@
 
 import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
+import { COMPANY_ADDRESS_LINES } from "../../lib/company";
 
 export function CtaBanner() {
   return (
@@ -36,6 +37,21 @@ export function CtaBanner() {
                   </span>
                   info@meagle360.com
                 </a>
+              </li>
+              <li>
+                <span className="cta-address">
+                  <span className="ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </span>
+                  <span>
+                    {COMPANY_ADDRESS_LINES[0]}
+                    <br />
+                    {COMPANY_ADDRESS_LINES[1]}
+                  </span>
+                </span>
               </li>
             </ul>
           </div>

@@ -183,11 +183,13 @@ create policy "Admin can manage all template downloads"
   with check (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL');
 
 -- Chatbot Leads Table — the floating bot widget answers from a rule-based
--- FAQ (no DB involved for that). After the visitor's 3rd message it asks
--- for a phone number before continuing; that number plus the conversation
--- transcript so far get saved here as a lead.
+-- FAQ (no DB involved for that — see lib/chatbot-faq.ts, which pulls
+-- straight from the site's own published FAQ content). After the visitor's
+-- 3rd message it asks for a name and phone number before continuing; those
+-- plus the conversation transcript so far get saved here as a lead.
 create table if not exists chatbot_leads (
   id uuid primary key default gen_random_uuid(),
+  name text,
   phone text not null,
   transcript jsonb not null default '[]'::jsonb,
   source text,

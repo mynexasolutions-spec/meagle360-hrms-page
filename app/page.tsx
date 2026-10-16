@@ -10,6 +10,7 @@ import { Testimonials } from "./components/Testimonials";
 import { Faq } from "./components/Faq";
 import { CtaBanner } from "./components/CtaBanner";
 import { FAQS } from "../lib/faq-data";
+import { COMPANY_POSTAL_ADDRESS_JSONLD } from "../lib/company";
 
 const HOME_TITLE = "Best HRMS & HRIS Software in India | Meagle 360";
 const HOME_DESCRIPTION =
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 
 const SITE_URL = "https://www.meagle360.com";
 
-// Address/social fields are unverified — replace before this goes live.
+// Social handles are still unverified — replace before this goes live.
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -51,14 +52,7 @@ const organizationJsonLd = {
         name: "Nexa Solutions",
         url: "https://nexa-solutions.in",
       },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "REPLACE_WITH_REGISTERED_ADDRESS",
-        addressLocality: "REPLACE_WITH_CITY",
-        addressRegion: "REPLACE_WITH_STATE",
-        postalCode: "REPLACE_WITH_POSTAL_CODE",
-        addressCountry: "IN",
-      },
+      address: COMPANY_POSTAL_ADDRESS_JSONLD,
       contactPoint: [
         {
           "@type": "ContactPoint",

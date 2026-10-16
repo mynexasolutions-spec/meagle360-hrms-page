@@ -31,6 +31,7 @@ export default async function AdminChatbotLeadsPage() {
             <table className="admin-table">
               <thead>
                 <tr>
+                  <th>Name</th>
                   <th>Phone</th>
                   <th>Transcript</th>
                   <th>Source Page</th>
@@ -41,7 +42,8 @@ export default async function AdminChatbotLeadsPage() {
               <tbody>
                 {leads.map((l) => (
                   <tr key={l.id}>
-                    <td className="admin-title-cell">
+                    <td className="admin-title-cell">{l.name || "-"}</td>
+                    <td>
                       <a href={`tel:${l.phone}`}>{l.phone}</a>
                     </td>
                     <td style={{ maxWidth: 360 }}>
@@ -66,7 +68,7 @@ export default async function AdminChatbotLeadsPage() {
                     <td>{formatDate(l.created_at)}</td>
                     <td>
                       <div className="admin-row-actions">
-                        <DeleteChatbotLeadButton id={l.id} phone={l.phone} />
+                        <DeleteChatbotLeadButton id={l.id} phone={l.name || l.phone} />
                       </div>
                     </td>
                   </tr>

@@ -1540,6 +1540,18 @@
         width: 16px;
         height: 16px;
       }
+      /* The address is static text, not a link, so it needs the same layout
+         the anchors get from .cta-contact-info a. */
+      .cta-address {
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: #fff;
+        font-size: 14.5px;
+        font-weight: 600;
+        line-height: 1.45;
+        text-align: left;
+      }
       .cta-form {
         position: relative;
         display: flex;
@@ -2072,6 +2084,78 @@
         background: var(--primary-lightest);
         border-color: var(--primary);
       }
+      .chatbot-chip-more {
+        color: var(--text-2);
+        font-weight: 700;
+      }
+      .chatbot-suggestions {
+        margin-top: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .chatbot-suggest-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .chatbot-suggest-label {
+        margin: 0;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--text-3);
+      }
+      .chatbot-back-chip {
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .chatbot-back-chip:hover {
+        background: var(--primary-lightest);
+        border-color: var(--primary);
+      }
+      .chatbot-topics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .chatbot-topic-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 11px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text-1);
+        font-size: 12.5px;
+        font-weight: 600;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .chatbot-topic-chip:hover {
+        background: var(--primary-lightest);
+        border-color: var(--primary);
+      }
+      .chatbot-topic-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 18px;
+        height: 18px;
+        padding: 0 5px;
+        border-radius: 999px;
+        background: var(--primary-light);
+        color: var(--primary);
+        font-size: 10.5px;
+        font-weight: 700;
+      }
       .chatbot-input-row {
         display: flex;
         align-items: center;
@@ -2119,6 +2203,18 @@
         border-top: 1px solid var(--border);
         flex-shrink: 0;
       }
+      .chatbot-gate-name {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 10px 13px;
+        font-size: 13.5px;
+        font-family: inherit;
+        outline: none;
+      }
+      .chatbot-gate-name:focus {
+        border-color: var(--primary);
+      }
       .chatbot-gate-submit {
         width: 100%;
         justify-content: center;
@@ -2158,6 +2254,13 @@
         font-size: 16px;
         line-height: 1.6;
         margin: 16px 0 24px;
+        max-width: 300px;
+      }
+      .footer-address {
+        font-size: 14px !important;
+        margin: 0 0 10px !important;
+        color: #94a3b8 !important;
+        line-height: 1.6;
         max-width: 300px;
       }
       .footer-tagline {

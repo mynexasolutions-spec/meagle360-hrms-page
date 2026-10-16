@@ -1,19 +1,27 @@
-// Rule-based knowledge base for the floating chat assistant. Every answer
-// here is grounded in this site's own published content (pricing page,
-// feature pages, templates library) — nothing is invented. When adding a
-// new entry, prefer linking to the real page over restating everything in
-// the chat bubble, so the content stays accurate if that page changes.
+// Knowledge base + matcher for the floating chat assistant. Every answer is
+// grounded in this site's own published content — nothing is invented.
+//
+// Two layers:
+// 1. PRIORITY_ENTRIES — a small hand-written set of concise, branded answers
+//    for the highest-traffic topics (pricing, modules overview, demo...),
+//    matched first via direct keyword substring so they win over the pool
+//    even when a pool FAQ also mentions the same words.
+// 2. The POOL — every FAQ already published on the site (general FAQ
+//    section, pricing page, and all 9 feature pages — 120+ Q&A pairs),
+//    imported directly from their source files so this stays in sync
+//    automatically if that content ever changes. Matched by keyword-overlap
+//    scoring against the visitor's message, so the bot can answer the long
+//    tail of real questions without anyone hand-curating keywords for each one.
 
-export type FaqEntry = {
-  id: string;
-  /** Lowercase keywords/phrases that trigger this answer. Matched as substrings against the visitor's message. */
-  keywords: string[];
-  answer: string;
-  /** Optional link shown as a small "Learn more" chip under the answer. */
-  link?: { label: string; href: string };
-};
+import { FEATURE_PAGES } from "./features-data";
+import { FAQS as GENERAL_FAQS } from "./faq-data";
+import { PRICING_FAQS } from "./pricing-data";
 
-export const FAQ_ENTRIES: FaqEntry[] = [
+export type FaqLink = { label: string; href: string };
+export type FaqEntry = { id: string; keywords: string[]; answer: string; link?: FaqLink };
+export type FaqAnswer = { answer: string; link?: FaqLink };
+
+const PRIORITY_ENTRIES: FaqEntry[] = [
   {
     id: "pricing",
     keywords: ["price", "pricing", "cost", "how much", "charge", "fee", "fees", "plan", "plans", "expensive", "cheap"],
@@ -33,66 +41,6 @@ export const FAQ_ENTRIES: FaqEntry[] = [
     keywords: ["demo", "book a call", "schedule a call", "talk to sales", "show me"],
     answer: "I can get you booked for a quick 15-minute demo with our team — just share your details on the demo page.",
     link: { label: "Book a demo", href: "/demo" },
-  },
-  {
-    id: "attendance",
-    keywords: ["attendance", "check-in", "check in", "biometric", "geo-tag", "geo tag", "punch"],
-    answer:
-      "Our Attendance Management module tracks attendance across office, field and remote teams with geo-tagged mobile check-ins, biometric/device integration, and approval workflows — and it flows straight into payroll automatically.",
-    link: { label: "Attendance Management", href: "/features/attendance-management-software" },
-  },
-  {
-    id: "payroll",
-    keywords: ["payroll", "salary", "payslip", "ctc", "in-hand", "in hand", "compliance", "pf", "esi", "tds"],
-    answer:
-      "The Payroll module runs payroll directly from your attendance and leave data, handles statutory compliance, and generates/distributes payslips automatically — no manual reconciliation each cycle.",
-    link: { label: "Payroll Software", href: "/features/payroll-software" },
-  },
-  {
-    id: "leave",
-    keywords: ["leave", "pto", "time off", "vacation", "sick leave"],
-    answer:
-      "Leave Management gives employees self-service leave requests, configurable policies, manager approval workflows and real-time balance tracking, linked to attendance and payroll.",
-    link: { label: "Leave Management", href: "/features/leave-management-software" },
-  },
-  {
-    id: "shift",
-    keywords: ["shift", "roster", "schedule", "rota"],
-    answer:
-      "Shift Management handles rotating and fixed shift patterns, shift swaps, roster visibility and shift-based pay differentials, synced straight to attendance and payroll.",
-    link: { label: "Shift Management", href: "/features/shift-management-software" },
-  },
-  {
-    id: "self-service",
-    keywords: ["self service", "self-service", "employee portal", "ess"],
-    answer:
-      "The Employee Self-Service portal lets employees check payslips, apply for leave, view attendance and manage their own details — cutting down routine HR requests.",
-    link: { label: "Employee Self-Service", href: "/features/employee-self-service" },
-  },
-  {
-    id: "employee-database",
-    keywords: ["employee database", "employee records", "employee directory", "hr spreadsheet"],
-    answer: "Employee Database software gives you a centralized, searchable employee directory that replaces the HR spreadsheet.",
-    link: { label: "Employee Database", href: "/features/employee-database-software" },
-  },
-  {
-    id: "expense",
-    keywords: ["expense", "reimbursement", "reimburse"],
-    answer:
-      "Expense Management lets employees submit expenses from their phone and get reimbursed without paperwork chains.",
-    link: { label: "Expense Management", href: "/features/expense-management" },
-  },
-  {
-    id: "reports",
-    keywords: ["report", "reports", "analytics", "dashboard", "insight"],
-    answer: "HR Reports & Analytics are built from your live workforce data — attendance, leave, payroll and hiring trends, without a custom build.",
-    link: { label: "HR Reports & Analytics", href: "/features/hr-reports-analytics" },
-  },
-  {
-    id: "hiring",
-    keywords: ["hiring", "recruitment", "recruit", "job posting", "candidate", "onboarding", "applicant"],
-    answer: "Hiring Management takes you from job posting to candidate pipeline to Day One onboarding, all in one place.",
-    link: { label: "Hiring Management", href: "/features/hiring-management-software" },
   },
   {
     id: "templates",
@@ -123,27 +71,135 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   },
 ];
 
-const GREETING =
-  "Hi, I'm the Meagle360 assistant 🦅 Ask me about pricing, features, or anything else about Meagle 360.";
+// ---- The pool: every FAQ already published on the site ----
 
-const FALLBACK =
-  "I'm not totally sure about that one — but our team can help directly. Try WhatsApp (the button next to me) or the contact page.";
+type PoolEntry = { question: string; answer: string; link?: FaqLink; tokens: Set<string> };
 
-export function matchFaq(message: string): FaqEntry | null {
+const STOPWORDS = new Set([
+  "the", "is", "a", "an", "do", "does", "did", "what", "how", "can", "could", "i", "you", "your", "my",
+  "for", "of", "to", "in", "on", "with", "and", "or", "be", "are", "it", "this", "that", "me", "we",
+  "will", "would", "should", "if", "have", "has", "had", "get", "there", "their", "them", "so", "about",
+  "any", "all", "when", "where", "who", "which", "from", "as", "at", "by", "not", "no", "yes",
+]);
+
+function tokenize(text: string): string[] {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length > 2 && !STOPWORDS.has(w));
+}
+
+/** A browsable group of questions, shown as a menu inside the chat. */
+export type FaqTopic = {
+  id: string;
+  label: string;
+  questions: { q: string; a: string; link?: FaqLink }[];
+};
+
+/**
+ * Every FAQ published on the site, grouped by topic. This is the single
+ * source for both the browsable menu in the chat and the keyword matcher
+ * below, so the two can never drift apart.
+ */
+export const FAQ_TOPICS: FaqTopic[] = [
+  {
+    id: "general",
+    label: "Getting started",
+    questions: GENERAL_FAQS.map((f) => ({ q: f.q, a: f.a, link: { label: "See all FAQs", href: "/#faq" } })),
+  },
+  {
+    id: "pricing",
+    label: "Pricing & billing",
+    questions: PRICING_FAQS.map((f) => ({ q: f.q, a: f.a, link: { label: "See pricing", href: "/pricing" } })),
+  },
+  ...FEATURE_PAGES.map((feature) => ({
+    id: feature.slug,
+    label: feature.navLabel,
+    questions: feature.faqs.map((f) => ({
+      q: f.q,
+      a: f.a,
+      link: { label: feature.navLabel, href: `/features/${feature.slug}` },
+    })),
+  })),
+];
+
+function buildPool(): PoolEntry[] {
+  const pool: PoolEntry[] = [];
+  for (const topic of FAQ_TOPICS) {
+    for (const faq of topic.questions) {
+      pool.push({
+        question: faq.q,
+        answer: faq.a,
+        link: faq.link,
+        tokens: new Set(tokenize(faq.q)),
+      });
+    }
+  }
+  return pool;
+}
+
+// Built once at module load — the pool and its tokens don't change at runtime.
+const POOL = buildPool();
+
+/** Total number of questions the bot can answer from the menu. */
+export const FAQ_COUNT = POOL.length;
+const MIN_POOL_SCORE = 5; // roughly: at least one real word (4+ letters) in common
+
+// A pool match this strong (several real words in common with a specific
+// published FAQ) is almost always more precisely relevant than a generic
+// priority answer, even when a priority keyword also happens to match —
+// e.g. "Is GST included in the price?" should get the GST-specific pricing
+// FAQ, not the generic "pricing" blurb just because it contains "price".
+const POOL_BEATS_PRIORITY_SCORE = 10;
+
+function matchPriority(message: string): { answer: FaqAnswer; score: number } | null {
   const lower = message.toLowerCase();
   let best: { entry: FaqEntry; score: number } | null = null;
-  for (const entry of FAQ_ENTRIES) {
+  for (const entry of PRIORITY_ENTRIES) {
     for (const kw of entry.keywords) {
       if (lower.includes(kw)) {
-        // Longer keyword matches are more specific — prefer them when a
-        // message happens to match more than one entry.
         const score = kw.length;
         if (!best || score > best.score) best = { entry, score };
       }
     }
   }
-  return best?.entry ?? null;
+  return best ? { answer: { answer: best.entry.answer, link: best.entry.link }, score: best.score } : null;
 }
+
+function matchPool(message: string): { answer: FaqAnswer; score: number } | null {
+  const userTokens = tokenize(message);
+  if (userTokens.length === 0) return null;
+
+  let best: { entry: PoolEntry; score: number } | null = null;
+  for (const entry of POOL) {
+    let score = 0;
+    for (const t of userTokens) {
+      if (entry.tokens.has(t)) score += t.length;
+    }
+    if (score > 0 && (!best || score > best.score)) best = { entry, score };
+  }
+
+  if (best && best.score >= MIN_POOL_SCORE) {
+    return { answer: { answer: best.entry.answer, link: best.entry.link }, score: best.score };
+  }
+  return null;
+}
+
+export function matchFaq(message: string): FaqAnswer | null {
+  const priority = matchPriority(message);
+  const pool = matchPool(message);
+
+  if (pool && pool.score >= POOL_BEATS_PRIORITY_SCORE) return pool.answer;
+  if (priority) return priority.answer;
+  return pool?.answer ?? null;
+}
+
+const GREETING =
+  "Hi, I'm the Meagle360 assistant 🦅 Type a question, or pick a topic below to browse what people usually ask.";
+
+const FALLBACK =
+  "I'm not totally sure about that one — but our team can help directly. Try WhatsApp (the button next to me) or the contact page. You can also browse the topics below.";
 
 export function getGreeting() {
   return GREETING;
@@ -153,8 +209,13 @@ export function getFallback() {
   return FALLBACK;
 }
 
+/** Shown above the topic menu as one-tap shortcuts for the most common asks. */
 export const QUICK_QUESTIONS = [
   "What's the pricing?",
   "What modules do you offer?",
   "How do I book a demo?",
 ];
+
+export function getTopic(id: string): FaqTopic | undefined {
+  return FAQ_TOPICS.find((t) => t.id === id);
+}

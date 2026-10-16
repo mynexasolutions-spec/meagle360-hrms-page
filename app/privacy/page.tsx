@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "../components/SiteChrome";
+import { COMPANY_ADDRESS_INLINE } from "../../lib/company";
 
 const TITLE = "Privacy Policy";
 const DESCRIPTION =
@@ -144,7 +145,7 @@ export default function PrivacyPage() {
                 Grievance Officer contact:{" "}
                 <a href="tel:+918077313241">+91 80773 13241</a>
                 <br />
-                Registered address: New Delhi, India
+                Registered address: {COMPANY_ADDRESS_INLINE}
               </p>
             </div>
           </div>
