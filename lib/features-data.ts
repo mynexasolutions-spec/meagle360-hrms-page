@@ -17,6 +17,9 @@ export type FeaturePage = {
   relatedBlogSlugs: string[];
   relatedFeatureSlug: string;
   relatedFeatureLabel: string;
+  // Optional extra links shown in "Related reading", for targets that are not
+  // blog posts fetched by slug (or whose anchor text needs to carry a keyword).
+  extraLinks?: { label: string; href: string }[];
   // Optional dedicated dashboard image for this feature, shown in the section
   // right under the hero. Falls back to the generic /hrms-image.png when
   // omitted. When set, expected to be a 1672x941 (16:9) webp, matching this
@@ -181,7 +184,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     relatedBlogSlugs: [
       "ai-transforming-attendance-tracking",
-      "best-all-in-one-hrms-software-for-growing-businesses-in-2026",
+      "best-hrms-software-india-2026",
       "hrms-vs-excel",
     ],
     relatedFeatureSlug: "payroll-software",
@@ -190,12 +193,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "payroll-software",
     navLabel: "Payroll",
-    metaTitle: "Payroll Software for Small Business in India",
+    metaTitle: "HR Payroll Software: PF, ESI & TDS Automated",
     metaDescription:
-      "Payroll software for small business with automatic PF, ESI and TDS compliance. Flat ₹149/user/month, no setup fee. 14-day free trial, book a demo.",
+      "HR payroll software that runs from attendance data, with PF, ESI and TDS built in. Flat ₹149/user/month, no setup fee. Book a demo.",
     h1: "Payroll Software for Small Business That Runs Itself From Your Attendance Data",
     heroSubhead:
-      "Payroll software built for small businesses that have outgrown spreadsheets but don't want enterprise pricing or a multi-week implementation. Runs on top of your actual attendance and leave records, with statutory deductions calculated automatically.",
+      "HR and payroll software built for small businesses that have outgrown spreadsheets but don't want enterprise pricing or a multi-week implementation. Runs on top of your actual attendance and leave records, with statutory deductions calculated automatically.",
     painIntro:
       "Payroll is usually the one process nobody wants to touch manually and, at most growing companies, the one still run partly by hand, stitched together from attendance, leave and reimbursement data that all live in different places.",
     painPoints: [
@@ -205,7 +208,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "Whoever owns payroll manually is usually a single point of failure if they're out sick or leave the company, running payroll correctly that month becomes a genuine risk instead of a routine task.",
     ],
     capabilitiesIntro:
-      "Meagle 360's payroll module starts from the attendance and leave data already inside the system, so payroll isn't a separate spreadsheet exercise rebuilt from scratch every month it's a run against data that's already accurate.",
+      "Meagle 360's payroll management software starts from the attendance and leave data already inside the system, so payroll isn't a separate spreadsheet exercise rebuilt from scratch every month it's a run against data that's already accurate.",
     capabilities: [
       {
         title: "Automatic attendance and leave sync",
@@ -239,7 +242,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     builtForTitle: "Built for teams that outgrew a payroll spreadsheet",
     builtForParagraphs: [
       "A payroll spreadsheet works fine for five people. It starts breaking down somewhere between 15 and 30, right around the point where attendance, leave, reimbursements and statutory rules all have to line up correctly, every month, without a formula quietly going stale.",
-      "Meagle 360's payroll module is built for exactly that transition a team that has outgrown manual payroll but doesn't want to pay enterprise-HRMS pricing or commit to a multi-week implementation just to get statutory compliance handled correctly.",
+      "Meagle 360 is a payroll system built for exactly that transition a team that has outgrown manual payroll but doesn't want to pay enterprise-HRMS pricing or commit to a multi-week implementation just to get statutory compliance handled correctly.",
       "It's also built for the parts of payroll that are easy to get wrong precisely because they're rare a mid-cycle salary revision, an employee who joined or exited partway through the month, a one-off bonus. Those cases are handled inside the same system instead of requiring a manual workaround in a spreadsheet formula that only one person fully understands.",
       "And it removes the single-point-of-failure risk that comes with payroll living in one person's head and one person's spreadsheet the process itself is documented and repeatable inside Meagle 360, not dependent on whoever happens to own it this month.",
     ],
@@ -254,6 +257,10 @@ export const FEATURE_PAGES: FeaturePage[] = [
       { capability: "Minimum seats", meagle: "None", keka: "Base fee bundles up to 100 employees", greythr: "Base fee bundles up to 50 employees" },
     ],
     faqs: [
+      {
+        q: "What is payroll management software?",
+        a: "Payroll management software calculates salaries, statutory deductions and payslips for every pay cycle, replacing manual spreadsheets. Meagle 360's payroll runs directly from attendance and leave data, with PF, ESI and TDS built in.",
+      },
       {
         q: "Does Meagle 360 calculate PF, ESI and TDS automatically?",
         a: "Yes. Statutory deductions are calculated as part of the payroll run and kept up to date with current regulations, so you're not maintaining those formulas yourself.",
@@ -313,7 +320,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     relatedBlogSlugs: [
       "streamline-payroll-process-2026",
-      "best-all-in-one-hrms-software-for-growing-businesses-in-2026",
+      "best-hrms-software-india-2026",
       "payroll-software-pricing-in-india",
       "hrms-vs-excel",
     ],
@@ -469,7 +476,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     relatedBlogSlugs: [
       "how-to-build-a-modern-and-effective-hr-management-system",
-      "best-all-in-one-hrms-software-for-growing-businesses-in-2026",
+      "best-hrms-software-india-2026",
     ],
     relatedFeatureSlug: "attendance-management-software",
     relatedFeatureLabel: "Attendance Management Software",
@@ -592,7 +599,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     relatedBlogSlugs: [
       "ai-transforming-attendance-tracking",
-      "best-all-in-one-hrms-software-for-growing-businesses-in-2026",
+      "best-hrms-software-india-2026",
     ],
     relatedFeatureSlug: "attendance-management-software",
     relatedFeatureLabel: "Attendance Management Software",
@@ -727,12 +734,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "employee-database-software",
     navLabel: "Employee Database",
-    metaTitle: "Employee Database Software & Org Chart",
+    metaTitle: "Employee Management System & Database Software",
     metaDescription:
-      "One accurate employee directory and org chart, instead of scattered spreadsheets and outdated documents. Flat ₹149/user/month. Book a demo.",
-    h1: "Employee Database Software That Replaces the HR Spreadsheet",
+      "One employee management system for records, documents and org chart, instead of scattered spreadsheets. Flat ₹149/user/month. Book a demo.",
+    h1: "Employee Management System That Replaces the HR Spreadsheet",
     heroSubhead:
-      "An online employee database with one accurate directory for every employee's role, department, documents and reporting line, instead of a spreadsheet that's a version or two behind reality by the time anyone opens it.",
+      "An employee management system keeps every employee's records, documents, reporting lines and history in one place. Meagle 360 is employee database software that replaces the HR spreadsheet with one searchable, role-based record, instead of a file that's a version or two behind reality by the time anyone opens it.",
     heroSecondaryCta: { label: "Free employee database template →", href: "/blog/free-employee-database-template" },
     painIntro:
       "Most companies have employee data spread across a spreadsheet, an email folder of documents, and whatever the last person to update the org chart remembered to change.",
@@ -743,7 +750,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "A spreadsheet has no audit trail there's no reliable way to see who changed an employee's record, or when, if a detail turns out to be wrong later.",
     ],
     capabilitiesIntro:
-      "Meagle 360 is employee database management software that keeps every employee's core record role, department, reporting line and documents in one place that updates as your organization changes, instead of a file someone has to remember to maintain separately.",
+      "Meagle 360 is employee management software and employee database management software that keeps every employee's core record role, department, reporting line and documents in one place that updates as your organization changes, instead of a file someone has to remember to maintain separately.",
     capabilities: [
       {
         title: "Centralized employee directory",
@@ -792,6 +799,10 @@ export const FEATURE_PAGES: FeaturePage[] = [
       { capability: "Minimum seats", meagle: "None", keka: "Base fee bundles up to 100 employees", greythr: "Base fee bundles up to 50 employees" },
     ],
     faqs: [
+      {
+        q: "What is an employee management system?",
+        a: "It's the software HR uses to keep every employee's records, documents, reporting lines and history in one place instead of across spreadsheets and email folders. Meagle 360 does this with a searchable, role-based employee database and a live org chart.",
+      },
       {
         q: "Does the org chart update automatically when someone changes roles?",
         a: "Yes, reporting lines reflect current role data, so the chart doesn't need to be manually redrawn after every change.",
@@ -851,6 +862,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     relatedFeatureSlug: "employee-self-service",
     relatedFeatureLabel: "Employee Self-Service",
+    extraLinks: [
+      { label: "Employee management system basics: what is employee database software?", href: "/blog/what-is-employee-database-software" },
+      { label: "Employee management system vs Excel: when to switch to an HRMS", href: "/blog/hrms-vs-excel" },
+      { label: "Employee management system starter: free employee database template", href: "/blog/free-employee-database-template" },
+      { label: "Employee management system template: free download", href: "/templates/employee-database-template" },
+    ],
   },
   {
     slug: "expense-management",
@@ -974,7 +991,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     relatedBlogSlugs: [
       "streamline-payroll-process-2026",
-      "best-all-in-one-hrms-software-for-growing-businesses-in-2026",
+      "best-hrms-software-india-2026",
     ],
     relatedFeatureSlug: "payroll-software",
     relatedFeatureLabel: "Payroll Software",
@@ -982,12 +999,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "hr-reports-analytics",
     navLabel: "HR Reports & Analytics",
-    metaTitle: "HR Reports & Analytics Software",
+    metaTitle: "HR Analytics Software & Reports",
     metaDescription:
       "Attendance, leave, payroll and headcount reports generated from live data, not a manually rebuilt spreadsheet. Flat ₹149/user/month. Book a demo.",
-    h1: "HR Reports & Analytics Built From Live Workforce Data",
+    h1: "HR Analytics Software Built From Live Workforce Data",
     heroSubhead:
-      "Attendance trends, leave patterns, payroll cost and headcount, reported straight from the data already inside Meagle 360 no manual spreadsheet rebuild before every review.",
+      "HR analytics software that reports attendance trends, leave patterns, payroll cost and headcount straight from the data already inside Meagle 360 no manual spreadsheet rebuild before every review.",
     painIntro:
       "HR reporting usually means pulling numbers from three different places and rebuilding the same spreadsheet before every leadership review, hoping nothing changed between the export and the meeting.",
     painPoints: [
@@ -997,7 +1014,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "By the time a manually built report reaches leadership, the underlying situation may have already changed, which means decisions get made on numbers that were accurate a week or two ago rather than right now.",
     ],
     capabilitiesIntro:
-      "Meagle 360 generates reports directly from the same attendance, leave, payroll and employee data already live in the system not a separate export someone rebuilds by hand every time a number is needed.",
+      "Meagle 360 generates HR analytics and reports directly from the same attendance, leave, payroll and employee data already live in the system not a separate export someone rebuilds by hand every time a number is needed.",
     capabilities: [
       {
         title: "Attendance and leave trend reports",
@@ -1097,7 +1114,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     relatedBlogSlugs: [
       "how-to-build-a-modern-and-effective-hr-management-system",
-      "best-all-in-one-hrms-software-for-growing-businesses-in-2026",
+      "best-hrms-software-india-2026",
     ],
     relatedFeatureSlug: "employee-database-software",
     relatedFeatureLabel: "Employee Database Software",
@@ -1105,12 +1122,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "hiring-management-software",
     navLabel: "Hiring Management",
-    metaTitle: "Hiring Management Software for Growing Teams",
+    metaTitle: "Applicant Tracking System (ATS) for Hiring",
     metaDescription:
-      "Post jobs, track applicants through a clear pipeline, and onboard new hires without spreadsheets and email threads. Flat ₹149/user/month. Book a demo.",
-    h1: "Hiring Management Software That Takes You From Job Post to Day One",
+      "An applicant tracking system for growing teams: post jobs, track applicants in one pipeline, onboard hires. Flat ₹149/user/month. Book a demo.",
+    h1: "Applicant Tracking System That Takes You From Job Post to Day One",
     heroSubhead:
-      "Track every applicant through a clear hiring pipeline, and turn an accepted offer into a fully onboarded employee — without juggling spreadsheets, email threads, and an onboarding checklist nobody remembers to finish.",
+      "An applicant tracking system (ATS) for growing teams: track every applicant through a clear hiring pipeline, and turn an accepted offer into a fully onboarded employee — without juggling spreadsheets, email threads, and an onboarding checklist nobody remembers to finish.",
     painIntro:
       "Hiring usually looks manageable right up until you're running three or four open roles at once, and nobody on the team can answer \"where did that candidate go?\" without digging back through email.",
     painPoints: [
@@ -1120,7 +1137,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "Offer letters, ID proofs, and joining documents collected over email are easy to lose track of, with no single record connecting a new hire back to their original application.",
     ],
     capabilitiesIntro:
-      "Meagle 360 gives every open role a single pipeline the whole hiring team can see, and connects an accepted offer directly into onboarding — so a new hire's employee record exists before their first day, not sometime after someone gets around to entering it.",
+      "As an applicant tracking system, Meagle 360 gives every open role a single pipeline the whole hiring team can see, and connects an accepted offer directly into onboarding — so a new hire's employee record exists before their first day, not sometime after someone gets around to entering it.",
     capabilities: [
       {
         title: "Job posting and candidate pipeline",
@@ -1169,6 +1186,10 @@ export const FEATURE_PAGES: FeaturePage[] = [
       { capability: "Minimum seats", meagle: "None", keka: "Base fee bundles up to 100 employees", greythr: "Base fee bundles up to 50 employees" },
     ],
     faqs: [
+      {
+        q: "What is an applicant tracking system?",
+        a: "An applicant tracking system (ATS) is software that keeps job postings, applicants and their hiring stages in one place, instead of scattered spreadsheets and email threads. In Meagle 360 it covers job posting, an applicant pipeline and the handoff into onboarding once an offer is accepted.",
+      },
       {
         q: "Does the hiring pipeline connect directly to onboarding?",
         a: "Yes. Once an offer is marked accepted, the candidate's details carry directly into onboarding and their employee record, without needing to be re-entered.",

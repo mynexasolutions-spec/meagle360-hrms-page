@@ -218,6 +218,7 @@ export default function HrmsForStartupsPage() {
             <li><a href="/features/payroll-software">Payroll Software →</a></li>
             <li><a href="/features/attendance-management-software">Attendance Management Software →</a></li>
             <li><a href="/alternatives/keka-alternative">Keka Alternative →</a></li>
+            <li><a href="/blog/best-hrms-software-india-2026">Best HRMS software in India: an honest comparison →</a></li>
           </ul>
         </div>
       </section>

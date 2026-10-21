@@ -57,10 +57,19 @@ export function Modules() {
               fontSize: "clamp(28px, 3.4vw, 38px)",
               letterSpacing: "-0.02em",
               maxWidth: 600,
-              margin: "0 0 48px",
+              margin: "0 0 16px",
             }}
           >
             A Complete Suite of HR & Payroll Management Modules
+          </Reveal>
+          <Reveal
+            as="p"
+            className="reveal"
+            style={{ maxWidth: 600, margin: "0 0 32px", color: "var(--text-2)", fontSize: 17, lineHeight: 1.6 }}
+          >
+            Meagle 360 is cloud-based HR software that brings attendance, leave,
+            payroll, shifts and hiring into one HR management software
+            platform, so every module works from the same employee data.
           </Reveal>
 
           <Reveal as="ul" className="module-list reveal-stagger">

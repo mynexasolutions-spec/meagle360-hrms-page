@@ -1,5 +1,9 @@
 export const FAQS = [
   {
+    q: "What is HR software?",
+    a: "HR software is a system that manages employee records, attendance, leave, payroll and hiring in one place, replacing spreadsheets and manual processes. Meagle 360 is cloud-based HR software (HRMS and HRIS) that covers all of this for Indian businesses at a flat ₹149 per user per month.",
+  },
+  {
     q: "How long does implementation take?",
     a: "Most teams are fully onboarded within 3 to 5 business days, including data migration, payroll setup, and employee app rollout. Our onboarding specialists handle the heavy lifting.",
   },

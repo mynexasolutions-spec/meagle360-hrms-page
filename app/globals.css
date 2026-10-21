@@ -4071,6 +4071,15 @@
   font-size: 15px;
   border-bottom: 1px solid #e2e8f0;
 }
+/* Wide comparison tables (7+ columns) get tighter cells so they fit the
+   article column without sideways scrolling on desktop. Other tables keep
+   the default spacing; on phones every table still scrolls via .blog-table-wrap. */
+.blog-content table:has(th:nth-child(7)) th,
+.blog-content table:has(th:nth-child(7)) td {
+  padding: 10px 7px;
+  font-size: 13px;
+  line-height: 1.4;
+}
 .blog-content th {
   background: #f8fafc;
   color: #0f172a;

@@ -229,6 +229,7 @@ export default function KekaAlternativePage() {
           <h2 style={{ marginBottom: 24 }}>Related reading</h2>
           <ul className="feature-related-links">
             <li><a href="/alternatives/greythr-alternative">greytHR Alternative →</a></li>
+            <li><a href="/blog/best-hrms-software-india-2026">Best HRMS software in India: an honest comparison →</a></li>
             <li><a href="/pricing">See full pricing →</a></li>
             <li><a href="/features/payroll-software">Payroll Software →</a></li>
             <li><a href="/features/attendance-management-software">Attendance Management Software →</a></li>

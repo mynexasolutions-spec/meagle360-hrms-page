@@ -12,9 +12,9 @@ import { CtaBanner } from "./components/CtaBanner";
 import { FAQS } from "../lib/faq-data";
 import { COMPANY_POSTAL_ADDRESS_JSONLD } from "../lib/company";
 
-const HOME_TITLE = "Best HRMS & HRIS Software in India | Meagle 360";
+const HOME_TITLE = "Meagle 360: HR Software, HRMS & Payroll for India";
 const HOME_DESCRIPTION =
-  "Meagle 360 is a leading HRMS (HRIS) software in India for payroll, attendance and leave management.";
+  "Meagle 360 is cloud-based HR software (HRMS and HRIS) for Indian businesses: attendance, leave, payroll and employee self-service in one platform.";
 
 export const metadata: Metadata = {
   title: HOME_TITLE,

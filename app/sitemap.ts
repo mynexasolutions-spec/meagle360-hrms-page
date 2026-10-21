@@ -6,9 +6,19 @@ import { getPublishedHrTemplates } from "../lib/hr-templates";
 
 const BASE = "https://www.meagle360.com";
 
+// Date of the on-page keyword retargeting of the homepage and these four
+// feature pages — tells crawlers the content changed.
+const KEYWORD_UPDATE = new Date("2026-10-21");
+const KEYWORD_UPDATED_FEATURES = new Set([
+  "employee-database-software",
+  "payroll-software",
+  "hiring-management-software",
+  "hr-reports-analytics",
+]);
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const statics: MetadataRoute.Sitemap = [
-    { url: `${BASE}/`, priority: 1.0, changeFrequency: "weekly" },
+    { url: `${BASE}/`, lastModified: KEYWORD_UPDATE, priority: 1.0, changeFrequency: "weekly" },
     { url: `${BASE}/pricing`, priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE}/demo`, priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE}/contact`, priority: 0.6, changeFrequency: "yearly" },
@@ -44,6 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const featureRoutes: MetadataRoute.Sitemap = FEATURE_PAGES.map((f) => ({
     url: `${BASE}/features/${f.slug}`,
+    lastModified: KEYWORD_UPDATED_FEATURES.has(f.slug) ? KEYWORD_UPDATE : undefined,
     changeFrequency: "monthly",
     priority: 0.8,
   }));

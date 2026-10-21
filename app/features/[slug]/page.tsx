@@ -314,7 +314,7 @@ export default async function FeaturePage({
         </div>
       </section>
 
-      {(relatedPosts.length > 0 || feature.relatedFeatureSlug) && (
+      {(relatedPosts.length > 0 || feature.extraLinks || feature.relatedFeatureSlug) && (
         <section className="section section-alt" style={{ padding: "48px 0" }}>
           <div className="container" style={{ maxWidth: 760, textAlign: "center" }}>
             <h2 style={{ marginBottom: 24 }}>Related reading</h2>
@@ -322,6 +322,11 @@ export default async function FeaturePage({
               {relatedPosts.map((post) => (
                 <li key={post.id}>
                   <a href={`/blog/${post.slug}`}>{post.title} →</a>
+                </li>
+              ))}
+              {feature.extraLinks?.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href}>{l.label} →</a>
                 </li>
               ))}
               <li>
