@@ -64,12 +64,11 @@ export default function AboutPage() {
               <h2>Nexa Solutions</h2>
               <p>
                 Meagle 360 is a product built by Nexa Solutions and operated by
-                Meagle360 Private Limited, the registered entity behind the
-                platform.
+                Meagle360, the registered entity behind the platform.
               </p>
               <p>
                 <strong>Registered entity name:</strong>{" "}
-                Meagle360 Private Limited
+                Meagle360
               </p>
 
               <h2>Where we are</h2>

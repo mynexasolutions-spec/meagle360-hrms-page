@@ -182,6 +182,10 @@ create policy "Admin can manage all template downloads"
   using (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL')
   with check (auth.jwt() ->> 'email' = 'YOUR_ADMIN_EMAIL');
 
+-- Posts: per-post opt-out of the site-wide " | Meagle 360" title suffix, for
+-- titles already close to the 60-character limit.
+alter table posts add column if not exists seo_title_absolute boolean not null default false;
+
 -- Chatbot Leads Table — the floating bot widget answers from a rule-based
 -- FAQ (no DB involved for that — see lib/chatbot-faq.ts, which pulls
 -- straight from the site's own published FAQ content). After the visitor's

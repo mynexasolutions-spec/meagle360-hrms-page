@@ -51,7 +51,7 @@ export async function generateMetadata({
   const description = post.seo_description || undefined;
 
   return {
-    title,
+    title: post.seo_title_absolute ? { absolute: title } : title,
     description,
     openGraph: {
       title,

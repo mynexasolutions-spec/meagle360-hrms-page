@@ -7,6 +7,9 @@ export type Post = {
   cover_image_url: string | null;
   cover_image_alt: string | null;
   seo_title: string | null;
+  // When true, seo_title is used exactly as written, without the site-wide
+  // " | Meagle 360" suffix (for titles already near the 60-character limit).
+  seo_title_absolute: boolean;
   seo_description: string | null;
   seo_keywords: string | null;
   canonical_url: string | null;

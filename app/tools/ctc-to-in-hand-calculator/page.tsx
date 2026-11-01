@@ -276,7 +276,9 @@ export default function CtcToInHandCalculatorPage() {
           <p style={{ textAlign: "center", color: "var(--text-2)", fontSize: 16, maxWidth: 760, margin: "40px auto 0" }}>
             This is why a ₹9,00,000 CTC often results in roughly ₹54,000/month in-hand, not ₹75,000
             (₹9L ÷ 12) as many people initially assume. For the full formula and a worked example, see our{" "}
-            <a href="/blog/ctc-vs-in-hand-salary">CTC vs In-Hand Salary guide</a>.
+            <a href="/blog/ctc-vs-in-hand-salary">CTC vs In-Hand Salary guide</a>. Employers setting pay for
+            their own team can read how to{" "}
+            <a href="/blog/salary-structure-for-small-companies">design a salary structure for a small company</a>.
           </p>
         </div>
       </section>
