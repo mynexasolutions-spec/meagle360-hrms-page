@@ -1,3 +1,5 @@
+import { GOOGLE_ADS_ID } from "./google-ids";
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
@@ -15,7 +17,7 @@ export function trackDemoRequestConversion() {
     event_category: "demo_request",
   });
 
-  const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+  const adsId = GOOGLE_ADS_ID;
   const conversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
   if (adsId && conversionLabel) {
     window.gtag("event", "conversion", {

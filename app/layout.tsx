@@ -3,6 +3,7 @@ import { Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
+import { GOOGLE_ADS_ID } from "./lib/google-ids";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+const ADS_ID = GOOGLE_ADS_ID;
 
 export default function RootLayout({
   children,
