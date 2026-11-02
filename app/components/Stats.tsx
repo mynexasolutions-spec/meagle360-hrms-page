@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { AnimatedCounter } from "./AnimatedCounter";
 
@@ -15,30 +16,52 @@ const STATS = [
   { tint: "stat-violet", count: 100, suffix: "%", label: "Compliance", sub: "And Security" },
 ];
 
+const POINTS = [
+  "Attendance, leave and payroll run on one employee record, so there is no month-end merging.",
+  "PF, ESI and TDS are calculated as part of every payroll run.",
+  "Employees check payslips and leave balances themselves, from their phone.",
+];
+
 export function Stats() {
   return (
     <section className="section">
-      <div className="container">
-        <Reveal as="span" className="eyebrow reveal">
-          Why Choose Meagle 360
-        </Reveal>
-        <Reveal
-          as="h2"
-          className="reveal"
-          style={{ fontSize: "clamp(28px, 3.4vw, 38px)", letterSpacing: "-0.02em", maxWidth: 520 }}
-        >
-          How Meagle 360 Saves You Time and Drives Business Success
-        </Reveal>
-        <Reveal
-          as="p"
-          className="reveal"
-          style={{ color: "var(--text-2)", fontSize: 18, maxWidth: 560, margin: "12px 0 48px" }}
-        >
-          Meagle 360 helps you automate HR processes, reduce manual work, and
-          improve employee experience.
-        </Reveal>
+      <div className="container why-grid">
+        <div className="why-copy">
+          <Reveal as="span" className="eyebrow reveal">
+            Why Choose Meagle 360
+          </Reveal>
+          <Reveal as="h2" className="why-title reveal">
+            How Meagle 360 Saves You Time and Drives Business Success
+          </Reveal>
+          <Reveal as="p" className="why-lead reveal">
+            Meagle 360 helps you automate HR processes, reduce manual work, and
+            improve employee experience.
+          </Reveal>
 
-        <Reveal className="stats-grid reveal-stagger">
+          <Reveal as="ul" className="why-points reveal">
+            {POINTS.map((p) => (
+              <li key={p}>
+                <span className="why-check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </span>
+                {p}
+              </li>
+            ))}
+          </Reveal>
+
+          <Reveal className="why-actions reveal">
+            <Link href="/demo" className="btn btn-primary">
+              Book a free demo
+            </Link>
+            <Link href="/pricing" className="btn btn-outline">
+              See pricing
+            </Link>
+          </Reveal>
+        </div>
+
+        <Reveal className="why-stats reveal-stagger">
           {STATS.map((s) => (
             <div className={`stat-card ${s.tint}`} key={s.label}>
               <AnimatedCounter

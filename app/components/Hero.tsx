@@ -1,33 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
 import { triggerRipple } from "../lib/ripple";
+import { ContactForm } from "./ContactForm";
 
 export function Hero() {
-  const visualRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    const reduceMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion || !visualRef.current || !wrapperRef.current) return;
-    const rect = visualRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    const rx = (y / (rect.height / 2)) * -14;
-    const ry = (x / (rect.width / 2)) * 14;
-    wrapperRef.current.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) scale(1.02)`;
-    wrapperRef.current.style.animation = "none";
-  }
-
-  function handleMouseLeave() {
-    if (!wrapperRef.current) return;
-    wrapperRef.current.style.transform = "";
-    wrapperRef.current.style.animation = "heroFloat3D 8s ease-in-out infinite";
-  }
-
   return (
     <section className="hero">
       <div className="hero-bg-orb orb-1"></div>
@@ -37,13 +13,13 @@ export function Hero() {
           <span className="eyebrow">
             <span className="pulse-dot"></span>All-in-One HR Management Solution
           </span>
-          <h1>
-            Manage People.
+          <h1 className="hero-title">
+            Still Managing
             <br />
-            Simplify Processes.
+            HR Manually?
             <br />
             <span className="accent">
-              Grow Together.
+              There&apos;s a Smarter Way.
               <svg viewBox="0 0 220 12" preserveAspectRatio="none">
                 <path
                   d="M2 9C40 2 120 2 218 9"
@@ -74,63 +50,10 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hero-visual" ref={visualRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-          <div className="hero-3d-wrapper" ref={wrapperRef}>
-            <div className="hero-float-badge hb-1">
-              <div
-                className="dot tint-emerald"
-                style={{ width: 28, height: 28, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-              </div>
-              <div>
-                Payroll Synced
-                <small>Auto-processed on time</small>
-              </div>
-            </div>
-            <div className="dashboard-frame">
-              <Image
-                src="/hrms-image.png"
-                alt="Meagle 360 HRMS dashboard preview showing attendance, leave and payroll management"
-                width={1536}
-                height={1024}
-                priority
-                sizes="(max-width: 900px) 90vw, 560px"
-                style={{ width: "100%", height: "auto" }}
-              />
-            </div>
-            <div className="hero-float-badge hb-2">
-              <div
-                className="dot tint-sky"
-                style={{ width: 28, height: 28, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                </svg>
-              </div>
-              <div>
-                Live in 5 Days
-                <small>Average time to first payroll run</small>
-              </div>
-            </div>
-            <div className="hero-float-badge hb-3">
-              <div
-                className="dot tint-violet"
-                style={{ width: 28, height: 28, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v6l4 2" />
-                </svg>
-              </div>
-              <div>
-                99.9% Attendance
-                <small>Real-time AI tracking</small>
-              </div>
-            </div>
-          </div>
+        {/* Same form (and same /thank-you redirect) as the one at the bottom of
+            the page, in the same purple card. */}
+        <div className="hero-form">
+          <ContactForm title="Request a Free Demo" />
         </div>
       </div>
     </section>

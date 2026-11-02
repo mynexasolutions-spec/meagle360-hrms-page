@@ -66,7 +66,7 @@ const PRIORITY_ENTRIES: FaqEntry[] = [
     id: "modules",
     keywords: ["modules", "what modules", "features do you have", "what features", "what’s included", "whats included", "what's included"],
     answer:
-      "Every plan includes 8 modules: Attendance, Payroll, Leave, Shift Management, Employee Self-Service, Employee Database, Expense Management, HR Reports & Hiring — all for one flat price, nothing sold separately.",
+      "Every plan includes 9 modules: Attendance, Payroll, Leave, Shift Management, Employee Self-Service, Employee Database, Expense Management, HR Reports & Analytics and Hiring — all for one flat price, nothing sold separately.",
     link: { label: "Explore features", href: "/#features" },
   },
 ];
