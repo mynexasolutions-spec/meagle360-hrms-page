@@ -22,8 +22,12 @@ export async function generateMetadata({
   const title = t.seo_title || t.title;
   const description = t.seo_description || undefined;
 
+  // Drop the " | Meagle 360" suffix when it would push the title past 60 characters.
+  const SUFFIX = " | Meagle 360";
+  const metaTitle = title.length + SUFFIX.length > 60 ? { absolute: title } : title;
+
   return {
-    title,
+    title: metaTitle,
     description,
     openGraph: { title, description, type: "article" },
     twitter: { card: "summary_large_image", title, description },

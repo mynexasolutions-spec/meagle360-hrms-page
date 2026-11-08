@@ -97,7 +97,7 @@ export function CtcInHandCalculator() {
             <div className="icon-square-v3 tint-primary-light">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>
             </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a' }}>Your CTC Details</h3>
+            <h2 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a', margin: '1em 0' }}>Your CTC Details</h2>
           </div>
 
           <div className="ctc-v4-inputs-row">
@@ -173,7 +173,7 @@ export function CtcInHandCalculator() {
             <div className="icon-square-v3 tint-primary-light">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" /><path d="M14 2v6h6" /></svg>
             </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a' }}>Annual CTC Breakdown</h3>
+            <h2 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a', margin: '1em 0' }}>Annual CTC Breakdown</h2>
           </div>
           
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -206,7 +206,7 @@ export function CtcInHandCalculator() {
             <div className="icon-square-v3 tint-primary-light">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" /></svg>
             </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a' }}>Monthly In-Hand Breakdown</h3>
+            <h2 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0f172a', margin: '1em 0' }}>Monthly In-Hand Breakdown</h2>
           </div>
           
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -236,7 +236,7 @@ export function CtcInHandCalculator() {
       <div className="ctc-calc-v4-footer">
         <div className="ctc-calc-v4-footer-inner" style={{ background: '#f5f3ff', borderRadius: 12, padding: '24px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <h4 style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: 700, margin: 0, marginBottom: 4 }}>Monthly In-Hand Salary</h4>
+            <p style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: 700, margin: 0, marginBottom: 4 }}>Monthly In-Hand Salary</p>
             <p style={{ color: 'var(--primary)', opacity: 0.8, fontSize: '0.85rem', margin: 0 }}>Gross Monthly - Total Deductions</p>
           </div>
           <div style={{ color: 'var(--primary)', fontSize: '2.5rem', fontWeight: 700 }}>

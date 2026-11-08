@@ -300,7 +300,7 @@ export function QuotationMakerTool() {
             </div>
             
             <div className="print-address-block" style={{ marginTop: '30px' }}>
-              <h3>From:</h3>
+              <div className="print-address-title">From:</div>
               <strong>{company.name || "Company Name"}</strong>
               <p>{company.address}</p>
               {(company.city || company.pincode) && <p>{company.city} - {company.pincode}</p>}
@@ -308,7 +308,7 @@ export function QuotationMakerTool() {
             </div>
             
             <div className="print-address-block">
-              <h3>Estimate For:</h3>
+              <div className="print-address-title">Estimate For:</div>
               <strong>{client.name || "Client Name"}</strong>
               <p>{client.address}</p>
               {(client.city || client.pincode) && <p>{client.city} - {client.pincode}</p>}
@@ -355,13 +355,13 @@ export function QuotationMakerTool() {
           <div className="print-terms">
             {terms && (
               <>
-                <h4>Terms & Conditions</h4>
+                <div className="print-terms-title">Terms & Conditions</div>
                 <p>{terms}</p>
               </>
             )}
             {notes && (
               <div style={{ marginTop: '16px' }}>
-                <h4>Notes</h4>
+                <div className="print-terms-title">Notes</div>
                 <p>{notes}</p>
               </div>
             )}

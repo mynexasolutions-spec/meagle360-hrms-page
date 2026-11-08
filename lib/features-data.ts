@@ -785,7 +785,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
         desc: "The same employee record feeds attendance, leave, payroll and self-service, so there's no separate directory to keep updated in parallel with the rest of the system.",
       },
     ],
-    builtForTitle: "Built for the moment a spreadsheet stops being enough",
+    builtForTitle: "Employee database software for the moment a spreadsheet stops being enough",
     builtForParagraphs: [
       "An employee spreadsheet works when there are ten people and one person maintaining it. It stops working the moment there's more than one department, more than one person updating records, or more than a handful of documents to keep track of per employee.",
       "Meagle 360 is software for employee database and org chart management, built to be the one place that record lives connected to attendance, leave and payroll, instead of a separate file someone has to remember to keep in sync with everything else.",

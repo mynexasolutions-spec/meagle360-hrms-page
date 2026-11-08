@@ -51,7 +51,7 @@ export function DemoRequestForm() {
 
   return (
     <form className="demo-form" onSubmit={handleSubmit}>
-      <h3 className="demo-form-title">Book your demo</h3>
+      <p className="demo-form-title">Book your demo</p>
 
       {status === "error" && <div className="demo-form-error">{error}</div>}
 

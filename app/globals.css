@@ -1746,6 +1746,7 @@
         flex: 1 1 420px;
         max-width: 560px;
       }
+      .cta-banner .cta-form-title,
       .cta-form-title {
         color: #fff;
         font-size: 18px;
@@ -2463,7 +2464,8 @@
         text-decoration: underline;
         color: #fff;
       }
-      .footer-col h5 {
+      .footer-col h5,
+      .footer-col .footer-col-title {
         font-size: 18px;
         font-weight: 600;
         color: #fff;
@@ -5129,6 +5131,7 @@
 }
 .demo-form-title {
   font-size: 20px;
+  font-weight: 700;
   margin: 0;
 }
 .demo-form-error {
@@ -7149,7 +7152,9 @@
 .print-address-block {
   margin-bottom: 24px;
 }
-.print-address-block h3 {
+.print-address-block h3,
+.print-address-block .print-address-title {
+  font-weight: 700;
   font-size: 14px;
   color: #111827;
   margin: 0 0 4px 0;
@@ -7198,7 +7203,9 @@
 .print-terms {
   width: 50%;
 }
-.print-terms h4 {
+.print-terms h4,
+.print-terms .print-terms-title {
+  font-weight: 700;
   font-size: 14px;
   margin: 0 0 8px 0;
   color: #1f2937;

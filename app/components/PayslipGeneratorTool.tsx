@@ -432,7 +432,7 @@ export function PayslipGeneratorTool() {
               {country && <p style={{ margin: "4px 0 0", color: "#666" }}>{country}</p>}
             </div>
           </div>
-          <h4 style={{ textAlign: "center", fontSize: "20px", margin: "0 0 20px" }}>Payslip{payPeriod ? ` for ${formatPayPeriod(payPeriod)}` : ""}</h4>
+          <p style={{ textAlign: "center", fontSize: "20px", fontWeight: "bold", margin: "0 0 20px" }}>Payslip{payPeriod ? ` for ${formatPayPeriod(payPeriod)}` : ""}</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "30px", background: "#f9fafb", padding: "20px", borderRadius: "8px" }}>
             <div><span style={{ color: "#666", width: "120px", display: "inline-block" }}>Employee Name</span><strong>{employeeName || "—"}</strong></div>
             {employeeId && <div><span style={{ color: "#666", width: "120px", display: "inline-block" }}>Employee ID</span><strong>{employeeId}</strong></div>}
@@ -443,7 +443,7 @@ export function PayslipGeneratorTool() {
 
           <div style={{ display: "flex", gap: "24px", marginBottom: "30px" }}>
             <div style={{ flex: 1 }}>
-              <h5 style={{ borderBottom: "2px solid #eee", paddingBottom: "8px", margin: "0 0 12px" }}>Earnings</h5>
+              <div style={{ borderBottom: "2px solid #eee", paddingBottom: "8px", margin: "0 0 12px", fontSize: "0.83em", fontWeight: "bold" }}>Earnings</div>
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <tbody>
                   {earnings.filter(e => e.label || toNumber(e.amount) > 0).map((e) => (
@@ -454,7 +454,7 @@ export function PayslipGeneratorTool() {
               </table>
             </div>
             <div style={{ flex: 1 }}>
-              <h5 style={{ borderBottom: "2px solid #eee", paddingBottom: "8px", margin: "0 0 12px" }}>Deductions</h5>
+              <div style={{ borderBottom: "2px solid #eee", paddingBottom: "8px", margin: "0 0 12px", fontSize: "0.83em", fontWeight: "bold" }}>Deductions</div>
               <table style={{ width: "100%", borderCollapse: "collapse" }}>
                 <tbody>
                   {deductions.filter(d => d.label || toNumber(d.amount) > 0).map((d) => (

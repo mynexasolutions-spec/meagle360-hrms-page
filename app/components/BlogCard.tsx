@@ -11,7 +11,10 @@ function formatDate(dateStr: string | null) {
   });
 }
 
-export function BlogCard({ post }: { post: Post }) {
+// titleAs="p" is for "related posts" strips inside an article, where the card
+// titles are not part of the page outline.
+export function BlogCard({ post, titleAs = "p" }: { post: Post; titleAs?: "h3" | "p" }) {
+  const Title = titleAs;
   return (
     <a href={`/blog/${post.slug}`} className="blog-card">
       <div className="blog-card-cover" style={{ position: "relative" }}>
@@ -51,7 +54,7 @@ export function BlogCard({ post }: { post: Post }) {
             {calculateReadingTime(post.content)} min read
           </span>
         </div>
-        <h3 className="blog-card-title">{post.title}</h3>
+        <Title className="blog-card-title">{post.title}</Title>
         <div style={{ marginTop: "auto", paddingTop: "16px" }}>
           <span className="btn btn-primary" style={{ padding: "8px 16px", fontSize: "14px", borderRadius: "6px", display: "inline-block" }}>
             Read more

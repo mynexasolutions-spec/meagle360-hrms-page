@@ -249,9 +249,9 @@ export default async function HrTemplatesHubPage() {
                     }}>
                       <CardIcon title={t.title} index={i} />
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <h3 style={{ margin: '0 0 6px', fontSize: 18, fontWeight: 600, color: 'var(--text-1)', lineHeight: 1.4 }}>
+                        <p style={{ margin: '0 0 6px', fontSize: 18, fontWeight: 600, color: 'var(--text-1)', lineHeight: 1.4 }}>
                           {t.title.split(':')[0]}
-                        </h3>
+                        </p>
                         <p style={{ margin: '0 0 12px', fontSize: 14.5, color: 'var(--text-3)' }}>
                           {t.title.includes('Free Template') ? 'Free Template' : 'Template'} (Word & PDF)
                         </p>

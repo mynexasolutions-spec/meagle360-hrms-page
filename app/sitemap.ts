@@ -9,6 +9,8 @@ const BASE = "https://www.meagle360.com";
 // Date of the on-page keyword retargeting of the homepage and these four
 // feature pages — tells crawlers the content changed.
 const KEYWORD_UPDATE = new Date("2026-10-21");
+// Employee database page got a further title/H2 pass on 7 Nov 2026.
+const EMPLOYEE_DB_UPDATE = new Date("2026-11-07");
 const KEYWORD_UPDATED_FEATURES = new Set([
   "employee-database-software",
   "payroll-software",
@@ -54,7 +56,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const featureRoutes: MetadataRoute.Sitemap = FEATURE_PAGES.map((f) => ({
     url: `${BASE}/features/${f.slug}`,
-    lastModified: KEYWORD_UPDATED_FEATURES.has(f.slug) ? KEYWORD_UPDATE : undefined,
+    lastModified:
+      f.slug === "employee-database-software"
+        ? EMPLOYEE_DB_UPDATE
+        : KEYWORD_UPDATED_FEATURES.has(f.slug)
+          ? KEYWORD_UPDATE
+          : undefined,
     changeFrequency: "monthly",
     priority: 0.8,
   }));

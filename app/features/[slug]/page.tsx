@@ -76,6 +76,29 @@ export default async function FeaturePage({
     })),
   };
 
+  // Same flat price as the homepage and pricing page. No aggregateRating:
+  // there is no real review data behind one.
+  const softwareJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: `Meagle 360: ${feature.navLabel}`,
+    description: feature.metaDescription,
+    url: pageUrl,
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Human Resource Management System (HRIS)",
+    operatingSystem: "Web, iOS, Android",
+    isPartOf: { "@id": `${SITE_URL}/#software` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    offers: {
+      "@type": "Offer",
+      price: "149",
+      priceCurrency: "INR",
+      unitText: "per user per month",
+      availability: "https://schema.org/InStock",
+      url: `${SITE_URL}/pricing`,
+    },
+  };
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -356,6 +379,10 @@ export default async function FeaturePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
       />
       <script
         type="application/ld+json"

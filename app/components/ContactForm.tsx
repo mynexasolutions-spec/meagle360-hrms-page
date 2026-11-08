@@ -68,7 +68,7 @@ export function ContactForm({
 
   return (
     <form className="cta-form" onSubmit={handleSubmit}>
-      {title && <h3 className="cta-form-title">{title}</h3>}
+      {title && <p className="cta-form-title">{title}</p>}
       <div className="cta-form-row">
         <input
           type="text"

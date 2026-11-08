@@ -225,7 +225,7 @@ export default async function BlogPostPage({
         <section className="section blog-related-section">
           <div className="container">
             <div className="blog-related-head">
-              <h2>You might also like</h2>
+              <h2>Related articles</h2>
               <p>Explore more articles in {post.category || "HR Insights"}</p>
             </div>
             <div className="blog-grid">

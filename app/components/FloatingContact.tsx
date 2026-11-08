@@ -67,7 +67,7 @@ export function FloatingContact() {
             >
               <source src="/bot/meagle-bot-avatar-512.mp4" type="video/mp4" />
             </video>
-            <img className="floating-bot-still" src="/bot/meagle-bot-avatar-256.webp" alt="" />
+            <img className="floating-bot-still" src="/bot/meagle-bot-avatar-256.webp" alt="Meagle 360 chat assistant" />
           </button>
         </div>
         <a

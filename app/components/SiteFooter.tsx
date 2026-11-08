@@ -66,7 +66,7 @@ export function SiteFooter() {
           </div>
           {FOOTER_COLUMNS.map((col) => (
             <div className="footer-col" key={col.title}>
-              <h5>{col.title}</h5>
+              <p className="footer-col-title">{col.title}</p>
               <ul>
                 {col.links.map((link) => (
                   <li key={link.label}>

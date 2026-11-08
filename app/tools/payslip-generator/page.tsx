@@ -265,7 +265,7 @@ export default function PayslipGeneratorPage() {
                 <div style={{ width: 64, height: 64, background: '#dcfce7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" style={{ width: 32, height: 32 }}><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
                 </div>
-                <h3 style={{ fontSize: 28, color: '#111', fontWeight: 700, margin: '0 0 16px 0' }}>Earnings</h3>
+                <h3 style={{ fontSize: 28, color: '#111', fontWeight: 700, margin: '0 0 16px 0' }}>Typical Earnings</h3>
                 <div style={{ height: 2, width: 40, background: '#16a34a', marginBottom: 24 }} />
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
                   {[
@@ -291,7 +291,7 @@ export default function PayslipGeneratorPage() {
                 <div style={{ width: 64, height: 64, background: '#ffe4e6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24 }}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="#e11d48" strokeWidth="2" style={{ width: 32, height: 32 }}><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                 </div>
-                <h3 style={{ fontSize: 28, color: '#111', fontWeight: 700, margin: '0 0 16px 0' }}>Deductions</h3>
+                <h3 style={{ fontSize: 28, color: '#111', fontWeight: 700, margin: '0 0 16px 0' }}>Typical Deductions</h3>
                 <div style={{ height: 2, width: 40, background: '#e11d48', marginBottom: 24 }} />
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 16 }}>
                   {[
