@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Caveat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
 import { GOOGLE_ADS_ID } from "./lib/google-ids";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+// Self-hosted (variable fonts) so the build never depends on fetching Google Fonts.
+const inter = localFont({
+  src: "./fonts/inter-latin-wght-normal.woff2",
+  weight: "100 900",
   variable: "--font-inter",
   display: "swap",
 });
 
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["600", "700"],
+const caveat = localFont({
+  src: "./fonts/caveat-latin-wght-normal.woff2",
+  weight: "400 700",
   variable: "--font-caveat",
   display: "swap",
 });
