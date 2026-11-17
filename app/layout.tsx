@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { GoogleAnalytics } from "./components/GoogleAnalytics";
 import { CookieConsentBanner } from "./components/CookieConsentBanner";
-import { GOOGLE_ADS_ID } from "./lib/google-ids";
 
 // Self-hosted (variable fonts) so the build never depends on fetching Google Fonts.
 const inter = localFont({
@@ -74,8 +72,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-const ADS_ID = GOOGLE_ADS_ID;
+const GTM_ID = "GTM-WSFXR8VT";
 
 export default function RootLayout({
   children,
@@ -84,13 +81,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${caveat.variable}`}>
+      <head>
+        {/* Google Tag Manager — first thing in <head> on every page. GTM owns
+            all Google tags (GA4, Ads); don't add gtag.js anywhere else. */}
+        <script async src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+          }}
+        />
+      </head>
       <body>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         {children}
-        {/* Loads gtag.js only when a real GA4 ID is configured AND the
-            visitor has accepted cookies via CookieConsentBanner below — see
-            .env.example. Conversion events themselves fire from /thank-you
-            via lib/analytics.ts, which is already a safe no-op pre-consent. */}
-        {GA_ID && <GoogleAnalytics gaId={GA_ID} adsId={ADS_ID} />}
         <CookieConsentBanner />
       </body>
     </html>
