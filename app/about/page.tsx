@@ -53,6 +53,14 @@ export default function AboutPage() {
         <div className="container blog-post-container">
           <div className="blog-article-wrapper">
             <div className="blog-content">
+              <h2>What is Meagle 360?</h2>
+              <p>
+                Meagle 360 (also written Meagle360, and often searched as Meagle 360
+                HRMS or Meagle360 HRMS) is a cloud-based HRMS for Indian businesses. It
+                brings attendance, leave, payroll, employee self-service and employee
+                records into one platform, at a flat ₹149 per user per month.
+              </p>
+
               <h2>Who&apos;s behind it</h2>
               <div className="about-person-card">
                 <div>

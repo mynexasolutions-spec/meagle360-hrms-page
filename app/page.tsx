@@ -37,13 +37,26 @@ export const metadata: Metadata = {
 
 const SITE_URL = "https://www.meagle360.com";
 
+// Spellings people search for. Tells Google these all mean the same brand.
+const BRAND_ALIASES = ["Meagle360", "Meagle 360 HRMS", "Meagle360 HRMS", "Meagle"];
+
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Meagle 360",
+      alternateName: BRAND_ALIASES,
+      url: `${SITE_URL}/`,
+      inLanguage: "en-IN",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
       name: "Meagle 360",
+      alternateName: BRAND_ALIASES,
       url: `${SITE_URL}/`,
       logo: `${SITE_URL}/logo.png`,
       parentOrganization: {
@@ -67,6 +80,7 @@ const organizationJsonLd = {
       "@type": "SoftwareApplication",
       "@id": `${SITE_URL}/#software`,
       name: "Meagle 360",
+      alternateName: BRAND_ALIASES,
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "Human Resource Management System (HRIS)",
       operatingSystem: "Web, iOS, Android",
