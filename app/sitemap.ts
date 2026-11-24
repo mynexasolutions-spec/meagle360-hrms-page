@@ -9,8 +9,8 @@ const BASE = "https://www.meagle360.com";
 // Date of the on-page keyword retargeting of the homepage and these four
 // feature pages — tells crawlers the content changed.
 const KEYWORD_UPDATE = new Date("2026-10-21");
-// Employee database page got a further title/H2 pass on 7 Nov 2026.
-const EMPLOYEE_DB_UPDATE = new Date("2026-11-07");
+// Employee database page refocused back on "employee database software" on 24 Nov 2026.
+const EMPLOYEE_DB_UPDATE = new Date("2026-11-24");
 const KEYWORD_UPDATED_FEATURES = new Set([
   "employee-database-software",
   "payroll-software",

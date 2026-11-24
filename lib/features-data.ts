@@ -738,12 +738,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "employee-database-software",
     navLabel: "Employee Database",
-    metaTitle: "Employee Management System & Database Software",
+    metaTitle: "Employee Database Software: Records & Org Chart",
     metaDescription:
-      "One employee management system for records, documents and org chart, instead of scattered spreadsheets. Flat ₹149/user/month. Book a demo.",
-    h1: "Employee Management System That Replaces the HR Spreadsheet",
+      "Employee database software that keeps records, documents and the org chart in one searchable place, linked to attendance and payroll. Flat ₹149/user/month.",
+    h1: "Employee Database Software That Replaces the HR Spreadsheet",
     heroSubhead:
-      "An employee management system keeps every employee's records, documents, reporting lines and history in one place. Meagle 360 is employee database software that replaces the HR spreadsheet with one searchable, role-based record, instead of a file that's a version or two behind reality by the time anyone opens it.",
+      "Meagle 360 is employee database software that keeps every employee's records, documents, reporting lines and history in one searchable, role-based place, instead of a spreadsheet that's a version or two behind reality by the time anyone opens it.",
     heroSecondaryCta: { label: "Free employee database template →", href: "/blog/free-employee-database-template" },
     painIntro:
       "Most companies have employee data spread across a spreadsheet, an email folder of documents, and whatever the last person to update the org chart remembered to change.",
@@ -754,11 +754,11 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "A spreadsheet has no audit trail there's no reliable way to see who changed an employee's record, or when, if a detail turns out to be wrong later.",
     ],
     capabilitiesIntro:
-      "Meagle 360 is employee management software and employee database management software that keeps every employee's core record role, department, reporting line and documents in one place that updates as your organization changes, instead of a file someone has to remember to maintain separately.",
+      "Meagle 360 keeps every employee's core record (role, department, reporting line and documents) in one place that updates as your organization changes, instead of a file someone has to remember to maintain separately.",
     capabilities: [
       {
         title: "Centralized employee directory",
-        desc: "As employee record management software, every employee's role, department, contact details and employment status live in one searchable directory, instead of a spreadsheet only one or two people know how to maintain or where to find.",
+        desc: "Every employee's role, department, contact details and employment status live in one searchable directory, instead of a spreadsheet only one or two people know how to maintain or where to find.",
       },
       {
         title: "Live organization chart",
@@ -788,7 +788,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     builtForTitle: "Employee database software for the moment a spreadsheet stops being enough",
     builtForParagraphs: [
       "An employee spreadsheet works when there are ten people and one person maintaining it. It stops working the moment there's more than one department, more than one person updating records, or more than a handful of documents to keep track of per employee.",
-      "Meagle 360 is software for employee database and org chart management, built to be the one place that record lives connected to attendance, leave and payroll, instead of a separate file someone has to remember to keep in sync with everything else.",
+      "Meagle 360 is built to be the one place that record lives, connected to attendance, leave and payroll, instead of a separate file someone has to remember to keep in sync with everything else.",
       "It's also built for the questions that come up unexpectedly an auditor asking for proof of when someone joined, a new manager trying to understand their team's structure, HR needing to pull every document for a specific employee quickly. Those are lookups inside Meagle 360, not a scramble through old files.",
       "As the company grows past the size where everyone knows everyone, an accurate directory and org chart stop being a nice-to-have and start being how new hires and new managers actually understand how the company is structured.",
     ],
@@ -804,8 +804,8 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     faqs: [
       {
-        q: "What is an employee management system?",
-        a: "It's the software HR uses to keep every employee's records, documents, reporting lines and history in one place instead of across spreadsheets and email folders. Meagle 360 does this with a searchable, role-based employee database and a live org chart.",
+        q: "What is employee database software?",
+        a: "It's the software HR uses to keep every employee's records, documents, reporting lines and history in one place instead of across spreadsheets and email folders (it's sometimes called an employee management system). Meagle 360 does this with a searchable, role-based employee database and a live org chart.",
       },
       {
         q: "Does the org chart update automatically when someone changes roles?",
