@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { waitUntil } from "@vercel/functions";
 import { createClient } from "../../../utils/supabase/server";
 import { getPublishedPostBySlug } from "../../../lib/posts";
+import { isCompanySize } from "../../../lib/company-sizes";
 import { escapeHtml, isEmailConfigured, sendLeadEmail, sendVisitorEmail } from "../../../lib/lead-email";
 
 export async function POST(request: Request) {
@@ -31,6 +32,11 @@ export async function POST(request: Request) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(workEmail)) {
     return NextResponse.json({ error: "Enter a valid work email." }, { status: 400 });
+  }
+  // The form requires a size; an empty value is still accepted so a page
+  // loaded before the field existed doesn't lose the lead.
+  if (companySize && !isCompanySize(companySize)) {
+    return NextResponse.json({ error: "Select a valid company size." }, { status: 400 });
   }
 
   // The actual file links come from the post record itself, looked up by

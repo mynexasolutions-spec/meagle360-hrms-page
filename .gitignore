@@ -5,3 +5,7 @@ npm-debug.log*
 .env*.local
 .claude/
 /backups
+
+# Google Cloud service account keys (never commit)
+meagle360-seo-*.json
+*-service-account*.json

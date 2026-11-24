@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { PhoneInput } from "./PhoneInput";
 
-type Links = { xlsxUrl: string | null; xlsxFilename: string; sheetsUrl: string | null };
+import { COMPANY_SIZES } from "../../lib/company-sizes";
 
-const COMPANY_SIZES = ["1-10", "11-50", "51-200", "201-500", "500+"];
+type Links = { xlsxUrl: string | null; xlsxFilename: string; sheetsUrl: string | null };
 
 function storageKey(source: string) {
   return `template-download:${source}`;
@@ -16,7 +16,7 @@ export function TemplateDownloadGate({ source, heading }: { source: string; head
   const [name, setName] = useState("");
   const [workEmail, setWorkEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [companySize, setCompanySize] = useState(COMPANY_SIZES[0]);
+  const [companySize, setCompanySize] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
@@ -87,6 +87,10 @@ export function TemplateDownloadGate({ source, heading }: { source: string; head
           )}
         </div>
         <p className="template-gate-hint">We've also emailed these links to you.</p>
+        <p className="template-gate-nudge">
+          Managing more than 10 people? Meagle 360 replaces the spreadsheet with attendance, leave and payroll in one app.{" "}
+          <a href="/demo" data-cta="template-unlocked-demo">Book a free demo</a>
+        </p>
       </div>
     );
   }
@@ -110,7 +114,10 @@ export function TemplateDownloadGate({ source, heading }: { source: string; head
           onChange={(e) => setWorkEmail(e.target.value)}
         />
         <PhoneInput required placeholder="Phone number" value={phone} onChange={(full) => setPhone(full)} />
-        <select value={companySize} onChange={(e) => setCompanySize(e.target.value)}>
+        <select required aria-label="Company size" value={companySize} onChange={(e) => setCompanySize(e.target.value)}>
+          <option value="" disabled>
+            Company size
+          </option>
           {COMPANY_SIZES.map((size) => (
             <option key={size} value={size}>
               {size} employees

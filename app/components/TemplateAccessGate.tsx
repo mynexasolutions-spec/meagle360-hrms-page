@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { PhoneInput } from "./PhoneInput";
+import { COMPANY_SIZES } from "../../lib/company-sizes";
 
 type AccessFile = { format: string; label: string; url: string; filename: string };
 
@@ -9,6 +10,7 @@ export function TemplateAccessGate({ source }: { source: string }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [companySize, setCompanySize] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   // Revealed files live only in this component's state — nothing is stored
@@ -24,7 +26,7 @@ export function TemplateAccessGate({ source }: { source: string }) {
       const res = await fetch("/api/templates-access", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, source }),
+        body: JSON.stringify({ name, email, phone, company_size: companySize, source }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -50,6 +52,10 @@ export function TemplateAccessGate({ source }: { source: string }) {
             </a>
           ))}
         </div>
+        <p className="template-gate-nudge">
+          Managing more than 10 people? Meagle 360 handles letters, attendance, leave and payroll in one app.{" "}
+          <a href="/demo" data-cta="template-unlocked-demo">Book a free demo</a>
+        </p>
       </div>
     );
   }
@@ -64,6 +70,16 @@ export function TemplateAccessGate({ source }: { source: string }) {
         <input className="template-gate-name" type="text" placeholder="Your name" required value={name} onChange={(e) => setName(e.target.value)} />
         <input type="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
         <PhoneInput required placeholder="Phone number" value={phone} onChange={(full) => setPhone(full)} />
+        <select required aria-label="Company size" value={companySize} onChange={(e) => setCompanySize(e.target.value)}>
+          <option value="" disabled>
+            Company size
+          </option>
+          {COMPANY_SIZES.map((size) => (
+            <option key={size} value={size}>
+              {size} employees
+            </option>
+          ))}
+        </select>
         <div className="template-gate-break" aria-hidden="true" />
         <button type="submit" className="btn btn-primary template-gate-submit" disabled={submitting}>
           {submitting ? "Unlocking..." : "Get free access"}

@@ -4,6 +4,7 @@ import { createClient } from "../../../utils/supabase/server";
 import { escapeHtml, isEmailConfigured, sendLeadEmail } from "../../../lib/lead-email";
 import { getHrTemplateBySlug } from "../../../lib/hr-templates";
 import { PAYSLIP_TEMPLATE_FILES } from "../../../lib/payslip-template-files";
+import { isCompanySize } from "../../../lib/company-sizes";
 
 async function getFilesForSource(source: string) {
   if (source.startsWith("/templates/")) {
@@ -18,7 +19,7 @@ async function getFilesForSource(source: string) {
 }
 
 export async function POST(request: Request) {
-  let body: { name?: string; email?: string; phone?: string; source?: string };
+  let body: { name?: string; email?: string; phone?: string; company_size?: string; source?: string };
   try {
     body = await request.json();
   } catch {
@@ -28,6 +29,7 @@ export async function POST(request: Request) {
   const name = (body.name || "").trim();
   const email = (body.email || "").trim();
   const phone = (body.phone || "").trim();
+  const companySize = (body.company_size || "").trim();
   const source = (body.source || "/templates").trim();
 
   if (!name || !email || !phone) {
@@ -36,6 +38,11 @@ export async function POST(request: Request) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
     return NextResponse.json({ error: "Enter a valid email." }, { status: 400 });
+  }
+  // The form requires a size; an empty value is still accepted so a page
+  // loaded before the field existed doesn't lose the lead.
+  if (companySize && !isCompanySize(companySize)) {
+    return NextResponse.json({ error: "Select a valid company size." }, { status: 400 });
   }
 
   const files = await getFilesForSource(source);
@@ -50,6 +57,7 @@ export async function POST(request: Request) {
       name,
       work_email: email,
       phone,
+      company_size: companySize || null,
       source,
     });
     if (dbError) console.error("Failed to save HR templates access lead:", dbError);
@@ -66,12 +74,19 @@ export async function POST(request: Request) {
     const internalEmail = sendLeadEmail({
       replyTo: email,
       subject: `New HR templates library access: ${name}`,
-      text: [`Name: ${name}`, `Email: ${email}`, `Phone: ${phone}`, `Source: ${source}`].join("\n"),
+      text: [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+        `Company size: ${companySize || "-"}`,
+        `Source: ${source}`,
+      ].join("\n"),
       html: `
         <h2>New HR templates library access</h2>
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
+        <p><strong>Company size:</strong> ${escapeHtml(companySize || "-")}</p>
         <p><strong>Source:</strong> ${escapeHtml(source)}</p>
       `,
     });

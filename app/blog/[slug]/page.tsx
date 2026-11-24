@@ -10,6 +10,7 @@ import { sanitizePostContent } from "../../../lib/sanitize";
 import { calculateReadingTime } from "../../../lib/blog-types";
 import { TemplateDownloadGate } from "../../components/TemplateDownloadGate";
 import { TemplateAccessGate } from "../../components/TemplateAccessGate";
+import { BlogInlineCta } from "../../components/BlogInlineCta";
 
 export const revalidate = 60;
 
@@ -27,6 +28,32 @@ function splitAfterFirstParagraph(html: string): { before: string; after: string
   const match = html.match(/^[\s\S]*?<\/p>/);
   if (!match) return { before: html, after: "" };
   return { before: match[0], after: html.slice(match[0].length) };
+}
+
+// Splits content at the <h2> closest to the middle (never the first one), so
+// the inline demo CTA lands mid-article. Posts with fewer than 3 sections get
+// no inline CTA; the closing CTA section still covers them.
+function splitAtMiddleH2(html: string): { first: string; second: string } {
+  const positions: number[] = [];
+  for (let i = html.indexOf("<h2"); i !== -1; i = html.indexOf("<h2", i + 3)) positions.push(i);
+  if (positions.length < 3) return { first: html, second: "" };
+  const mid = html.length * 0.45;
+  const at = positions
+    .slice(1)
+    .reduce((best, p) => (Math.abs(p - mid) < Math.abs(best - mid) ? p : best));
+  return { first: html.slice(0, at), second: html.slice(at) };
+}
+
+function ContentWithInlineCta({ html, slug }: { html: string; slug: string }) {
+  const { first, second } = splitAtMiddleH2(html);
+  if (!second) return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <>
+      <div dangerouslySetInnerHTML={{ __html: first }} />
+      <BlogInlineCta slug={slug} />
+      <div dangerouslySetInnerHTML={{ __html: second }} />
+    </>
+  );
 }
 
 function formatDate(dateStr: string | null) {
@@ -193,17 +220,17 @@ export default async function BlogPostPage({
                 <>
                   <div dangerouslySetInnerHTML={{ __html: contentBeforeGate }} />
                   <TemplateDownloadGate source={post.slug} />
-                  <div dangerouslySetInnerHTML={{ __html: contentAfterGate }} />
+                  <ContentWithInlineCta html={contentAfterGate} slug={post.slug} />
                   <TemplateDownloadGate source={post.slug} heading="Still haven't grabbed the template?" />
                 </>
               ) : showPayslipTemplateGate ? (
                 <>
                   <div dangerouslySetInnerHTML={{ __html: contentBeforeGate }} />
                   <TemplateAccessGate source={`/blog/${post.slug}`} />
-                  <div dangerouslySetInnerHTML={{ __html: contentAfterGate }} />
+                  <ContentWithInlineCta html={contentAfterGate} slug={post.slug} />
                 </>
               ) : (
-                <div dangerouslySetInnerHTML={{ __html: cleanContent }} />
+                <ContentWithInlineCta html={cleanContent} slug={post.slug} />
               )}
             </div>
           </div>
