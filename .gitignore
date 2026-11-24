@@ -9,3 +9,11 @@ npm-debug.log*
 # Google Cloud service account keys (never commit)
 meagle360-seo-*.json
 *-service-account*.json
+
+# TypeScript incremental build cache (changes on every build)
+*.tsbuildinfo
+
+# Blog drafts and cover images dropped in the repo root for upload (they live in Supabase/Cloudinary)
+/*.webp
+/*.md.draft
+/blog-*.md
