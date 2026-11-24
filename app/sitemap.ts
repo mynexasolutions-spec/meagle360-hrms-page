@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getPublishedPosts } from "../lib/posts";
+import { getPublishedPosts, POSTS_PER_PAGE } from "../lib/posts";
 import { getAllJobs } from "../lib/jobs";
 import { FEATURE_PAGES } from "../lib/features-data";
 import { getPublishedHrTemplates } from "../lib/hr-templates";
@@ -47,6 +47,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // /blog page 2 onwards (page 1 is /blog itself).
+  const blogPageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
+  const blogPageRoutes: MetadataRoute.Sitemap = Array.from(
+    { length: Math.max(0, blogPageCount - 1) },
+    (_, i) => ({
+      url: `${BASE}/blog/page/${i + 2}`,
+      priority: 0.5,
+      changeFrequency: "daily" as const,
+    }),
+  );
+
   const jobs = await getAllJobs();
   const jobRoutes: MetadataRoute.Sitemap = jobs.map((job) => ({
     url: `${BASE}/careers/${job.slug}`,
@@ -74,5 +85,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...statics, ...postRoutes, ...jobRoutes, ...featureRoutes, ...hrTemplateRoutes];
+  return [...statics, ...blogPageRoutes, ...postRoutes, ...jobRoutes, ...featureRoutes, ...hrTemplateRoutes];
 }

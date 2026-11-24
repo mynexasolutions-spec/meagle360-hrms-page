@@ -3,6 +3,28 @@ import type { Post } from "./blog-types";
 
 export type { Post };
 
+export const POSTS_PER_PAGE = 12;
+
+// One page of published posts (newest first) plus the total count, for /blog pagination.
+export async function getPublishedPostsPage(
+  page: number,
+): Promise<{ posts: Post[]; total: number }> {
+  const supabase = await createClient();
+  const from = (page - 1) * POSTS_PER_PAGE;
+  const { data, error, count } = await supabase
+    .from("posts")
+    .select("*", { count: "exact" })
+    .eq("published", true)
+    .order("published_at", { ascending: false })
+    .range(from, from + POSTS_PER_PAGE - 1);
+
+  if (error) {
+    console.error("Failed to load published posts page:", error);
+    return { posts: [], total: 0 };
+  }
+  return { posts: data ?? [], total: count ?? 0 };
+}
+
 export async function getPublishedPosts(): Promise<Post[]> {
   const supabase = await createClient();
   const { data, error } = await supabase
