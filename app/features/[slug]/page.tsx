@@ -86,7 +86,7 @@ export default async function FeaturePage({
     url: pageUrl,
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Human Resource Management System (HRIS)",
-    operatingSystem: "Web, iOS, Android",
+    operatingSystem: "Web",
     isPartOf: { "@id": `${SITE_URL}/#software` },
     publisher: { "@id": `${SITE_URL}/#organization` },
     offers: {

@@ -149,7 +149,7 @@ export default function HrmsForStartupsPage() {
             </li>
             <li>
               <div className="ico">{CHECK}</div>
-              An employee self-service app so the team isn't pinging HR (or the founder) for payslips
+              Employee self-service on their phones so the team isn't pinging HR (or the founder) for payslips
             </li>
             <li>
               <div className="ico">{CHECK}</div>
@@ -180,7 +180,7 @@ export default function HrmsForStartupsPage() {
             </div>
             <div className="feature-capability-card">
               <h3>Employee Self-Service</h3>
-              <p>Payslips, leave balance and attendance history in one app, so routine questions stop landing on whoever's running HR informally.</p>
+              <p>Payslips, leave balance and attendance history in one portal they open on their phone, so routine questions stop landing on whoever's running HR informally.</p>
             </div>
           </div>
           <p style={{ textAlign: "center", color: "var(--text-2)", marginTop: 32, fontSize: 16 }}>

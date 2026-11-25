@@ -5,7 +5,7 @@ export const FAQS = [
   },
   {
     q: "How long does implementation take?",
-    a: "Most teams are fully onboarded within 3 to 5 business days, including data migration, payroll setup, and employee app rollout. Our onboarding specialists handle the heavy lifting.",
+    a: "Most teams are fully onboarded within 3 to 5 business days, including data migration, payroll setup, and employee self-service rollout. Our onboarding specialists handle the heavy lifting.",
   },
   {
     q: "Can I switch plans later?",

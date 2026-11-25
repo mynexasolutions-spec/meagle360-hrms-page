@@ -74,7 +74,7 @@ export function EmployeeCentric() {
           <div className="phone-shell" ref={shellRef}>
             <Image
               src="/left.png"
-              alt="Meagle 360 employee self-service app on mobile"
+              alt="Meagle 360 employee self-service on a mobile browser"
               width={1536}
               height={1024}
               sizes="(max-width: 900px) 90vw, 560px"

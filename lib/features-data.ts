@@ -115,7 +115,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     faqs: [
       {
         q: "Is Meagle 360 cloud-based time and attendance software?",
-        a: "Yes. Meagle 360 runs in the cloud, so employees check in from the mobile app or web and managers see attendance in real time from anywhere, with no software to install. Data is hosted in India, in the AWS Mumbai region.",
+        a: "Yes. Meagle 360 runs in the cloud, so employees check in from their phone's browser or a computer and managers see attendance in real time from anywhere, with no software to install. Data is hosted in India, in the AWS Mumbai region.",
       },
       {
         q: "Does attendance sync automatically into payroll?",
@@ -123,7 +123,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Can field and remote employees check in without a biometric device?",
-        a: "Yes. Employees can check in from the Meagle 360 mobile app, with the location captured at the time of punch no dedicated hardware required.",
+        a: "Yes. Employees can check in from their phone's browser, with the location captured at the time of punch, and there is no app to install no dedicated hardware required.",
       },
       {
         q: "What happens if an employee forgets to check in?",
@@ -380,7 +380,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         title: "Manager approval workflows",
-        desc: "Requests route to the right approver automatically, with the option to approve or reject directly from the dashboard or mobile app, so a leave request doesn't sit unread in an inbox while an employee waits to hear back.",
+        desc: "Requests route to the right approver automatically, with the option to approve or reject directly from the dashboard on a computer or phone browser, so a leave request doesn't sit unread in an inbox while an employee waits to hear back.",
       },
       {
         title: "Real-time balance tracking",
@@ -431,7 +431,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Can managers approve leave from their phone?",
-        a: "Yes, approvals can be done from the mobile app as well as the web dashboard.",
+        a: "Yes. Meagle 360 works in the phone's browser, so managers can approve leave from their phone as well as from a computer, with no app to install.",
       },
       {
         q: "Can I see who's on leave across the whole team, not just my own requests?",
@@ -515,11 +515,11 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         title: "Shift swaps and coverage requests",
-        desc: "Employees can request a swap or flag they need coverage directly in the app, with visibility for managers, instead of the request getting lost in a chat thread or relying on someone remembering to update the whiteboard.",
+        desc: "Employees can request a swap or flag they need coverage directly in Meagle 360, with visibility for managers, instead of the request getting lost in a chat thread or relying on someone remembering to update the whiteboard.",
       },
       {
         title: "Roster visibility for every employee",
-        desc: "Everyone can see their own upcoming shifts from the self-service app, cutting down the 'what shift am I on' questions that otherwise land in HR's inbox or a manager's phone outside working hours.",
+        desc: "Everyone can see their own upcoming shifts from the self-service portal on their phone, cutting down the 'what shift am I on' questions that otherwise land in HR's inbox or a manager's phone outside working hours.",
       },
       {
         title: "Shift-to-attendance and payroll sync",
@@ -558,7 +558,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     faqs: [
       {
         q: "Can employees see their upcoming shifts on their phone?",
-        a: "Yes, every employee can view their assigned shifts from the self-service app without asking HR or a manager.",
+        a: "Yes, every employee can view their assigned shifts from the self-service portal without asking HR or a manager.",
       },
       {
         q: "Can employees request a shift swap themselves?",
@@ -617,10 +617,10 @@ export const FEATURE_PAGES: FeaturePage[] = [
     navLabel: "Employee Self-Service",
     metaTitle: "Employee Self-Service Portal & HR App: Payslips, Leave",
     metaDescription:
-      "An HR management app for employees: payslips, leave, attendance and profile updates on web, iOS and Android, so fewer questions reach HR. ₹149/user/month.",
+      "An HR management app for employees: payslips, leave, attendance and profile updates from any phone or computer browser, nothing to install. ₹149/user/month.",
     h1: "An Employee Self-Service Portal That Cuts Routine HR Requests",
     heroSubhead:
-      "Payslips, leave balances, attendance and profile updates all in one app employees can check themselves, instead of asking HR every time they have a routine question.",
+      "Payslips, leave balances, attendance and profile updates in one portal employees can open on their phone's browser and check themselves, instead of asking HR every time they have a routine question.",
     painIntro:
       "A lot of what lands in HR's inbox every week isn't strategic work it's the same handful of routine questions, asked one employee at a time, that a self-service system could answer instantly.",
     painPoints: [
@@ -650,7 +650,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         title: "Notifications that keep employees informed",
-        desc: "Leave approvals, payroll confirmations and other status updates are pushed to employees directly, so they find out from the app instead of having to check in with HR to know where things stand.",
+        desc: "Leave approvals, payroll confirmations and other status updates are pushed to employees directly, so they find out from their self-service portal instead of having to check in with HR to know where things stand.",
       },
       {
         title: "One login for every module",
@@ -672,7 +672,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "How Meagle 360's self-service experience compares to Keka and greytHR on what's included by default, and on whether it's actually usable from a phone.",
     comparisonRows: [
       { capability: "Starting price", meagle: "₹149/user/month, flat", keka: "₹9,999/mo base (≈₹100/user/mo at 100 seats)", greythr: "₹2,495/mo base (≈₹50/user/mo at 50 seats)" },
-      { capability: "Mobile app for employees", meagle: "Included", keka: "Included (iOS + Android)", greythr: "Included (iOS + Android)" },
+      { capability: "Mobile access for employees", meagle: "Mobile-friendly web portal, no app to install", keka: "Native iOS + Android apps", greythr: "Native iOS + Android apps" },
       { capability: "Self-service payslip access", meagle: "Included", keka: "Included", greythr: "Included" },
       { capability: "Self-service profile updates", meagle: "Included", keka: "Included", greythr: "Included" },
       { capability: "Push notifications", meagle: "Included", keka: "Included", greythr: "Included" },
@@ -697,11 +697,11 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Do employees get notified when a leave request is approved?",
-        a: "Yes, status updates like leave approvals and payroll confirmations are pushed to the employee directly through the app.",
+        a: "Yes, status updates like leave approvals and payroll confirmations are shown to the employee directly in their self-service portal.",
       },
       {
-        q: "Does the self-service app require any special hardware?",
-        a: "No, it runs on any employee's own smartphone or a web browser there's no dedicated device required.",
+        q: "Does self-service require an app or any special hardware?",
+        a: "No. It runs in the browser on any employee's own smartphone or computer, so there's no app to install and no dedicated device required.",
       },
       {
         q: "Is the self-service portal a separate cost?",
@@ -721,7 +721,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "Does the portal work for employees who don't use email regularly?",
-        a: "Yes, the mobile app is the primary way most employees interact with self-service, so it doesn't depend on employees checking email.",
+        a: "Yes. Most employees open the self-service portal in their phone's browser, so it doesn't depend on employees checking email.",
       },
       {
         q: "Can HR still access an employee's record if the employee needs help?",
@@ -950,7 +950,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
     faqs: [
       {
         q: "Can employees submit expenses from their phone?",
-        a: "Yes, employees can photograph a receipt and submit a claim directly from the mobile app.",
+        a: "Yes, employees can photograph a receipt and submit a claim directly from their phone's browser.",
       },
       {
         q: "Do approved expenses get reimbursed through payroll automatically?",
@@ -970,7 +970,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "What happens if an employee loses a paper receipt?",
-        a: "Since claims are submitted with a photo through the app at the time of the expense, there's no paper receipt to lose or file away.",
+        a: "Since claims are submitted with a photo from the employee's phone at the time of the expense, there's no paper receipt to lose or file away.",
       },
       {
         q: "Is expense management included, or an extra cost?",
@@ -1433,7 +1433,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       "Once a company is hiring regularly, onboarding by email and spreadsheet stops scaling. Each new joiner means the same documents to chase, the same forms to fill and the same details to type into payroll.",
       "Meagle 360 makes onboarding part of the HRMS instead of a separate process. The new hire does their own data entry through self-service, documents are stored against their profile, and HR's job becomes checking and approving rather than collecting and copying.",
       "Because onboarding writes directly to the employee record, the people who need the information downstream, from the reporting manager to payroll, already have it on the joining date.",
-      "And it gives the new hire a better first week: one link to complete everything, their payslips and leave balance in the same app from day one, and a consistent experience whoever in HR is handling their joining.",
+      "And it gives the new hire a better first week: one link to complete everything, their payslips and leave balance in the same self-service portal from day one, and a consistent experience whoever in HR is handling their joining.",
     ],
     comparisonIntro:
       "How onboarding on Meagle 360 compares to Keka and greytHR on price and on how directly a new hire's details flow into payroll.",
@@ -1577,7 +1577,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
       },
       {
         q: "What is a geofenced office location?",
-        a: "It is an office location with a check-in radius. Employees can mark attendance from the mobile app only when they are inside that radius, which keeps attendance reliable across branches.",
+        a: "It is an office location with a check-in radius. Employees can mark attendance from their phone only when they are inside that radius, which keeps attendance reliable across branches.",
       },
       {
         q: "Can different managers see only their own teams?",

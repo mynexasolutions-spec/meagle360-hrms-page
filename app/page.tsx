@@ -83,7 +83,7 @@ const organizationJsonLd = {
       alternateName: BRAND_ALIASES,
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "Human Resource Management System (HRIS)",
-      operatingSystem: "Web, iOS, Android",
+      operatingSystem: "Web",
       url: `${SITE_URL}/`,
       publisher: { "@id": `${SITE_URL}/#organization` },
       featureList: [

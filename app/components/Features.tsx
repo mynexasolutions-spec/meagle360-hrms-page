@@ -127,9 +127,9 @@ export const FEATURES = [
   },
   {
     tint: "tint-sky",
-    title: "Self-Service App",
+    title: "Mobile Self-Service",
     href: "/features/employee-self-service",
-    desc: "Payslips, leave and attendance in every employee's pocket.",
+    desc: "Payslips, leave and attendance from any phone browser.",
     icon: (
       <>
         <rect x="5" y="2" width="14" height="20" rx="2" />

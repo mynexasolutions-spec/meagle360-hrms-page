@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "Is Meagle 360 a cloud-based HRMS?",
-    a: "Yes. Meagle 360 is a cloud HRMS delivered as software as a service (SaaS). There is nothing to install: HR and managers use it in the browser, and employees use the web or the iOS and Android app.",
+    a: "Yes. Meagle 360 is a cloud HRMS delivered as software as a service (SaaS). There is nothing to install: HR, managers and employees all use it in a web browser, on a computer or a phone, with no app to install.",
   },
   {
     q: "Where is our data stored?",
@@ -52,22 +52,22 @@ const FAQS = [
 ];
 
 const MODULES = [
-  { title: "Attendance", href: "/features/attendance-management-software", desc: "Geo-tagged mobile check-in and real-time attendance for office, field and remote teams." },
+  { title: "Attendance", href: "/features/attendance-management-software", desc: "Geo-tagged check-in from the phone's browser and real-time attendance for office, field and remote teams." },
   { title: "Leave", href: "/features/leave-management-software", desc: "Apply and approve from the app, with balances that update automatically." },
   { title: "Payroll", href: "/features/payroll-software", desc: "Payroll within 1 click, with PF, ESI, PT, TDS and LWF calculated from attendance." },
   { title: "Shifts", href: "/features/shift-management-software", desc: "Plan rosters and rotate shifts across locations without a spreadsheet." },
   { title: "Performance", href: "/features/performance-management-software", desc: "Goals, KPIs, 360° reviews and ratings linked to increments." },
   { title: "Onboarding", href: "/features/employee-onboarding-software", desc: "New hires fill in their own details and documents before day one." },
   { title: "Employee database", href: "/features/employee-database-software", desc: "Records, documents and org chart in one searchable place." },
-  { title: "Self-service app", href: "/features/employee-self-service", desc: "Employees see payslips, leave and attendance on web, iOS and Android." },
+  { title: "Mobile self-service", href: "/features/employee-self-service", desc: "Employees see payslips, leave and attendance from any phone or computer browser." },
 ];
 
 const COMPARE = [
   ["Setup", "Sign up and start; nothing to install", "Servers, installation and IT support needed"],
   ["Cost", "Monthly subscription per user", "Large upfront licence plus maintenance"],
   ["Updates", "Automatic, with no upgrade project", "Manual upgrades, often paid"],
-  ["Access", "Browser and mobile app, from anywhere", "Usually office network only"],
-  ["Mobile check-in", "Built in", "Usually not available"],
+  ["Access", "Any browser, on a computer or phone, from anywhere", "Usually office network only"],
+  ["Mobile check-in", "From the phone's browser", "Usually not available"],
   ["Scaling", "Add or remove users any month", "Licence changes and hardware limits"],
 ];
 
