@@ -4,6 +4,7 @@ export const FEATURES = [
   {
     tint: "tint-indigo",
     title: "Employee Directory",
+    href: "/features/employee-database-software",
     desc: "Centralize employee data and contact info in one place.",
     icon: (
       <>
@@ -16,6 +17,7 @@ export const FEATURES = [
   {
     tint: "tint-violet",
     title: "Organization",
+    href: "/features/workforce-management-software",
     desc: "Manage departments, designations, and reporting hierarchy.",
     icon: (
       <>
@@ -29,6 +31,7 @@ export const FEATURES = [
   {
     tint: "tint-emerald",
     title: "Attendance",
+    href: "/features/attendance-management-software",
     desc: "Track attendance in real-time with smart check-ins and geo-location.",
     icon: (
       <>
@@ -41,12 +44,14 @@ export const FEATURES = [
   {
     tint: "tint-sky",
     title: "Leave",
+    href: "/features/leave-management-software",
     desc: "Simplify leave requests, approvals, and balance management.",
     icon: <path d="M2 12l19-9-4 9 4 9z" />,
   },
   {
     tint: "tint-rose",
     title: "Expenses",
+    href: "/features/expense-management",
     desc: "Submit, approve, and reimburse expenses without the paperwork.",
     icon: (
       <>
@@ -58,6 +63,7 @@ export const FEATURES = [
   {
     tint: "tint-amber",
     title: "Payroll",
+    href: "/features/payroll-software",
     desc: "Automate payroll processing with accuracy and full compliance.",
     icon: (
       <>
@@ -69,12 +75,14 @@ export const FEATURES = [
   {
     tint: "tint-fuchsia",
     title: "Shifts",
+    href: "/features/shift-management-software",
     desc: "Plan and rotate shifts so every team is covered at the right time.",
     icon: <path d="M17 2l4 4-4 4M3 11V9a4 4 0 014-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 01-4 4H3" />,
   },
   {
     tint: "tint-teal",
     title: "Reports & Analytics",
+    href: "/features/hr-reports-analytics",
     desc: "Make data-driven decisions with powerful insights & reports.",
     icon: (
       <>
@@ -88,13 +96,15 @@ export const FEATURES = [
   {
     tint: "tint-violet",
     title: "Performance",
+    href: "/features/performance-management-software",
     desc: "Goals, KPIs and 360° reviews, with ratings linked to increments.",
     icon: <path d="M22 12h-4l-3 9L9 3l-3 9H2" />,
   },
   {
     tint: "tint-emerald",
     title: "Onboarding",
-    desc: "New hires fill in their details and sign documents before day one.",
+    href: "/features/employee-onboarding-software",
+    desc: "New hires submit their details and documents before day one.",
     icon: (
       <>
         <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -106,6 +116,7 @@ export const FEATURES = [
   {
     tint: "tint-indigo",
     title: "Hiring",
+    href: "/features/hiring-management-software",
     desc: "Track every applicant in one pipeline, from job post to offer.",
     icon: (
       <>
@@ -117,7 +128,8 @@ export const FEATURES = [
   {
     tint: "tint-sky",
     title: "Self-Service App",
-    desc: "Payslips, leave and attendance for every employee on web and mobile.",
+    href: "/features/employee-self-service",
+    desc: "Payslips, leave and attendance in every employee's pocket.",
     icon: (
       <>
         <rect x="5" y="2" width="14" height="20" rx="2" />
@@ -140,7 +152,7 @@ export function Features() {
 
         <Reveal className="feature-grid reveal-stagger">
           {FEATURES.map((f) => (
-            <div className="feature-card" key={f.title}>
+            <a className="feature-card" key={f.title} href={f.href}>
               <div className={`icon-badge ${f.tint}`}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   {f.icon}
@@ -148,7 +160,7 @@ export function Features() {
               </div>
               <h3>{f.title}</h3>
               <p>{f.desc}</p>
-            </div>
+            </a>
           ))}
         </Reveal>
       </div>

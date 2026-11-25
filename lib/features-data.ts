@@ -1488,6 +1488,118 @@ export const FEATURE_PAGES: FeaturePage[] = [
       { label: "Free offer letter template", href: "/templates/offer-letter" },
     ],
   },
+  {
+    slug: "workforce-management-software",
+    navLabel: "Organization & Workforce",
+    metaTitle: "Workforce Management Software: Org Structure & Sites",
+    metaDescription:
+      "Workforce management software for Indian companies: departments, designations, reporting lines, multiple sites and geofenced locations. ₹149/user/month.",
+    h1: "Workforce Management Software for Multi-Team, Multi-Site Companies",
+    heroSubhead:
+      "Set up your organization once, with departments, designations, reporting lines, sites and office locations, and let attendance, shifts, leave approvals and payroll follow that structure automatically.",
+    painIntro:
+      "As a company grows past one office and a handful of teams, the hard part of HR stops being any single task and becomes keeping track of who belongs where, who reports to whom, and which rules apply to which people.",
+    painPoints: [
+      "The org structure lives in a slide or a spreadsheet that was last updated two reorganisations ago, so nobody is sure who a new joiner actually reports to.",
+      "Leave and attendance approvals go to the wrong manager, or to nobody, because reporting lines in the HR system do not match reality.",
+      "Each site runs its own attendance register and its own rules, and head office only sees the full picture at month-end when payroll is due.",
+      "Questions like \"how many people do we have in each department and location?\" need someone to build a fresh spreadsheet every time they are asked.",
+    ],
+    capabilitiesIntro:
+      "Meagle 360 workforce management starts with your organization structure. Once departments, designations, sites and reporting lines are set up, every other module uses them, so approvals, attendance rules and reports follow how your company is actually organised.",
+    capabilities: [
+      {
+        title: "Departments and sub-departments",
+        desc: "Build your structure with departments and sub-departments, and assign a head to each. Moving an employee to a new department updates their record everywhere at once.",
+      },
+      {
+        title: "Designations and levels",
+        desc: "Maintain one list of designations with levels, so job titles stay consistent across offer letters, the employee database, reports and the org chart.",
+      },
+      {
+        title: "Reporting lines and live org chart",
+        desc: "Every employee has a reporting manager, and the org chart is built from those reporting lines, so it stays current as people join, move or leave. Leave and attendance approvals go to the right manager automatically.",
+      },
+      {
+        title: "Multiple sites and locations",
+        desc: "Add each office, branch, plant or store as a site with its address, city and state, and see headcount, attendance and payroll by location instead of by spreadsheet.",
+      },
+      {
+        title: "Geofenced office locations",
+        desc: "Define office locations with a check-in radius, so mobile attendance is only accepted from where employees are supposed to be. Useful for multi-branch businesses and field teams alike.",
+      },
+      {
+        title: "Roles and permissions",
+        desc: "Create roles with specific permissions, so a branch manager sees their site, a department head sees their team, and salary data stays with HR and payroll.",
+      },
+      {
+        title: "Company-wide work rules",
+        desc: "Set weekly offs, standard working hours, overtime rate and the holiday calendar once, and attendance and payroll apply them consistently to everyone they cover.",
+      },
+      {
+        title: "Shifts and attendance by team",
+        desc: "Assign shifts to employees and teams, and track attendance against them, so workforce scheduling, attendance and payroll all come from the same structure.",
+      },
+    ],
+    builtForTitle: "Workforce management for companies that have outgrown one office and one spreadsheet",
+    builtForParagraphs: [
+      "Most companies reach the point where they need workforce management software without noticing: a second branch opens, a sales team goes into the field, a night shift starts at the plant. Suddenly the same HR spreadsheet has to answer questions for five managers in three cities.",
+      "Meagle 360 gives that growth a structure. Departments, designations, sites and reporting lines are set once, and attendance, shift scheduling, leave approvals, payroll and reports all use them, instead of each team keeping its own version.",
+      "For managers, it means approvals arrive for their own team and they can see who is in today at their site. For HR, it means one place to answer headcount questions, move people between teams and keep the org chart accurate.",
+      "And because it is part of the same HRMS as payroll, a transfer, promotion or change of reporting manager is reflected in the next payroll run without anyone re-entering it.",
+    ],
+    comparisonIntro:
+      "How organization and workforce management on Meagle 360 compares to Keka and greytHR on price and on location-based attendance.",
+    comparisonRows: [
+      { capability: "Starting price", meagle: "₹149/user/month, flat", keka: "Not shown on its pricing page", greythr: "₹2,495/mo Essential base (50 employees)" },
+      { capability: "Departments, designations and reporting lines", meagle: "Included", keka: "Included", greythr: "Included" },
+      { capability: "Multiple sites and locations", meagle: "Included", keka: "Included", greythr: "Included" },
+      { capability: "Geofenced attendance", meagle: "Included", keka: "Strength plan and above", greythr: "Growth plan and above" },
+      { capability: "Custom roles and permissions", meagle: "Included", keka: "Included", greythr: "Included" },
+      { capability: "Minimum seats", meagle: "None", keka: "Base fee bundles employees", greythr: "Base fee bundles up to 50 employees" },
+    ],
+    faqs: [
+      {
+        q: "What is workforce management software?",
+        a: "Workforce management software helps a company organise and run its workforce: the organization structure, where people work, their shifts and attendance, and the reports managers need. In Meagle 360 it covers departments, designations, reporting lines, sites, geofenced locations, roles and shifts, connected to attendance, leave and payroll.",
+      },
+      {
+        q: "Can we set up departments and sub-departments?",
+        a: "Yes. You can create departments and sub-departments, assign a head to each, and move employees between them. The change is reflected across attendance, leave, payroll and reports.",
+      },
+      {
+        q: "Does Meagle 360 have an org chart?",
+        a: "Yes. The org chart is built from each employee's reporting manager, so it updates automatically as people join, move teams or leave.",
+      },
+      {
+        q: "Can we manage employees across multiple branches or sites?",
+        a: "Yes. Add each office, branch, plant or store as a site, assign employees to it, and view headcount, attendance and payroll by location.",
+      },
+      {
+        q: "What is a geofenced office location?",
+        a: "It is an office location with a check-in radius. Employees can mark attendance from the mobile app only when they are inside that radius, which keeps attendance reliable across branches.",
+      },
+      {
+        q: "Can different managers see only their own teams?",
+        a: "Yes. Roles and permissions control what each person can see, so a branch manager or department head sees their own people, while salary data stays restricted to HR and payroll.",
+      },
+      {
+        q: "Is workforce management a separate module?",
+        a: "No. It is included in the flat ₹149 per user per month price with every other module, including attendance, leave, shifts and payroll.",
+      },
+      {
+        q: "Is there a free trial?",
+        a: "Yes, a 14-day free trial with every module included and no credit card required.",
+      },
+    ],
+    relatedBlogSlugs: ["staff-management-software"],
+    relatedFeatureSlug: "employee-database-software",
+    relatedFeatureLabel: "Employee Database Software",
+    extraLinks: [
+      { label: "Shift management and employee scheduling", href: "/features/shift-management-software" },
+      { label: "Time and attendance management system", href: "/features/attendance-management-software" },
+    ],
+  },
 ];
 
 export function getFeaturePage(slug: string): FeaturePage | undefined {

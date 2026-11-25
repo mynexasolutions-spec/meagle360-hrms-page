@@ -154,7 +154,7 @@ export default function FeaturesPage() {
 
           <Reveal className="feature-grid reveal-stagger">
             {FEATURES.map((f) => (
-              <div className="feature-card" key={f.title}>
+              <a className="feature-card" key={f.title} href={f.href}>
                 <div className={`icon-badge ${f.tint}`}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     {f.icon}
@@ -162,7 +162,7 @@ export default function FeaturesPage() {
                 </div>
                 <h3>{f.title}</h3>
                 <p>{f.desc}</p>
-              </div>
+              </a>
             ))}
           </Reveal>
         </div>
