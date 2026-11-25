@@ -6,18 +6,19 @@ const FOOTER_COLUMNS = [
   {
     title: "Product",
     links: [
-      ...FEATURE_PAGES.slice(0, 4).map((f) => ({ label: f.navLabel, href: `/features/${f.slug}` })),
+      ...FEATURE_PAGES.slice(0, 6).map((f) => ({ label: f.navLabel, href: `/features/${f.slug}` })),
     ],
   },
   {
     title: "More Features",
     links: [
-      ...FEATURE_PAGES.slice(4).map((f) => ({ label: f.navLabel, href: `/features/${f.slug}` })),
+      ...FEATURE_PAGES.slice(6).map((f) => ({ label: f.navLabel, href: `/features/${f.slug}` })),
       { label: "Pricing", href: "/pricing" },
       { label: "Book a Demo", href: "/demo" },
       { label: "Keka Alternative", href: "/alternatives/keka-alternative" },
       { label: "greytHR Alternative", href: "/alternatives/greythr-alternative" },
       { label: "HRMS for Startups", href: "/solutions/hrms-for-startups" },
+      { label: "Cloud HR Software", href: "/solutions/cloud-hr-software" },
       { label: "Payslip Generator", href: "/tools/payslip-generator" },
       { label: "CTC to In-Hand Calculator", href: "/tools/ctc-to-in-hand-calculator" },
       { label: "Quotation Maker", href: "/tools/quotation-maker" },

@@ -49,12 +49,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
     slug: "attendance-management-software",
     heroImage: "/attendance-management-workspace.webp",
     navLabel: "Attendance Management",
-    metaTitle: "Attendance Management System with Payroll Integration",
+    metaTitle: "Time & Attendance Management System with Payroll",
     metaDescription:
-      "A complete attendance management system with geo-location tracking, automated reports, and direct payroll integration. Flat ₹149/user/month, no setup fee.",
-    h1: "Attendance Management System",
+      "Cloud-based time and attendance software with geo-tagged mobile check-in, real-time tracking and direct payroll integration. Flat ₹149/user/month, no setup fee.",
+    h1: "Time and Attendance Management System",
     heroSubhead:
-      "Track attendance accurately across office, field and remote teams, with mobile check-ins that flow straight into payroll no registers, no spreadsheets, no manual reconciliation before every cycle.",
+      "Cloud-based time and attendance software that tracks office, field and remote teams in real time, with mobile check-ins that flow straight into payroll: no registers, no spreadsheets, no manual reconciliation before every cycle.",
     painIntro:
       "Manual attendance tracking rarely looks expensive on paper. It hides its cost in wasted hours, quiet payroll errors, and the disputes that show up weeks after the fact long after anyone remembers what actually happened on a given day.",
     painPoints: [
@@ -113,6 +113,10 @@ export const FEATURE_PAGES: FeaturePage[] = [
       { capability: "Minimum seats", meagle: "None", keka: "Base fee bundles up to 100 employees", greythr: "Base fee bundles up to 50 employees" },
     ],
     faqs: [
+      {
+        q: "Is Meagle 360 cloud-based time and attendance software?",
+        a: "Yes. Meagle 360 runs in the cloud, so employees check in from the mobile app or web and managers see attendance in real time from anywhere, with no software to install. Data is hosted in India, in the AWS Mumbai region.",
+      },
       {
         q: "Does attendance sync automatically into payroll?",
         a: "Yes. Once an attendance cycle is finalised, present days, leave, late marks and overtime carry directly into payroll there's no separate export or manual re-entry step.",
@@ -194,9 +198,9 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "payroll-software",
     navLabel: "Payroll",
-    metaTitle: "HR Payroll Software: PF, ESI & TDS Automated",
+    metaTitle: "HR Payroll Software: Payroll Processing with PF, ESI & TDS",
     metaDescription:
-      "HR payroll software that runs from attendance data, with PF, ESI and TDS built in. Flat ₹149/user/month, no setup fee. Book a demo.",
+      "Human resource payroll software for India: payroll processing that runs from attendance data, with PF, ESI and TDS built in. Flat ₹149/user/month, no setup fee.",
     h1: "Payroll Software for Small Business That Runs Itself From Your Attendance Data",
     heroSubhead:
       "HR and payroll software built for small businesses that have outgrown spreadsheets but don't want enterprise pricing or a multi-week implementation. Runs on top of your actual attendance and leave records, with statutory deductions calculated automatically.",
@@ -349,12 +353,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
     slug: "leave-management-software",
     heroImage: "/leave-management-workspace.webp",
     navLabel: "Leave Management",
-    metaTitle: "Leave Management System with Automated Approvals",
+    metaTitle: "Leave Management System: Leave & Attendance in One App",
     metaDescription:
-      "A complete leave management system with automated approvals, real-time balances, and direct payroll sync. Flat ₹149/user/month, no setup fee.",
+      "Leave management system and app with automated approvals, real-time balances and attendance in the same place, synced to payroll. Flat ₹149/user/month.",
     h1: "Leave Management System",
     heroSubhead:
-      "Leave management software where employees apply, managers approve, and balances update automatically it doesn't live in someone's inbox, a shared spreadsheet, or a WhatsApp message to a manager who's out of office.",
+      "A leave management application where employees apply from their phone, managers approve, and balances update automatically. Leave and attendance sit in one system, so nothing lives in someone's inbox, a shared spreadsheet, or a WhatsApp message to a manager who's out of office.",
     painIntro:
       "Leave looks like a small process to manage until you're running it over email and spreadsheets for more than a handful of people, across more than one team, with more than one type of leave policy to track.",
     painPoints: [
@@ -488,12 +492,12 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "shift-management-software",
     navLabel: "Shift Management",
-    metaTitle: "Shift Management Software for Multi-Shift Teams",
+    metaTitle: "Shift Management & Employee Scheduling Software",
     metaDescription:
-      "Plan, rotate and cover shifts without a whiteboard or a spreadsheet roster. Flat ₹149/user/month, no setup fee. Book a demo.",
-    h1: "Shift Management Software Built for Multi-Shift Teams",
+      "Employee scheduling software for shift work: plan rosters, rotate shifts and keep every location covered, without a spreadsheet roster. Flat ₹149/user/month.",
+    h1: "Shift Management and Employee Scheduling Software",
     heroSubhead:
-      "Plan rosters, rotate shifts, and keep every location covered, without maintaining a separate spreadsheet roster that's already out of date by the time it's shared with the team.",
+      "Staff scheduling for multi-shift teams: plan rosters, rotate shifts, and keep every location covered, without maintaining a separate spreadsheet roster that's already out of date by the time it's shared with the team.",
     painIntro:
       "Shift scheduling by spreadsheet or whiteboard works right up until someone calls in sick and the whole roster needs reshuffling by hand, under time pressure, with no easy way to tell everyone affected at once.",
     painPoints: [
@@ -611,9 +615,9 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "employee-self-service",
     navLabel: "Employee Self-Service",
-    metaTitle: "Employee Self-Service Portal for Payslips, Leave & More",
+    metaTitle: "Employee Self-Service Portal & HR App: Payslips, Leave",
     metaDescription:
-      "One app for payslips, leave requests, attendance and profile updates fewer routine questions land in HR's inbox. Flat ₹149/user/month. Book a demo.",
+      "An HR management app for employees: payslips, leave, attendance and profile updates on web, iOS and Android, so fewer questions reach HR. ₹149/user/month.",
     h1: "An Employee Self-Service Portal That Cuts Routine HR Requests",
     heroSubhead:
       "Payslips, leave balances, attendance and profile updates all in one app employees can check themselves, instead of asking HR every time they have a routine question.",
@@ -773,7 +777,7 @@ export const FEATURE_PAGES: FeaturePage[] = [
         desc: "Who can see what is controlled by role, so sensitive employee data isn't sitting in a spreadsheet that anyone with the link can open, and access can be scoped to exactly who needs it.",
       },
       {
-        title: "Employee lifecycle tracking",
+        title: "Employee lifecycle management",
         desc: "Joining, role changes, promotions and exits are all reflected in the same record, so the employee database tells an accurate story of someone's history at the company instead of just their current snapshot.",
       },
       {
@@ -846,6 +850,10 @@ export const FEATURE_PAGES: FeaturePage[] = [
       {
         q: "Can we import our existing employee spreadsheet when we sign up?",
         a: "Yes, existing employee data can be migrated in as part of onboarding, rather than requiring every record to be re-entered manually.",
+      },
+      {
+        q: "Can Meagle 360 be used as staff management software?",
+        a: "Yes. Every staff member's record, documents, reporting line, attendance, leave and payroll sit in one system, so it works as staff management software for office, field and multi-location teams, with the same record used across every module.",
       },
       {
         q: "Can we track contractors or interns separately from full-time employees?",
@@ -1126,9 +1134,9 @@ export const FEATURE_PAGES: FeaturePage[] = [
   {
     slug: "hiring-management-software",
     navLabel: "Hiring Management",
-    metaTitle: "Applicant Tracking System (ATS) for Hiring",
+    metaTitle: "Applicant Tracking System & Recruiting Software (ATS)",
     metaDescription:
-      "An applicant tracking system for growing teams: post jobs, track applicants in one pipeline, onboard hires. Flat ₹149/user/month. Book a demo.",
+      "Recruiting and talent acquisition software for growing teams: post jobs, track applicants in one pipeline and onboard hires. Flat ₹149/user/month.",
     h1: "Applicant Tracking System That Takes You From Job Post to Day One",
     heroSubhead:
       "An applicant tracking system (ATS) for growing teams: track every applicant through a clear hiring pipeline, and turn an accepted offer into a fully onboarded employee — without juggling spreadsheets, email threads, and an onboarding checklist nobody remembers to finish.",
@@ -1245,6 +1253,240 @@ export const FEATURE_PAGES: FeaturePage[] = [
     ],
     relatedFeatureSlug: "employee-database-software",
     relatedFeatureLabel: "Employee Database Software",
+    extraLinks: [
+      { label: "Employee onboarding software", href: "/features/employee-onboarding-software" },
+      { label: "Performance management system", href: "/features/performance-management-software" },
+    ],
+  },
+  {
+    slug: "performance-management-software",
+    navLabel: "Performance Management",
+    metaTitle: "Performance Management System with 360° Reviews",
+    metaDescription:
+      "Performance management system with goals and KPIs, 360° self, manager and peer reviews, and ratings linked to increments. Included in ₹149/user/month.",
+    h1: "Performance Management System Built for Growing Teams",
+    heroSubhead:
+      "Set goals and KPIs, run self, manager and peer reviews on a fixed cycle, and turn the final rating into an increment recommendation, all in the same system that already holds your attendance and payroll.",
+    painIntro:
+      "Most small and mid-size companies do run appraisals. The problem is how: a spreadsheet of ratings, a few rushed conversations, and an increment decision nobody can fully explain afterwards.",
+    painPoints: [
+      "Goals are set at the start of the year in a document nobody opens again, so the review becomes a memory test of the last two months instead of an assessment of the whole period.",
+      "Ratings come from one person's view. Without self and peer input, an employee who works well across teams but is less visible to their own manager is easy to under-rate.",
+      "Every manager rates on a different scale. One manager's 4 is another's 3, and HR has no consistent way to compare the two when it is time to decide increments.",
+      "The link between rating and increment lives in someone's head or a side spreadsheet, so when an employee asks why their raise was 6% and not 10%, there is no clear answer to give them.",
+    ],
+    capabilitiesIntro:
+      "Meagle 360's performance management system runs the whole appraisal cycle, from goal setting to the final rating, in one place, with a scoring method you configure once and apply the same way to every employee.",
+    capabilities: [
+      {
+        title: "Review cycles on your schedule",
+        desc: "Run annual, half-yearly or quarterly cycles. Each cycle has its own goal-setting deadline, rating window and review end date, so everyone knows what is due and when, and the cycle closes on time instead of dragging on for weeks.",
+      },
+      {
+        title: "Goals and KPIs with weights and targets",
+        desc: "Each goal carries a weight, a target value and a unit, and progress is recorded against it during the cycle, so achievement is a number rather than an impression. Goals go through manager approval before the cycle starts.",
+      },
+      {
+        title: "KPI templates by role",
+        desc: "Create KPI templates for a department or designation once, then apply them to everyone in that role, so a sales team and a support team are measured on what actually matters for each, without rebuilding goals from scratch every cycle.",
+      },
+      {
+        title: "360° feedback: self, manager and peer",
+        desc: "Employees rate themselves, managers rate their team, and peers can add their view. Peer feedback can be kept anonymous, and you can set a minimum number of peer responses before peer scores count, so one opinion never decides a rating.",
+      },
+      {
+        title: "Competencies you define",
+        desc: "Add the competencies that matter in your company, such as communication, ownership or customer focus, and rate them alongside goals, so the review covers how someone works and not only what they delivered.",
+      },
+      {
+        title: "Weighted final score with attendance built in",
+        desc: "Set how much goals, competencies, discipline and growth each count towards the final score. Discipline draws on the attendance data Meagle 360 already records, so punctuality and attendance are part of the review without anyone re-typing numbers.",
+      },
+      {
+        title: "Ratings linked to increments",
+        desc: "Define rating bands and the increment percentage for each one. When the cycle closes, every employee's final rating maps to a recommended hike, which makes increment decisions consistent and easy to explain.",
+      },
+      {
+        title: "Calibration with a full audit trail",
+        desc: "HR can adjust a final score where calibration calls for it, but every change requires a reason and is recorded in an audit log, so the final result stays fair and defensible if an employee raises a question later.",
+      },
+    ],
+    builtForTitle: "A performance management system for companies without a dedicated appraisal team",
+    builtForParagraphs: [
+      "Enterprise performance tools assume a full HR team to configure and run them. Most growing companies have one HR person, or a founder, doing appraisals alongside everything else. Meagle 360's performance module is built for that reality: set up the scoring once, and each cycle runs from the same rules.",
+      "Because it sits in the same system as attendance, leave and payroll, the review is not a separate island. Attendance feeds the discipline score, the employee record already knows who reports to whom, and the increment recommendation lands where payroll can act on it.",
+      "For employees, the process becomes clear: they know their goals at the start, see progress during the cycle, give their own view in the self-review, and understand how the final rating was reached.",
+      "For HR, it replaces the end-of-year spreadsheet chase with one place where every rating, comment and adjustment is recorded and can be looked up later.",
+    ],
+    comparisonIntro:
+      "How performance management on Meagle 360 compares to Keka and greytHR on whether it is included in the price you pay, and on the features growing companies use most.",
+    comparisonRows: [
+      { capability: "Starting price", meagle: "₹149/user/month, flat", keka: "Not shown on its pricing page", greythr: "₹4,495/mo Growth base (50 employees)" },
+      { capability: "Performance management included", meagle: "Yes, in the one plan", keka: "Growth plan and above", greythr: "Paid add-on (₹35–₹45/user/month)" },
+      { capability: "Goals and KPIs", meagle: "Included", keka: "Included (Growth)", greythr: "Included (add-on)" },
+      { capability: "360° feedback (self, manager, peer)", meagle: "Included", keka: "Included (Growth)", greythr: "Check with vendor" },
+      { capability: "Attendance in the review score", meagle: "Built in", keka: "Not documented publicly", greythr: "Not documented publicly" },
+      { capability: "Minimum seats", meagle: "None", keka: "Base fee bundles employees", greythr: "Base fee bundles up to 50 employees" },
+    ],
+    faqs: [
+      {
+        q: "What is a performance management system?",
+        a: "A performance management system is software that runs the appraisal process: setting goals and KPIs, collecting self, manager and peer reviews, and turning them into a final rating. In Meagle 360 it also links ratings to increment recommendations and pulls attendance into the review score.",
+      },
+      {
+        q: "Is performance management included in the ₹149 per user price?",
+        a: "Yes. Performance management is included in the flat ₹149 per user per month price, along with attendance, leave, payroll and every other module. There is no separate add-on fee.",
+      },
+      {
+        q: "Does Meagle 360 support 360-degree feedback?",
+        a: "Yes. Each review can include a self-review, a manager review and peer reviews. Peer feedback can be kept anonymous, and you can set a minimum number of peer responses before peer scores are counted.",
+      },
+      {
+        q: "How often can we run appraisal cycles?",
+        a: "You choose the frequency, such as annual, half-yearly or quarterly. Each cycle has its own deadlines for goal setting, ratings and the final review.",
+      },
+      {
+        q: "Can we set different KPIs for different roles?",
+        a: "Yes. KPI templates can be created for a department or designation and applied to everyone in that role, so each team is measured on what matters for its work.",
+      },
+      {
+        q: "How is the final rating calculated?",
+        a: "You set the weight of goals, competencies, discipline and growth, and how much self, manager and peer reviews count. Meagle 360 applies the same formula to every employee and shows the breakdown behind each final score.",
+      },
+      {
+        q: "Can ratings be linked to salary increments?",
+        a: "Yes. You define rating bands and the increment percentage for each band, so every final rating maps to a recommended hike. You can also set a minimum tenure before an employee is eligible for a hike.",
+      },
+      {
+        q: "Can HR change a rating after the review?",
+        a: "Yes, HR can adjust a final score during calibration, but a reason is required and every change is recorded in an audit log.",
+      },
+      {
+        q: "Does attendance affect the performance score?",
+        a: "It can. The discipline component of the score uses the attendance data already recorded in Meagle 360, and you decide how much weight it carries.",
+      },
+      {
+        q: "Is there a free trial?",
+        a: "Yes, a 14-day free trial with full access to performance management and every other module, with no credit card required.",
+      },
+    ],
+    relatedBlogSlugs: [],
+    relatedFeatureSlug: "hr-reports-analytics",
+    relatedFeatureLabel: "HR Reports & Analytics",
+    extraLinks: [
+      { label: "Free performance appraisal form template", href: "/templates/performance-appraisal-form" },
+      { label: "Free increment letter template", href: "/templates/increment-letter" },
+      { label: "Attendance management system", href: "/features/attendance-management-software" },
+    ],
+  },
+  {
+    slug: "employee-onboarding-software",
+    navLabel: "Employee Onboarding",
+    metaTitle: "Employee Onboarding Software for HR Teams in India",
+    metaDescription:
+      "HRMS onboarding software: turn an accepted offer into a ready employee with digital documents, e-sign, self-service setup and checklists. ₹149/user/month.",
+    h1: "Employee Onboarding Software That Gets New Hires Ready Before Day One",
+    heroSubhead:
+      "Go from accepted offer to a fully set-up employee, with documents collected and e-signed, personal and bank details filled in by the new hire, and attendance, leave and payroll ready from their first day.",
+    painIntro:
+      "Onboarding is where a new hire forms their first impression of the company, and where HR loses hours chasing documents and re-typing the same details into three different places.",
+    painPoints: [
+      "ID proofs, PAN, bank details and signed letters arrive over WhatsApp and email in different formats, and someone has to download, rename and file each one by hand.",
+      "The new hire's details are typed into a joining form, then into the employee spreadsheet, then into payroll, and every extra copy is another chance for a wrong account number or a missing UAN.",
+      "Onboarding steps live in one HR person's memory, so the experience depends on who is running it that week, and something small always gets missed.",
+      "A new employee's first payroll is often wrong or late because their PF, ESI and bank details were not complete when the month closed.",
+    ],
+    capabilitiesIntro:
+      "Meagle 360 onboarding connects the offer, the new hire's own details and their documents to the same employee record that runs attendance, leave and payroll, so onboarding is done once and everything downstream is ready.",
+    capabilities: [
+      {
+        title: "Offer letter to employee record",
+        desc: "Generate the offer letter from Meagle 360 with designation, salary, joining date and reporting manager. Once it is accepted, those details become the new hire's employee record, with no re-entry.",
+      },
+      {
+        title: "Self-service invite for new hires",
+        desc: "The new hire gets an invite to their own Meagle 360 account, where they fill in their personal details, emergency contact, PAN, UAN and bank account themselves, so HR checks the details instead of typing them.",
+      },
+      {
+        title: "Digital documents with e-sign",
+        desc: "Collect ID proofs and joining documents against the employee's profile, and have letters e-signed, so every document is stored in one place and nothing sits in someone's inbox.",
+      },
+      {
+        title: "Onboarding checklists",
+        desc: "Set up a standard checklist for documents, equipment, account access and induction, so every new hire gets the same complete onboarding regardless of who in HR is handling it.",
+      },
+      {
+        title: "Payroll-ready from day one",
+        desc: "Salary structure, PF and ESI applicability, tax regime and bank details are captured during onboarding, so the new hire's first payroll runs correctly without a last-minute scramble.",
+      },
+      {
+        title: "Attendance and leave from the first login",
+        desc: "Shifts, leave balances and attendance tracking apply from the joining date, so the new hire can check in and see their leave balance on day one.",
+      },
+      {
+        title: "Connected to hiring",
+        desc: "If you hire through Meagle 360, the candidate's application, resume and offer carry straight into onboarding, so the whole journey from applicant to employee sits in one record.",
+      },
+    ],
+    builtForTitle: "Onboarding software for companies that hire every month, not every quarter",
+    builtForParagraphs: [
+      "Once a company is hiring regularly, onboarding by email and spreadsheet stops scaling. Each new joiner means the same documents to chase, the same forms to fill and the same details to type into payroll.",
+      "Meagle 360 makes onboarding part of the HRMS instead of a separate process. The new hire does their own data entry through self-service, documents are stored against their profile, and HR's job becomes checking and approving rather than collecting and copying.",
+      "Because onboarding writes directly to the employee record, the people who need the information downstream, from the reporting manager to payroll, already have it on the joining date.",
+      "And it gives the new hire a better first week: one link to complete everything, their payslips and leave balance in the same app from day one, and a consistent experience whoever in HR is handling their joining.",
+    ],
+    comparisonIntro:
+      "How onboarding on Meagle 360 compares to Keka and greytHR on price and on how directly a new hire's details flow into payroll.",
+    comparisonRows: [
+      { capability: "Starting price", meagle: "₹149/user/month, flat", keka: "Not shown on its pricing page", greythr: "₹2,495/mo Essential base (50 employees)" },
+      { capability: "Employee self-onboarding", meagle: "Included", keka: "Included", greythr: "Included" },
+      { capability: "Digital documents with e-sign", meagle: "Included", keka: "Keka Sign on Strength plan and above", greythr: "Check with vendor" },
+      { capability: "Onboarding checklists", meagle: "Included", keka: "Included", greythr: "Included" },
+      { capability: "Same record for attendance and payroll", meagle: "Yes, one platform", keka: "Yes, one platform", greythr: "Attendance on Growth plan" },
+      { capability: "Minimum seats", meagle: "None", keka: "Base fee bundles employees", greythr: "Base fee bundles up to 50 employees" },
+    ],
+    faqs: [
+      {
+        q: "What is employee onboarding software?",
+        a: "Employee onboarding software takes a new hire from accepted offer to fully set-up employee: collecting their details and documents, running an onboarding checklist and setting them up in attendance, leave and payroll. In Meagle 360 it is part of the HRMS, so everything is written to one employee record.",
+      },
+      {
+        q: "Can new hires fill in their own details?",
+        a: "Yes. New hires receive an invite to their Meagle 360 account and fill in their personal details, emergency contact, PAN, UAN and bank details themselves. HR reviews them instead of typing them in.",
+      },
+      {
+        q: "Can documents be e-signed?",
+        a: "Yes. Documents are stored against the employee's profile, and letters can be e-signed, so signed copies are kept in one place.",
+      },
+      {
+        q: "Is onboarding included in the ₹149 per user price?",
+        a: "Yes. Onboarding is included in the flat ₹149 per user per month price with every other module. There is no add-on fee.",
+      },
+      {
+        q: "Does onboarding connect to payroll?",
+        a: "Yes. The salary structure, PF and ESI applicability, tax regime and bank details captured during onboarding are used directly in payroll, so the new hire's first salary runs correctly.",
+      },
+      {
+        q: "Can we use a different onboarding checklist for different roles?",
+        a: "Yes. Checklists can be set up to match what a role or department needs, rather than one generic list for everyone.",
+      },
+      {
+        q: "Do we have to use Meagle 360 for hiring to use onboarding?",
+        a: "No. You can create a new employee directly and start onboarding. If you do hire through Meagle 360, the candidate's details carry over automatically.",
+      },
+      {
+        q: "Is there a free trial?",
+        a: "Yes, a 14-day free trial with full access to onboarding and every other module, with no credit card required.",
+      },
+    ],
+    relatedBlogSlugs: ["complete-guide-employee-onboarding"],
+    relatedFeatureSlug: "hiring-management-software",
+    relatedFeatureLabel: "Applicant Tracking System",
+    extraLinks: [
+      { label: "Free employee onboarding checklist", href: "/templates/employee-onboarding-checklist" },
+      { label: "Free appointment letter format", href: "/templates/appointment-letter" },
+      { label: "Free offer letter template", href: "/templates/offer-letter" },
+    ],
   },
 ];
 

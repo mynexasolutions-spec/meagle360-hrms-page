@@ -85,6 +85,46 @@ export const FEATURES = [
       </>
     ),
   },
+  {
+    tint: "tint-violet",
+    title: "Performance",
+    desc: "Goals, KPIs and 360° reviews, with ratings linked to increments.",
+    icon: <path d="M22 12h-4l-3 9L9 3l-3 9H2" />,
+  },
+  {
+    tint: "tint-emerald",
+    title: "Onboarding",
+    desc: "New hires fill in their details and sign documents before day one.",
+    icon: (
+      <>
+        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="8.5" cy="7" r="4" />
+        <path d="M20 8v6M23 11h-6" />
+      </>
+    ),
+  },
+  {
+    tint: "tint-indigo",
+    title: "Hiring",
+    desc: "Track every applicant in one pipeline, from job post to offer.",
+    icon: (
+      <>
+        <rect x="2" y="7" width="20" height="14" rx="2" />
+        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+      </>
+    ),
+  },
+  {
+    tint: "tint-sky",
+    title: "Self-Service App",
+    desc: "Payslips, leave and attendance for every employee on web and mobile.",
+    icon: (
+      <>
+        <rect x="5" y="2" width="14" height="20" rx="2" />
+        <path d="M12 18h.01" />
+      </>
+    ),
+  },
 ];
 
 export function Features() {

@@ -17,3 +17,6 @@ meagle360-seo-*.json
 /*.webp
 /*.md.draft
 /blog-*.md
+
+# Keyword research exports kept in the repo root
+/*.csv
